@@ -1,0 +1,93 @@
+{
+  "navbar": {
+    "inicio": "Home",
+    "servicios": "Services",
+    "equipo": "Team",
+    "emergencias": "Emergencies",
+    "contacto": "Contact"
+  },
+  "hero": {
+    "headline": "Your pet deserves world-class veterinary care",
+    "subheadline": "Veterinary Hospital in David, Chiriquí, Panama. 4 passionate specialists, cutting-edge technology, and emergency care available 24 hours a day, 7 days a week.",
+    "cta1": "Book Appointment",
+    "cta2": "Emergency 24/7"
+  },
+  "stats": {
+    "specialists": "4+ Specialists",
+    "rating": "Google Rating",
+    "emergencies": "Emergencies 24/7",
+    "species": "All Species"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "We are more than a clinic. We are your family's trusted partner for animal health in Chiriquí. Behind every consultation and treatment, there's a passionate team that genuinely loves what they do. We recently reached a milestone: we are now a full Veterinary Hospital, with modern facilities and specialized equipment to deliver a higher level of care.",
+    "badge": "Veterinary Hospital"
+  },
+  "services": {
+    "title": "Excellence Services",
+    "subtitle": "Specialized medical care with international standards",
+    "items": {
+      "consulta": "Comprehensive evaluation by specialists for preventive and curative well-being.",
+      "emergencia": "Immediate critical care available 24 hours a day, 365 days a year.",
+      "cirugia": "Advanced surgical procedures with constant digital monitoring.",
+      "laboratorio": "Accurate results in minutes with our in-house laboratory.",
+      "cardiologia": "Diagnosis and treatment of complex cardiac pathologies.",
+      "exoticos": "Specialists in birds, reptiles, and small mammals."
+    }
+  },
+  "successStories": {
+    "title": "Success Stories",
+    "subtitle": "Real stories demonstrating our commitment to life",
+    "mickey": {
+      "title": "Success Story: Mickey",
+      "description": "Mickey was hit by a car and suffered multiple hip fractures. After orthopedic surgery and physiotherapy, he was discharged today walking on his own."
+    },
+    "hunter": {
+      "title": "Success Story: Hunter",
+      "description": "Hunter arrived with parvovirus and went through delicate moments. Thanks to timely treatment and specialized hospitalization, he regained his appetite and became himself again."
+    },
+    "guacamayo": {
+      "title": "Non-Traditional Species",
+      "description": "A macaw arrived after being attacked by dogs. It had minor injuries to its face and wing, but with timely care, it is stable and under our expert care."
+    }
+
+  },
+
+  "emergencies": {
+    "title": "Emergency?",
+    "subtitle": "Is your pet having an emergency?",
+    "description": "Don't wait. Every second matters. We are available 24 hours a day, 7 days a week, 365 days a year to handle any critical situation threatening your pet's life.",
+    "cta": "Call Now",
+    "whatsapp": "Emergency WhatsApp",
+    "online": "ONLINE NOW"
+  },
+  "testimonials": {
+    "title": "What our clients say"
+  },
+  "team": {
+    "title": "Our Medical Team",
+    "subtitle": "Specialists passionate about your pet"
+  },
+  "technology": {
+    "title": "Cutting-Edge Technology",
+    "subtitle": "Hospital-grade equipment for the best care"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Ready to take care of your pet?",
+    "description": "Book an appointment or visit us in David, Chiriquí. Someone will always be here for you.",
+    "form": {
+      "name": "Name",
+      "phone": "Phone",
+      "petName": "Pet's name",
+      "species": "Species",
+      "reason": "Reason for visit",
+      "language": "Preferred language",
+      "submit": "Send Message"
+    }
+  },
+  "footer": {
+    "slogan": "Your best friend deserves the best!",
+    "rights": "All rights reserved"
+  }
+}

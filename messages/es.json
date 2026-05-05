@@ -1,0 +1,93 @@
+{
+  "navbar": {
+    "inicio": "Inicio",
+    "servicios": "Servicios",
+    "equipo": "Equipo",
+    "emergencias": "Emergencias",
+    "contacto": "Contacto"
+  },
+  "hero": {
+    "headline": "Tu mascota merece atención veterinaria de excelencia",
+    "subheadline": "Hospital Veterinario en David, Chiriquí. 4 especialistas apasionados, tecnología de punta y atención de emergencias las 24 horas, los 7 días de la semana.",
+    "cta1": "Agendar Cita",
+    "cta2": "Emergencia 24/7"
+  },
+  "stats": {
+    "specialists": "4+ Especialistas",
+    "rating": "Google Rating",
+    "emergencies": "Emergencias 24/7",
+    "species": "Todas las Especies"
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "description": "Somos más que una clínica. Somos el aliado de confianza de tu familia y tus animales en Chiriquí. Detrás de cada consulta y tratamiento hay un equipo apasionado que ama profundamente su trabajo. Recientemente dimos un paso histórico: ahora somos Hospital Veterinario, con instalaciones modernas y equipamiento especializado para brindarte un nivel de atención superior.",
+    "badge": "Hospital Veterinario"
+  },
+  "services": {
+    "title": "Servicios de Excelencia",
+    "subtitle": "Atención médica especializada con estándares internacionales",
+    "items": {
+      "consulta": "Evaluación integral por especialistas para el bienestar preventivo y curativo.",
+      "emergencia": "Atención crítica inmediata las 24 horas, los 365 días del año.",
+      "cirugia": "Procedimientos quirúrgicos avanzados con monitoreo digital constante.",
+      "laboratorio": "Resultados precisos en minutos con nuestro laboratorio in-house.",
+      "cardiologia": "Diagnóstico y tratamiento de patologías cardiacas complejas.",
+      "exoticos": "Especialistas en aves, reptiles y pequeños mamíferos."
+    }
+  },
+  "successStories": {
+    "title": "Casos de Éxito",
+    "subtitle": "Historias reales que demuestran nuestro compromiso con la vida",
+    "mickey": {
+      "title": "Caso de Éxito: Mickey",
+      "description": "Mickey fue atropellado y sufrió múltiples fracturas en la cadera. Tras cirugía ortopédica y fisioterapia, hoy es dado de alta caminando por sí solo. Un caso que nos llena de orgullo."
+    },
+    "hunter": {
+      "title": "Caso de Éxito: Hunter",
+      "description": "Hunter llegó con parvovirus y pasó por momentos delicados. Gracias al tratamiento oportuno y hospitalización especializada, recuperó el apetito y volvió a ser él mismo."
+    },
+    "guacamayo": {
+      "title": "Especies No Tradicionales",
+      "description": "Un guacamayo llegó tras ser atacado por perros. Presentaba lesiones leves en rostro y ala, pero con atención oportuna se encuentra estable y bajo nuestro cuidado experto."
+    }
+
+  },
+
+  "emergencies": {
+    "title": "¿Emergencia?",
+    "subtitle": "¿Tu mascota tiene una emergencia?",
+    "description": "No esperes. Cada segundo importa. Estamos disponibles las 24 horas, los 7 días de la semana, los 365 días del año para atender cualquier situación crítica que ponga en riesgo la vida de tu mascota.",
+    "cta": "Llamar Ahora",
+    "whatsapp": "WhatsApp de Emergencia",
+    "online": "EN LÍNEA AHORA"
+  },
+  "testimonials": {
+    "title": "Lo que dicen nuestros clientes"
+  },
+  "team": {
+    "title": "Nuestro Equipo Médico",
+    "subtitle": "Especialistas apasionados por tu mascota"
+  },
+  "technology": {
+    "title": "Tecnología de Punta",
+    "subtitle": "Hospital-grade equipment para la mejor atención"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Listo para cuidar a tu mascota?",
+    "description": "Agenda tu cita o visítanos en David, Chiriquí. Siempre habrá alguien esperándote.",
+    "form": {
+      "name": "Nombre",
+      "phone": "Teléfono",
+      "petName": "Nombre de tu mascota",
+      "species": "Especie",
+      "reason": "Motivo de consulta",
+      "language": "Idioma preferido",
+      "submit": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "slogan": "¡Tu mejor amigo merece lo mejor!",
+    "rights": "Todos los derechos reservados"
+  }
+}

@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-opensans), system-ui, sans-serif;
+  color: #4F4F4F;
+  background-color: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 600;
+}
+
+/* Botón CTA principal */
+.btn-primary {
+  @apply px-6 py-3 bg-primary-800 text-white rounded-lg font-subtitle font-semibold transition-all duration-300 hover:bg-primary-900 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 active:scale-95;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-white text-primary-800 border-2 border-primary-800 rounded-lg font-subtitle font-semibold transition-all duration-300 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 active:scale-95;
+}
+
+/* Botón emergencia */
+.btn-emergency {
+  @apply px-6 py-3 bg-emergency text-white rounded-lg font-subtitle font-bold transition-all duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:scale-95 animate-pulse;
+}
+
+/* Glassmorphism */
+.glassmorphism {
+  @apply bg-white/30 backdrop-blur-md border border-white/20 rounded-xl;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E7D32;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1B5E20;
+}
+
+/* Animación fade-up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out;
+}
+
+/* Animación count */
+@keyframes countUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
