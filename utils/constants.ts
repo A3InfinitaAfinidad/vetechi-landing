@@ -195,31 +195,31 @@ export const TESTIMONIALS = [
 export const TEAM = [
   {
     name: 'Dr. Harmodio Arcia',
-    specialtyEs: 'Medicina General y Equinos',
-    specialtyEn: 'General Medicine & Equine',
+    specialtyEs: 'Medicina General y Diagnóstico Clínico',
+    specialtyEn: 'General Medicine & Clinical Diagnosis',
     experience: '7 años',
-    quote: '¡Vamo\' pa\' encima!',
+    quote: 'Cada mascota merece una atención tan especial como la que le darías a tu propia familia.',
   },
   {
     name: 'Dra. Kate Hernández',
-    specialtyEs: 'Ortopedia y Cirugía',
-    specialtyEn: 'Orthopedics & Surgery',
+    specialtyEs: 'Cirugía y Medicina Interna',
+    specialtyEn: 'Surgery & Internal Medicine',
     experience: '7+ años',
-    quote: 'La vida es movimiento, el movimiento es vida.',
+    quote: 'La confianza que depositan en nosotros me motiva a ser mejor cada día para sus mascotas.',
   },
   {
     name: 'Dra. Arantxa Santamaría',
-    specialtyEs: 'Medicina General y Endoscopía',
-    specialtyEn: 'General Medicine & Endoscopy',
+    specialtyEs: 'Dermatología y Bienestar Animal',
+    specialtyEn: 'Dermatology & Animal Wellness',
     experience: '7 años',
-    quote: 'Para llegar más lejos, debemos evolucionar.',
+    quote: 'Ver a un paciente recuperarse saludable es la mayor satisfacción de mi carrera.',
   },
   {
     name: 'Dr. Juan José Gallardo',
-    specialtyEs: 'Grandes Especies',
-    specialtyEn: 'Large Animal Medicine',
+    specialtyEs: 'Cardiología y Diagnóstico por Imagen',
+    specialtyEn: 'Cardiology & Diagnostic Imaging',
     experience: '9+ años',
-    quote: 'Un día a la vez, pero continúa.',
+    quote: 'La tecnología y el amor por los animales son una combinación ganadora para su salud.',
   },
 ];
 

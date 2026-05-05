@@ -2,6 +2,7 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Heart, Trophy, Clock, Microscope, Handshake, Sprout, CheckCircle2 } from 'lucide-react';
 import { ABOUT_COPY, COLORS } from '@/utils/constants';
 import { containerVariants, itemVariants } from '@/utils/animations';
@@ -63,28 +64,56 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Visual Grid */}
+          {/* Clean Visual Grid - Brand Hover Effects */}
           <motion.div
-            className="grid grid-cols-2 gap-4 relative"
+            className="grid grid-cols-2 gap-6 relative"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
             {/* Main large image */}
-            <motion.div className="col-span-2 h-64 rounded-[2rem] overflow-hidden border border-gray-100 shadow-xl" variants={itemVariants}>
-              <img src="/images/about/about-1.jpg" alt="Vetechi Team" className="w-full h-full object-cover" />
+            <motion.div className="col-span-2 h-[450px] rounded-[3rem] overflow-hidden border border-gray-100 shadow-2xl relative group" variants={itemVariants}>
+              <Image 
+                src="/images/about/about-1.jpg" 
+                alt="Vetechi Team" 
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+              />
+              {/* Partial Green Overlay (Bottom 50%) */}
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1B3B2F]/90 via-[#1B3B2F]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
-            <motion.div className="h-48 rounded-[2rem] overflow-hidden border border-gray-100 shadow-xl" variants={itemVariants}>
-              <img src="/images/about/about-2.jpg" alt="Clinical Excellence" className="w-full h-full object-cover" />
+
+            {/* Secondary Card */}
+            <motion.div className="h-[300px] rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl relative group" variants={itemVariants}>
+              <Image 
+                src="/images/about/about-2.jpg" 
+                alt="Clinical Excellence" 
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110" 
+              />
+              {/* Partial Green Overlay (Bottom 50%) */}
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1B3B2F]/90 via-[#1B3B2F]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
-            <motion.div className="h-48 rounded-[2rem] overflow-hidden border border-gray-100 shadow-xl" variants={itemVariants}>
-              <img src="/images/about/about-3.jpg" alt="Modern Technology" className="w-full h-full object-cover" />
+
+            {/* Tertiary Card */}
+            <motion.div className="h-[300px] rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl relative group" variants={itemVariants}>
+              <Image 
+                src="/images/about/about-3.jpg" 
+                alt="Modern Technology" 
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110" 
+              />
+              {/* Partial Green Overlay (Bottom 50%) */}
+              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1B3B2F]/90 via-[#1B3B2F]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
-            
-            {/* Decorative element */}
-            <div className="absolute -z-10 -bottom-12 -right-12 w-64 h-64 bg-accent-500/5 rounded-full blur-3xl" />
+
+            {/* Decorative background glow */}
+            <div className="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl" />
           </motion.div>
+
+
+
         </div>
 
         {/* Extended Values Section */}
@@ -122,4 +151,4 @@ export default function About() {
       </div>
     </section>
   );
-}
+}

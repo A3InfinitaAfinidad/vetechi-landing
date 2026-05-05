@@ -118,7 +118,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
           >
-            <div className="glassmorphism p-8 sm:p-12 rounded-[3rem] w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 shadow-2xl relative overflow-hidden group/stats">
+            <div className="glassmorphism p-6 sm:p-8 rounded-[2.5rem] w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 shadow-2xl relative overflow-hidden group/stats">
               {/* Animated background glow that follows mouse or just pulses */}
               <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover/stats:opacity-100 transition-opacity duration-700 pointer-events-none" />
               
@@ -134,12 +134,12 @@ export default function Hero() {
                       {/* Glow effect on hover */}
                       <div className="absolute inset-0 bg-primary-500/40 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
                       
-                      <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-accent-500 group-hover:bg-primary-500 group-hover:text-white group-hover:border-primary-400 transition-all duration-500 shadow-inner relative z-10">
-                        {Icon && <Icon size={30} strokeWidth={1.5} />}
+                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 text-accent-500 group-hover:bg-primary-500 group-hover:text-white group-hover:border-primary-400 transition-all duration-500 shadow-inner relative z-10">
+                        {Icon && <Icon size={24} strokeWidth={2} />}
                       </div>
                     </div>
-                    <div className="text-3xl font-display font-extrabold text-white mb-2 tracking-tight group-hover:text-primary-400 transition-colors">{stat.value}</div>
-                    <div className="text-[10px] uppercase tracking-[0.25em] text-gray-300 font-bold leading-tight">
+                    <div className="text-2xl font-display font-black text-white mb-1 tracking-tight group-hover:text-primary-400 transition-colors">{stat.value}</div>
+                    <div className="text-[9px] uppercase tracking-[0.2em] text-gray-300 font-bold leading-tight max-w-[120px]">
                       {stat.label}
                     </div>
                   </motion.div>
@@ -149,21 +149,22 @@ export default function Hero() {
             
             {/* Status indicator floating below card */}
             <motion.div 
-              className="mt-8 flex items-center justify-center gap-4"
+              className="mt-6 flex items-center justify-center gap-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <div className="px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 backdrop-blur-md flex items-center gap-3">
-                <div className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
+              <div className="px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl flex items-center gap-3">
+                <div className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-500"></span>
                 </div>
-                <p className="text-[10px] font-bold text-primary-200 uppercase tracking-[0.2em]">
+                <p className="text-xs font-black text-accent-500 uppercase tracking-[0.25em] font-sans">
                   {isEs ? 'Personal médico activo 24/7' : 'Medical staff active 24/7'}
                 </p>
               </div>
             </motion.div>
+
           </motion.div>
         </div>
       </div>

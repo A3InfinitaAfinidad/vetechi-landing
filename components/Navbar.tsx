@@ -38,8 +38,8 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-dark-900 shadow-lg' : 'bg-dark-900/80 backdrop-blur'
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-dark-900 shadow-lg' : 'bg-dark-900/90 backdrop-blur'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}

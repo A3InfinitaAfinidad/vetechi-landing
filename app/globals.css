@@ -30,6 +30,39 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
+/* Institutional Design System */
+.overlay-partial {
+  @apply relative overflow-hidden;
+}
+
+.overlay-partial::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-full h-1/2 transition-opacity duration-500 pointer-events-none;
+  background: linear-gradient(to top, rgba(27, 59, 47, 0.85), transparent);
+  z-index: 10;
+}
+
+.group:hover .overlay-partial::after {
+  @apply opacity-100;
+}
+
+/* Flip Card System */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
 /* Botón CTA principal */
 .btn-primary {
   @apply px-6 py-3 bg-primary-800 text-white rounded-lg font-subtitle font-semibold transition-all duration-300 hover:bg-primary-900 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 active:scale-95;
@@ -44,9 +77,13 @@ h1, h2, h3, h4, h5, h6 {
   @apply px-6 py-3 bg-emergency text-white rounded-lg font-subtitle font-bold transition-all duration-300 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 active:scale-95 animate-pulse;
 }
 
-/* Glassmorphism */
+/* Glassmorphism 3.0 */
 .glassmorphism {
-  @apply bg-white/30 backdrop-blur-md border border-white/20 rounded-xl;
+  @apply bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
+}
+
+.glassmorphism-dark {
+  @apply bg-dark-900/40 backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
 }
 
 /* Scrollbar personalizado */

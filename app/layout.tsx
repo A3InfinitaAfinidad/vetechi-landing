@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import './globals.css';
 import Navbar from '@/components/Navbar';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -82,6 +83,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           {children}
+          <WhatsAppButton />
         </NextIntlClientProvider>
       </body>
     </html>
