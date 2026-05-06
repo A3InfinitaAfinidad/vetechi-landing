@@ -95,18 +95,6 @@ export default function Technology() {
           })}
         </motion.div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <Link href="/tecnologia" className="btn-primary px-8 py-3 inline-block">
-            {ctaText}
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

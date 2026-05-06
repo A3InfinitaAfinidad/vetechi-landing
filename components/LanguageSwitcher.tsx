@@ -12,8 +12,19 @@ export default function LanguageSwitcher() {
 
   const switchLanguage = (newLocale: string) => {
     startTransition(() => {
-      const newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
-      router.push(newPathname || `/${newLocale}`);
+      let newPathname = pathname;
+      
+      if (pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`) {
+        newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
+      } else {
+        newPathname = `/${newLocale}${pathname === '/' ? '' : pathname}`;
+      }
+      
+      if (newLocale === 'es') {
+        newPathname = newPathname.replace(/^\/en/, '') || '/';
+      }
+      
+      router.push(newPathname);
     });
   };
 

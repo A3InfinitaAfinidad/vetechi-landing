@@ -315,26 +315,39 @@ export default function Contact() {
 
         {/* Interactive Google Maps Embed */}
         <motion.div
-          className="relative overflow-hidden rounded-[20px] transition-all duration-[600ms] ease-in-out hover:brightness-[1.15] hover:saturate-[1.2] hover:scale-[1.02] group shadow-lg"
+          className="relative overflow-hidden rounded-[24px] transition-all duration-700 ease-in-out group shadow-xl bg-[#E8EDE9] h-[450px]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
+          {/* Fondo vectorial minimalista con líneas blancas finas */}
+          <div className="absolute inset-0" style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }}></div>
+
           <img 
             src="/images/map-bg.png" 
             alt="Mapa de ubicación VETECHI" 
-            className="w-full h-[400px] object-cover block"
+            className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 ease-out"
           />
-          <div className="absolute inset-0 flex flex-col justify-center items-center bg-[#1B3B2F]/30">
-            <div className="text-[#C5A77A] bg-white/85 rounded-full p-3 shadow-[0_0_12px_rgba(197,167,122,0.4)] flex items-center justify-center">
-              <MapPin size={40} strokeWidth={2.5} />
+
+          {/* Overlay con gradiente institucional */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1B3B2F] to-[#C5A77A] opacity-35 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none"></div>
+
+          <div className="absolute inset-0 flex flex-col justify-center items-center z-10 pointer-events-none">
+            {/* Pin Dorado con Latido */}
+            <div className="latido group-hover:[animation-duration:1s] text-[#C5A77A] bg-white rounded-full p-4 shadow-[0_0_20px_rgba(197,167,122,0.5)] flex items-center justify-center mb-8 pointer-events-auto">
+              <MapPin size={48} strokeWidth={2.5} />
             </div>
+            
+            {/* Glass Button */}
             <a
               href={BUSINESS_DATA.googleMaps}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 bg-white/85 text-[#1B3B2F] font-semibold text-center py-3 px-8 rounded-xl w-[80%] max-w-sm transition-all duration-300 hover:bg-[#C5A77A] hover:text-white shadow-md"
+              className="pointer-events-auto bg-white/20 backdrop-blur-md border border-white/40 text-[#1B3B2F] font-bold tracking-wide text-center py-4 px-10 rounded-2xl w-[85%] max-w-sm transition-all duration-300 hover:bg-white/40 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(27,59,47,0.2)] shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
             >
               {isEs ? 'ABRIR EN GOOGLE MAPS' : 'OPEN IN GOOGLE MAPS'}
             </a>
