@@ -26,11 +26,18 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('sending');
-    // Simular el envío al servidor / CRM
+    
+    // Build WhatsApp Message
+    const text = isEs 
+      ? `Hola VETECHI. Soy ${formData.name} y escribo por mi mascota ${formData.petName || 'mi compañero'} (${formData.species || 'No especificado'}).\n\nMotivo: ${formData.reason || 'Consulta general'}`
+      : `Hello VETECHI. I am ${formData.name} and I am writing about my pet ${formData.petName || 'my companion'} (${formData.species || 'Not specified'}).\n\nReason: ${formData.reason || 'General inquiry'}`;
+      
+    const whatsappUrl = `${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(text)}`;
+    
     setTimeout(() => {
+      window.open(whatsappUrl, '_blank');
       setFormStatus('success');
-      console.log('Form submitted:', formData);
-    }, 1500);
+    }, 800);
   };
 
   return (
@@ -306,23 +313,32 @@ export default function Contact() {
           )}
         </div>
 
-        {/* Google Maps Embed */}
+        {/* Interactive Google Maps Embed */}
         <motion.div
-          className="rounded-lg overflow-hidden shadow-md border border-gray-200"
+          className="relative overflow-hidden rounded-[20px] transition-all duration-[600ms] ease-in-out hover:brightness-[1.15] hover:saturate-[1.2] hover:scale-[1.02] group shadow-lg"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <iframe
-            src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3779.0548563946326!2d-82.4433!3d8.7532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s${encodeURIComponent(BUSINESS_DATA.address.en)}!2sVETECHI!5e0!3m2!1ses!2spa!4v1234567890`}
-            width="100%"
-            height="400"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
+          <img 
+            src="/images/map-bg.png" 
+            alt="Mapa de ubicación VETECHI" 
+            className="w-full h-[400px] object-cover block"
+          />
+          <div className="absolute inset-0 flex flex-col justify-center items-center bg-[#1B3B2F]/30">
+            <div className="text-[#C5A77A] bg-white/85 rounded-full p-3 shadow-[0_0_12px_rgba(197,167,122,0.4)] flex items-center justify-center">
+              <MapPin size={40} strokeWidth={2.5} />
+            </div>
+            <a
+              href={BUSINESS_DATA.googleMaps}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 bg-white/85 text-[#1B3B2F] font-semibold text-center py-3 px-8 rounded-xl w-[80%] max-w-sm transition-all duration-300 hover:bg-[#C5A77A] hover:text-white shadow-md"
+            >
+              {isEs ? 'ABRIR EN GOOGLE MAPS' : 'OPEN IN GOOGLE MAPS'}
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
