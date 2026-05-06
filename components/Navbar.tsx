@@ -89,14 +89,14 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <LanguageSwitcher />
             <a
-              href={BUSINESS_DATA.whatsapp}
+              href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.appointment.es : BUSINESS_DATA.whatsappMessages.appointment.en)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary flex items-center gap-2 text-sm"
-              aria-label="WhatsApp de Emergencia"
+              aria-label="WhatsApp"
             >
               <Phone size={18} />
-              {isEs ? 'Emergencia 24/7' : 'Emergency 24/7'}
+              {isEs ? 'Agendar Cita' : 'Book Appointment'}
             </a>
           </div>
 
@@ -132,7 +132,7 @@ export default function Navbar() {
             </div>
             <div className="px-4 pt-2">
               <a
-                href={`tel:${BUSINESS_DATA.phone}`}
+                href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
                 className="btn-primary w-full flex items-center justify-center gap-2 text-sm"
               >
                 <Phone size={18} />

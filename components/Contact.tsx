@@ -21,9 +21,16 @@ export default function Contact() {
     language: locale,
   });
 
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setFormStatus('sending');
+    // Simular el envío al servidor / CRM
+    setTimeout(() => {
+      setFormStatus('success');
+      console.log('Form submitted:', formData);
+    }, 1500);
   };
 
   return (
@@ -99,7 +106,7 @@ export default function Contact() {
                   {isEs ? 'Teléfono' : 'Phone'}
                 </h3>
                 <a
-                  href={`tel:${BUSINESS_DATA.phone}`}
+                  href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
                   className="text-text hover:text-primary-600 transition-colors font-semibold"
                 >
                   {BUSINESS_DATA.phone}
@@ -150,110 +157,153 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.form
-            onSubmit={handleSubmit}
-            className="bg-gray-50 p-8 rounded-lg border border-gray-200 space-y-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {/* Name */}
-            <div>
-              <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
-                {contactCopy.form.name} *
-              </label>
-              <input
-                type="text"
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              />
-            </div>
-
-            {/* Phone */}
-            <div>
-              <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
-                {contactCopy.form.phone} *
-              </label>
-              <input
-                type="tel"
-                required
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              />
-            </div>
-
-            {/* Pet Name */}
-            <div>
-              <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
-                {contactCopy.form.petName}
-              </label>
-              <input
-                type="text"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                value={formData.petName}
-                onChange={(e) => setFormData({ ...formData, petName: e.target.value })}
-              />
-            </div>
-
-            {/* Species */}
-            <div>
-              <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
-                {contactCopy.form.species}
-              </label>
-              <select
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                value={formData.species}
-                onChange={(e) => setFormData({ ...formData, species: e.target.value })}
-              >
-                <option value="">-- {isEs ? 'Selecciona' : 'Select'} --</option>
-                <option value="Perro">{isEs ? 'Perro' : 'Dog'}</option>
-                <option value="Gato">{isEs ? 'Gato' : 'Cat'}</option>
-                <option value="Conejo">{isEs ? 'Conejo' : 'Rabbit'}</option>
-                <option value="Pájaro">{isEs ? 'Pájaro' : 'Bird'}</option>
-                <option value="Reptil">{isEs ? 'Reptil' : 'Reptile'}</option>
-                <option value="Otro">{isEs ? 'Otro' : 'Other'}</option>
-              </select>
-            </div>
-
-            {/* Reason */}
-            <div>
-              <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
-                {contactCopy.form.reason}
-              </label>
-              <textarea
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent h-24 resize-none"
-                value={formData.reason}
-                onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
-              />
-            </div>
-
-            {/* Language */}
-            <div>
-              <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
-                {contactCopy.form.language}
-              </label>
-              <select
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
-                value={formData.language}
-                onChange={(e) => setFormData({ ...formData, language: e.target.value })}
-              >
-                <option value="es">{isEs ? 'Español' : 'Spanish'}</option>
-                <option value="en">{isEs ? 'Inglés' : 'English'}</option>
-              </select>
-            </div>
-
-            {/* Submit */}
-            <button
-              type="submit"
-              className="btn-primary w-full py-3 font-bold text-lg mt-6"
+          {formStatus === 'success' ? (
+            <motion.div
+              className="bg-green-50 p-8 rounded-lg border border-green-200 flex flex-col items-center justify-center text-center space-y-4"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
             >
-              {contactCopy.form.submit}
-            </button>
-          </motion.form>
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-2">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-display font-bold text-green-800">
+                {isEs ? '¡Mensaje Enviado!' : 'Message Sent!'}
+              </h3>
+              <p className="text-green-700">
+                {isEs ? 'Gracias por contactarnos, pronto nos comunicaremos contigo.' : 'Thank you for contacting us, we will get back to you shortly.'}
+              </p>
+              <button
+                onClick={() => {
+                  setFormStatus('idle');
+                  setFormData({ ...formData, name: '', phone: '', petName: '', species: '', reason: '' });
+                }}
+                className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
+              >
+                {isEs ? 'Enviar otro mensaje' : 'Send another message'}
+              </button>
+            </motion.div>
+          ) : (
+            <motion.form
+              onSubmit={handleSubmit}
+              className="bg-gray-50 p-8 rounded-lg border border-gray-200 space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              {/* Name */}
+              <div>
+                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                  {contactCopy.form.name} *
+                </label>
+                <input
+                  type="text"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  disabled={formStatus === 'sending'}
+                />
+              </div>
+
+              {/* Phone */}
+              <div>
+                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                  {contactCopy.form.phone} *
+                </label>
+                <input
+                  type="tel"
+                  required
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  disabled={formStatus === 'sending'}
+                />
+              </div>
+
+              {/* Pet Name */}
+              <div>
+                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                  {contactCopy.form.petName}
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  value={formData.petName}
+                  onChange={(e) => setFormData({ ...formData, petName: e.target.value })}
+                  disabled={formStatus === 'sending'}
+                />
+              </div>
+
+              {/* Species */}
+              <div>
+                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                  {contactCopy.form.species}
+                </label>
+                <select
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  value={formData.species}
+                  onChange={(e) => setFormData({ ...formData, species: e.target.value })}
+                  disabled={formStatus === 'sending'}
+                >
+                  <option value="">-- {isEs ? 'Selecciona' : 'Select'} --</option>
+                  <option value="Perro">{isEs ? 'Perro' : 'Dog'}</option>
+                  <option value="Gato">{isEs ? 'Gato' : 'Cat'}</option>
+                  <option value="Conejo">{isEs ? 'Conejo' : 'Rabbit'}</option>
+                  <option value="Pájaro">{isEs ? 'Pájaro' : 'Bird'}</option>
+                  <option value="Reptil">{isEs ? 'Reptil' : 'Reptile'}</option>
+                  <option value="Otro">{isEs ? 'Otro' : 'Other'}</option>
+                </select>
+              </div>
+
+              {/* Reason */}
+              <div>
+                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                  {contactCopy.form.reason}
+                </label>
+                <textarea
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent h-24 resize-none"
+                  value={formData.reason}
+                  onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
+                  disabled={formStatus === 'sending'}
+                />
+              </div>
+
+              {/* Language */}
+              <div>
+                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                  {contactCopy.form.language}
+                </label>
+                <select
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  value={formData.language}
+                  onChange={(e) => setFormData({ ...formData, language: e.target.value })}
+                  disabled={formStatus === 'sending'}
+                >
+                  <option value="es">{isEs ? 'Español' : 'Spanish'}</option>
+                  <option value="en">{isEs ? 'Inglés' : 'English'}</option>
+                </select>
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                className="btn-primary w-full py-3 font-bold text-lg mt-6 disabled:opacity-70 flex justify-center items-center"
+                disabled={formStatus === 'sending'}
+              >
+                {formStatus === 'sending' ? (
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                ) : null}
+                {contactCopy.form.submit}
+              </button>
+            </motion.form>
+          )}
         </div>
 
         {/* Google Maps Embed */}

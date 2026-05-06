@@ -75,14 +75,14 @@ export default function Emergencies() {
               variants={fadeUpVariants}
             >
               <a
-                href={`tel:${BUSINESS_DATA.phone}`}
+                href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
                 className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-red-600 text-white font-bold text-lg hover:bg-red-700 transition-all hover:shadow-[0_15px_30px_rgba(220,38,38,0.3)] hover:-translate-y-1"
               >
                 <Phone size={22} className="group-hover:rotate-12 transition-transform" />
                 <span>{isEs ? 'Llamar Urgente' : 'Emergency Call'}</span>
               </a>
               <a
-                href={BUSINESS_DATA.whatsapp}
+                href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.emergency.es : BUSINESS_DATA.whatsappMessages.emergency.en)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-all hover:-translate-y-1"

@@ -93,16 +93,7 @@ export default function SuccessStories() {
                 <p className="text-text text-sm leading-relaxed mb-6 opacity-80">
                   {t(`${story.id}.description`)}
                 </p>
-                <a 
-                  href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? `Hola Vetechi, me gustaría saber más sobre el caso de ${t(`${story.id}.title`)}` : `Hello Vetechi, I'd like to know more about the case of ${t(`${story.id}.title`)}`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-sm font-bold transition-all group-hover:gap-2 hover:opacity-80"
-                  style={{ color: COLORS.accent }}
-                >
-                  {isEs ? 'Leer más' : 'Read more'}
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-                </a>
+
               </div>
 
             </motion.div>

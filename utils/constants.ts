@@ -4,6 +4,20 @@ export const BUSINESS_DATA = {
   phone: '+507 6330-3291',
   email: 'contacto@vetechi.com',
   whatsapp: 'https://wa.me/50763303291',
+  whatsappMessages: {
+    appointment: {
+      es: 'Hola VETECHI, me gustaría agendar una cita para mi mascota.',
+      en: 'Hello VETECHI, I would like to book an appointment for my pet.',
+    },
+    emergency: {
+      es: 'Emergencia veterinaria, necesito atención inmediata para mi mascota.',
+      en: 'Veterinary emergency, I need immediate attention for my pet.',
+    },
+    info: {
+      es: 'Hola VETECHI, necesito información sobre sus servicios.',
+      en: 'Hello VETECHI, I need information about your services.',
+    },
+  },
   address: {
     es: 'Antigua Vía a Boquete, diagonal a Farmacia Liz, antes de llegar a Game Park, David, Chiriquí, Panamá',
     en: 'Old Boquete Road, diagonal to Farmacia Liz, before Game Park, David, Chiriquí, Panama',
@@ -30,14 +44,14 @@ export const BUSINESS_DATA = {
 
 export const HERO_COPY = {
   es: {
-    headline: 'Tu mascota merece atención veterinaria de excelencia',
-    subheadline: 'Hospital Veterinario en David, Chiriquí. 4 especialistas apasionados, tecnología de punta y atención de emergencias las 24 horas, los 7 días de la semana.',
+    headline: 'Hospital Veterinario VETECHI — 24 horas en Chiriquí',
+    subheadline: 'Único hospital veterinario 24 horas en Chiriquí. Atención continua, tecnología moderna y un equipo apasionado por la vida animal.',
     cta1: 'Agendar Cita',
     cta2: 'Emergencia 24/7',
   },
   en: {
-    headline: 'Your pet deserves world-class veterinary care',
-    subheadline: 'Veterinary Hospital in David, Chiriquí, Panama. 4 passionate specialists, cutting-edge technology, and emergency care available 24 hours a day, 7 days a week.',
+    headline: 'Veterinary Hospital VETECHI — 24 hours in Chiriquí',
+    subheadline: 'The only 24-hour veterinary hospital in Chiriquí. Continuous care, modern technology, and a team passionate about animal life.',
     cta1: 'Book Appointment',
     cta2: 'Emergency 24/7',
   },
@@ -243,24 +257,24 @@ export const VISITING_SPECIALISTS = [
 
 export const TECHNOLOGY = {
   es: [
-    { icon: '🧪', title: 'Laboratorio In-House', description: 'Resultados express en minutos' },
-    { icon: '❤️', title: 'Cardiología Digital', description: 'ECG + Ecocardiografía especializada' },
-    { icon: '📸', title: 'Radiografía Digital', description: 'Alta resolución y precisión' },
-    { icon: '🔊', title: 'Ultrasonido Diagnóstico', description: 'Pequeñas y grandes especies' },
-    { icon: '👁️', title: 'Endoscopía Minimamente Invasiva', description: 'Diagnóstico sin dolor' },
-    { icon: '⚕️', title: 'Monitoreo Anestésico Digital', description: 'Seguridad quirúrgica total' },
-    { icon: '⚡', title: 'Pruebas Rápidas', description: 'Parvovirus, Distemper, Ehrlichia, FeLV' },
-    { icon: '📋', title: 'Historia Clínica Digital', description: 'Registro seguro y accesible' },
+    { icon: 'Microscope', title: 'Laboratorio In-House', description: 'Resultados express en minutos' },
+    { icon: 'HeartPulse', title: 'Cardiología Digital', description: 'ECG + Ecocardiografía especializada' },
+    { icon: 'Scan', title: 'Radiografía Digital', description: 'Alta resolución y precisión' },
+    { icon: 'Activity', title: 'Ultrasonido Diagnóstico', description: 'Pequeñas y grandes especies' },
+    { icon: 'Eye', title: 'Endoscopía Minimamente Invasiva', description: 'Diagnóstico sin dolor' },
+    { icon: 'Stethoscope', title: 'Monitoreo Anestésico Digital', description: 'Seguridad quirúrgica total' },
+    { icon: 'Zap', title: 'Pruebas Rápidas', description: 'Parvovirus, Distemper, Ehrlichia, FeLV' },
+    { icon: 'ClipboardList', title: 'Historia Clínica Digital', description: 'Registro seguro y accesible' },
   ],
   en: [
-    { icon: '🧪', title: 'In-House Lab', description: 'Express results in minutes' },
-    { icon: '❤️', title: 'Digital Cardiology', description: 'ECG + Specialized Echocardiography' },
-    { icon: '📸', title: 'Digital X-Ray', description: 'High resolution and precision' },
-    { icon: '🔊', title: 'Diagnostic Ultrasound', description: 'Small and large animals' },
-    { icon: '👁️', title: 'Minimally Invasive Endoscopy', description: 'Pain-free diagnosis' },
-    { icon: '⚕️', title: 'Digital Anesthesia Monitoring', description: 'Complete surgical safety' },
-    { icon: '⚡', title: 'Rapid Tests', description: 'Parvovirus, Distemper, Ehrlichia, FeLV' },
-    { icon: '📋', title: 'Digital Medical Records', description: 'Secure and accessible record' },
+    { icon: 'Microscope', title: 'In-House Lab', description: 'Express results in minutes' },
+    { icon: 'HeartPulse', title: 'Digital Cardiology', description: 'ECG + Specialized Echocardiography' },
+    { icon: 'Scan', title: 'Digital X-Ray', description: 'High resolution and precision' },
+    { icon: 'Activity', title: 'Diagnostic Ultrasound', description: 'Small and large animals' },
+    { icon: 'Eye', title: 'Minimally Invasive Endoscopy', description: 'Pain-free diagnosis' },
+    { icon: 'Stethoscope', title: 'Digital Anesthesia Monitoring', description: 'Complete surgical safety' },
+    { icon: 'Zap', title: 'Rapid Tests', description: 'Parvovirus, Distemper, Ehrlichia, FeLV' },
+    { icon: 'ClipboardList', title: 'Digital Medical Records', description: 'Secure and accessible record' },
   ],
 };
 

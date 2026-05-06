@@ -64,53 +64,72 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Clean Visual Grid - Brand Hover Effects */}
-          <motion.div
-            className="grid grid-cols-2 gap-6 relative"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {/* Main large image */}
-            <motion.div className="col-span-2 h-[450px] rounded-[3rem] overflow-hidden border border-gray-100 shadow-2xl relative group" variants={itemVariants}>
+          {/* Visual Grid — Interactive Cards with Brand Overlay */}
+          <div className="grid grid-cols-2 gap-6 relative">
+            {/* Main large image — landscape team photo */}
+            <motion.div
+              className="col-span-2 rounded-[2rem] overflow-hidden border border-gray-100 shadow-xl relative aspect-[16/9] group cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
               <Image 
                 src="/images/about/about-1.jpg" 
-                alt="Vetechi Team" 
+                alt="Equipo Vetechi" 
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-110" 
               />
-              {/* Partial Green Overlay (Bottom 50%) */}
-              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1B3B2F]/90 via-[#1B3B2F]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Permanent Partial Green Overlay (Bottom 65%) */}
+              <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-[#1B3B2F]/95 via-[#1B3B2F]/50 to-transparent z-10 pointer-events-none" />
+              {/* Hover glow */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B3B2F]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[11] pointer-events-none" />
             </motion.div>
 
-            {/* Secondary Card */}
-            <motion.div className="h-[300px] rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl relative group" variants={itemVariants}>
+            {/* Secondary Card — ultrasound photo */}
+            <motion.div
+              className="rounded-[2rem] overflow-hidden border border-gray-100 shadow-xl relative aspect-square group cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+              initial={{ opacity: 0, x: -30, y: 20 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
               <Image 
                 src="/images/about/about-2.jpg" 
-                alt="Clinical Excellence" 
+                alt="Excelencia Clínica" 
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                sizes="(max-width: 768px) 100vw, 25vw"
+                className="object-cover object-[center_25%] transition-transform duration-700 group-hover:scale-110" 
               />
-              {/* Partial Green Overlay (Bottom 50%) */}
-              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1B3B2F]/90 via-[#1B3B2F]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Permanent Partial Green Overlay (Bottom 65%) */}
+              <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-[#1B3B2F]/95 via-[#1B3B2F]/50 to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B3B2F]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[11] pointer-events-none" />
             </motion.div>
 
-            {/* Tertiary Card */}
-            <motion.div className="h-[300px] rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-xl relative group" variants={itemVariants}>
+            {/* Tertiary Card — procedure photo */}
+            <motion.div
+              className="rounded-[2rem] overflow-hidden border border-gray-100 shadow-xl relative aspect-square group cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+              initial={{ opacity: 0, x: 30, y: 20 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
               <Image 
                 src="/images/about/about-3.jpg" 
-                alt="Modern Technology" 
+                alt="Tecnología Moderna" 
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                sizes="(max-width: 768px) 100vw, 25vw"
+                className="object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-110" 
               />
-              {/* Partial Green Overlay (Bottom 50%) */}
-              <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#1B3B2F]/90 via-[#1B3B2F]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Permanent Partial Green Overlay (Bottom 65%) */}
+              <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-[#1B3B2F]/95 via-[#1B3B2F]/50 to-transparent z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1B3B2F]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[11] pointer-events-none" />
             </motion.div>
 
             {/* Decorative background glow */}
             <div className="absolute -z-10 -bottom-10 -right-10 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl" />
-          </motion.div>
+          </div>
 
 
 

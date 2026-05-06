@@ -55,7 +55,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com/vetechi.pa"
+                href={BUSINESS_DATA.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
@@ -64,7 +64,7 @@ export default function Footer() {
                 <FaInstagram size={20} className="text-white" />
               </a>
               <a
-                href="https://facebook.com/vetechipa"
+                href={BUSINESS_DATA.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
@@ -73,7 +73,7 @@ export default function Footer() {
                 <FaFacebook size={20} className="text-white" />
               </a>
               <a
-                href={BUSINESS_DATA.whatsapp}
+                href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.info.es : BUSINESS_DATA.whatsappMessages.info.en)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
@@ -97,7 +97,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-300">
               <li className="flex items-start gap-3">
                 <Phone size={18} className="flex-shrink-0 text-primary-400 mt-0.5" />
-                <a href={`tel:${BUSINESS_DATA.phone}`} className="hover:text-accent-500 transition-colors">
+                <a href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`} className="hover:text-accent-500 transition-colors">
                   {BUSINESS_DATA.phone}
                 </a>
               </li>
@@ -140,12 +140,26 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-700 py-8"></div>
+        {/* Institutional Banner */}
+        <div className="border-t border-gray-700 pt-8 pb-4">
+          <div className="text-center space-y-2">
+            <p className="text-lg font-display font-bold text-white tracking-tight">
+              VETECHI — {isEs ? 'Hospital Veterinario 24/7 en Chiriquí' : 'Veterinary Hospital 24/7 in Chiriquí'}
+            </p>
+            <p className="text-sm text-accent-500 italic font-subtitle">
+              {isEs ? 'Siempre listos para cuidar a tu mejor amigo' : 'Always ready to care for your best friend'}
+            </p>
+            <p className="text-xs text-gray-500 max-w-2xl mx-auto leading-relaxed pt-2">
+              {isEs 
+                ? 'VETECHI es el único hospital veterinario 24 horas en Chiriquí. Ofrecemos atención continua, emergencias 24/7 y especialistas en todas las áreas de la salud animal.'
+                : 'VETECHI is the only 24-hour veterinary hospital in Chiriquí. We offer continuous care, 24/7 emergencies, and specialists in all areas of animal health.'}
+            </p>
+          </div>
+        </div>
 
         {/* Copyright */}
         <motion.div
-          className="text-center text-xs text-gray-500"
+          className="text-center text-xs text-gray-500 pt-6 border-t border-gray-800"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}

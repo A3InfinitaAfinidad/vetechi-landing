@@ -7,8 +7,8 @@
     "contacto": "Contact"
   },
   "hero": {
-    "headline": "Your pet deserves world-class veterinary care",
-    "subheadline": "Veterinary Hospital in David, Chiriquí, Panama. 4 passionate specialists, cutting-edge technology, and emergency care available 24 hours a day, 7 days a week.",
+    "headline": "Veterinary Hospital VETECHI — 24 hours in Chiriquí",
+    "subheadline": "The only 24-hour veterinary hospital in Chiriquí. Continuous care, modern technology, and a team passionate about animal life.",
     "cta1": "Book Appointment",
     "cta2": "Emergency 24/7"
   },
@@ -56,7 +56,7 @@
   "emergencies": {
     "title": "Emergency?",
     "subtitle": "Is your pet having an emergency?",
-    "description": "Don't wait. Every second matters. We are available 24 hours a day, 7 days a week, 365 days a year to handle any critical situation threatening your pet's life.",
+    "description": "Don't wait. Every second matters. We are the only veterinary hospital in Chiriquí with permanent care. Emergencies handled by specialists at all times.",
     "cta": "Call Now",
     "whatsapp": "Emergency WhatsApp",
     "online": "ONLINE NOW"
@@ -87,7 +87,7 @@
     }
   },
   "footer": {
-    "slogan": "Your best friend deserves the best!",
+    "slogan": "Always ready to care for your best friend",
     "rights": "All rights reserved"
   }
 }

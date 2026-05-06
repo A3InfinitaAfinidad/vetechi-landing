@@ -44,40 +44,38 @@ export default function Team() {
         </motion.div>
         
         {/* Main Team - Flip Card Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {TEAM.map((member) => (
-            <div key={member.name} className="perspective-1000 group relative aspect-[3/4]">
-              <motion.div
-                className="relative w-full h-full transition-all duration-700 preserve-3d group-hover:rotate-y-180"
-                variants={itemVariants}
-              >
-                {/* Front Side */}
-                <div className="absolute inset-0 w-full h-full backface-hidden rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
+          {TEAM.map((member, idx) => (
+            <motion.div
+              key={member.name}
+              className="flip-card aspect-[3/4] cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="flip-card-inner">
+                {/* ===== FRONT ===== */}
+                <div className="flip-card-front rounded-[2rem] overflow-hidden shadow-xl border border-gray-100">
                   {teamImageMap[member.name] ? (
                     <Image
                       src={teamImageMap[member.name]}
                       alt={member.name}
                       fill
-                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, 25vw"
+                      className="object-cover"
+                      style={{ objectPosition: 'center 10%' }}
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-5xl">
                       👨‍⚕️
                     </div>
                   )}
-                  
-                  {/* Partial Green Overlay (Bottom 50%) */}
-                  <div className="absolute inset-0 z-10">
-                    <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#1B3B2F]/95 via-[#1B3B2F]/70 to-transparent" />
-                  </div>
 
-                  {/* Front Content */}
+                  {/* Permanent Partial Green Overlay (Bottom 65%) */}
+                  <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-[#1B3B2F]/95 via-[#1B3B2F]/40 to-transparent z-10 pointer-events-none" />
+
+                  {/* Front Text */}
                   <div className="absolute inset-x-0 bottom-0 p-6 z-20">
                     <h3 className="text-xl font-display font-bold text-white mb-1">
                       {member.name}
@@ -88,42 +86,42 @@ export default function Team() {
                   </div>
                 </div>
 
-                {/* Back Side */}
-                <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-[2.5rem] overflow-hidden shadow-2xl border border-accent-500/20 bg-dark-900 p-8 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 w-fit">
-                      <span className="text-[8px] font-bold text-accent-500 uppercase tracking-[0.3em]">
+                {/* ===== BACK ===== */}
+                <div className="flip-card-back rounded-[2rem] overflow-hidden shadow-2xl border-2 border-accent-500/30 bg-[#1B3B2F] p-8 flex flex-col justify-between">
+                  <div className="space-y-5">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20">
+                      <span className="text-[9px] font-bold text-[#C5A77A] uppercase tracking-[0.3em]">
                         {isEs ? 'Ficha Profesional' : 'Professional Profile'}
                       </span>
                     </div>
-                    
+
                     <div>
                       <h3 className="text-2xl font-display font-bold text-white leading-tight">
                         {member.name}
                       </h3>
-                      <p className="text-xs text-primary-400 font-bold uppercase tracking-wider mt-1">
+                      <p className="text-sm text-[#C5A77A] font-bold uppercase tracking-wider mt-2">
                         {isEs ? member.specialtyEs : member.specialtyEn}
                       </p>
                     </div>
 
-                    <div className="pt-4 border-t border-white/10">
-                      <p className="text-gray-300 italic text-sm leading-relaxed">
-                        "{member.quote}"
+                    <div className="pt-4 border-t border-white/15">
+                      <p className="text-white/80 italic text-sm leading-relaxed">
+                        &ldquo;{member.quote}&rdquo;
                       </p>
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent-500" />
-                    <p className="text-[10px] text-white/50 uppercase tracking-widest font-bold">
+                  <div className="flex items-center gap-3 pt-4">
+                    <div className="w-2 h-2 rounded-full bg-[#C5A77A]" />
+                    <p className="text-[11px] text-white/70 uppercase tracking-widest font-bold">
                       {member.experience} {isEs ? 'DE TRAYECTORIA' : 'EXPERIENCE'}
                     </p>
                   </div>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
 
 
 

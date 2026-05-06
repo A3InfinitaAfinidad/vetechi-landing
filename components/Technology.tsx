@@ -2,8 +2,21 @@
 
 import { useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { Microscope, HeartPulse, Scan, Activity, Eye, Stethoscope, Zap, ClipboardList } from 'lucide-react';
 import { TECHNOLOGY } from '@/utils/constants';
 import { containerVariants, itemVariants } from '@/utils/animations';
+
+const iconMap: Record<string, React.ElementType> = {
+  Microscope,
+  HeartPulse,
+  Scan,
+  Activity,
+  Eye,
+  Stethoscope,
+  Zap,
+  ClipboardList,
+};
 
 export default function Technology() {
   const locale = useLocale();
@@ -49,32 +62,37 @@ export default function Technology() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {techs.map((tech, i) => (
-            <motion.div
-              key={tech.title}
-              className="bg-gray-50 p-6 rounded-lg hover:shadow-md transition-all border border-gray-200"
-              variants={itemVariants}
-              whileHover={{ y: -3 }}
-            >
-              <div className="text-4xl mb-4">{tech.icon}</div>
-              <h3 className="text-base font-subtitle font-bold text-dark-900 mb-2">
-                {tech.title}
-              </h3>
-              <p className="text-sm text-text leading-relaxed mb-4">
-                {tech.description}
-              </p>
-              {/* Progress Bar - Green to Accent */}
-              <div className="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-gradient-to-r from-primary-600 to-accent-600"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '100%' }}
-                  transition={{ duration: 1.2, delay: 0.2 + i * 0.1 }}
-                  viewport={{ once: true }}
-                />
-              </div>
-            </motion.div>
-          ))}
+          {techs.map((tech, i) => {
+            const IconComponent = iconMap[tech.icon];
+            return (
+              <motion.div
+                key={tech.title}
+                className="bg-gray-50 p-6 rounded-lg hover:shadow-md transition-all border border-gray-200"
+                variants={itemVariants}
+                whileHover={{ y: -3 }}
+              >
+                <div className="text-4xl mb-4 text-primary-600">
+                  {IconComponent && <IconComponent size={36} strokeWidth={1.5} />}
+                </div>
+                <h3 className="text-base font-subtitle font-bold text-dark-900 mb-2">
+                  {tech.title}
+                </h3>
+                <p className="text-sm text-text leading-relaxed mb-4">
+                  {tech.description}
+                </p>
+                {/* Progress Bar - Green to Accent */}
+                <div className="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full bg-gradient-to-r from-primary-600 to-accent-600"
+                    initial={{ width: 0 }}
+                    whileInView={{ width: '100%' }}
+                    transition={{ duration: 1.2, delay: 0.2 + i * 0.1 }}
+                    viewport={{ once: true }}
+                  />
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         {/* Bottom CTA */}
@@ -85,9 +103,9 @@ export default function Technology() {
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <button className="btn-primary px-8 py-3">
+          <Link href="/tecnologia" className="btn-primary px-8 py-3 inline-block">
             {ctaText}
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

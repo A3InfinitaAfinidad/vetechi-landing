@@ -7,8 +7,8 @@
     "contacto": "Contacto"
   },
   "hero": {
-    "headline": "Tu mascota merece atención veterinaria de excelencia",
-    "subheadline": "Hospital Veterinario en David, Chiriquí. 4 especialistas apasionados, tecnología de punta y atención de emergencias las 24 horas, los 7 días de la semana.",
+    "headline": "Hospital Veterinario VETECHI — 24 horas en Chiriquí",
+    "subheadline": "Único hospital veterinario 24 horas en Chiriquí. Atención continua, tecnología moderna y un equipo apasionado por la vida animal.",
     "cta1": "Agendar Cita",
     "cta2": "Emergencia 24/7"
   },
@@ -56,9 +56,9 @@
   "emergencies": {
     "title": "¿Emergencia?",
     "subtitle": "¿Tu mascota tiene una emergencia?",
-    "description": "No esperes. Cada segundo importa. Estamos disponibles las 24 horas, los 7 días de la semana, los 365 días del año para atender cualquier situación crítica que ponga en riesgo la vida de tu mascota.",
+    "description": "No esperes. Cada segundo importa. Somos el único hospital veterinario en Chiriquí con atención permanente. Emergencias atendidas por especialistas en todo momento.",
     "cta": "Llamar Ahora",
-    "whatsapp": "WhatsApp de Emergencia",
+    "whatsapp": "WhatsApp Emergencias",
     "online": "EN LÍNEA AHORA"
   },
   "testimonials": {
@@ -87,7 +87,7 @@
     }
   },
   "footer": {
-    "slogan": "¡Tu mejor amigo merece lo mejor!",
+    "slogan": "Siempre listos para cuidar a tu mejor amigo",
     "rights": "Todos los derechos reservados"
   }
 }

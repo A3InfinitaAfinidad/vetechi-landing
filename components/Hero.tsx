@@ -48,14 +48,14 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
             >
-              {/* Top Badge */}
+              {/* Top Badge — Latido Institucional */}
               <motion.div 
-                className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md"
+                className="latido inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#C5A77A]/40 bg-[#C5A77A]/10 backdrop-blur-md shadow-[0_0_15px_rgba(197,167,122,0.15)]"
                 variants={fadeUpVariants}
               >
-                <MapPin size={14} className="text-accent-500" />
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white">
-                  {isEs ? 'Hospital Veterinario · David, Chiriquí' : 'Veterinary Hospital · David, Chiriquí'}
+                <MapPin size={14} className="text-[#C5A77A]" />
+                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white">
+                  {isEs ? 'Único hospital veterinario 24h en Chiriquí' : 'Only 24h veterinary hospital in Chiriquí'}
                 </span>
               </motion.div>
 
@@ -66,15 +66,15 @@ export default function Hero() {
               >
                 {isEs ? (
                   <>
-                    Tu mascota merece<br />
-                    atención veterinaria<br />
-                    <span className="text-accent-500 italic font-serif">de excelencia</span>
+                    Hospital Veterinario<br />
+                    <span className="text-accent-500 italic font-serif">VETECHI</span><br />
+                    <span className="text-3xl sm:text-5xl font-semibold">24 horas en Chiriquí</span>
                   </>
                 ) : (
                   <>
-                    Your pet deserves<br />
-                    world-class<br />
-                    <span className="text-accent-500 italic font-serif">veterinary care</span>
+                    Veterinary Hospital<br />
+                    <span className="text-accent-500 italic font-serif">VETECHI</span><br />
+                    <span className="text-3xl sm:text-5xl font-semibold">24 hours in Chiriquí</span>
                   </>
                 )}
               </motion.h1>
@@ -84,7 +84,9 @@ export default function Hero() {
                 className="text-xl text-gray-100 max-w-xl leading-relaxed font-light"
                 variants={fadeUpVariants}
               >
-                {t('subheadline')}
+                {isEs 
+                  ? 'Atención continua, tecnología moderna y un equipo apasionado por la vida animal.' 
+                  : 'Continuous care, modern technology, and a team passionate about animal life.'}
               </motion.p>
 
               {/* CTAs */}
@@ -92,11 +94,16 @@ export default function Hero() {
                 className="flex flex-col sm:flex-row gap-4 pt-4"
                 variants={fadeUpVariants}
               >
-                <button className="btn-primary px-10 py-4 text-lg font-bold rounded-xl shadow-lg hover:shadow-primary-500/20 transition-all">
-                  {t('cta1')}
-                </button>
                 <a
-                  href={BUSINESS_DATA.whatsapp}
+                  href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? 'Hola VETECHI, me gustaría agendar una cita para mi mascota.' : 'Hello VETECHI, I would like to book an appointment for my pet.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary px-10 py-4 text-lg font-bold rounded-xl shadow-lg hover:shadow-primary-500/20 transition-all text-center"
+                >
+                  {t('cta1')}
+                </a>
+                <a
+                  href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.emergency.es : BUSINESS_DATA.whatsappMessages.emergency.en)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-emergency px-10 py-4 text-lg font-bold rounded-xl flex items-center justify-center gap-3 shadow-lg"
@@ -118,8 +125,8 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
           >
-            <div className="glassmorphism p-6 sm:p-8 rounded-[2.5rem] w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 shadow-2xl relative overflow-hidden group/stats">
-              {/* Animated background glow that follows mouse or just pulses */}
+            <div className="glassmorphism p-4 sm:p-6 rounded-[2rem] w-full flex flex-col sm:flex-row items-center justify-around gap-6 shadow-2xl relative overflow-hidden group/stats">
+              {/* Animated background glow */}
               <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover/stats:opacity-100 transition-opacity duration-700 pointer-events-none" />
               
               {stats.map((stat, i) => {
@@ -127,20 +134,17 @@ export default function Hero() {
                 return (
                   <motion.div
                     key={stat.label}
-                    className="flex flex-col items-center text-center group relative z-10"
+                    className="flex flex-row sm:flex-col items-center gap-4 sm:gap-1 text-center group relative z-10"
                     variants={itemVariants}
                   >
-                    <div className="relative">
-                      {/* Glow effect on hover */}
-                      <div className="absolute inset-0 bg-primary-500/40 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500" />
-                      
-                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4 text-accent-500 group-hover:bg-primary-500 group-hover:text-white group-hover:border-primary-400 transition-all duration-500 shadow-inner relative z-10">
-                        {Icon && <Icon size={24} strokeWidth={2} />}
-                      </div>
+                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-500 group-hover:bg-primary-500 group-hover:text-white transition-all duration-500 shadow-inner">
+                      {Icon && <Icon size={20} strokeWidth={2.5} />}
                     </div>
-                    <div className="text-2xl font-display font-black text-white mb-1 tracking-tight group-hover:text-primary-400 transition-colors">{stat.value}</div>
-                    <div className="text-[9px] uppercase tracking-[0.2em] text-gray-300 font-bold leading-tight max-w-[120px]">
-                      {stat.label}
+                    <div className="text-left sm:text-center">
+                      <div className="text-xl font-display font-black text-white leading-tight group-hover:text-primary-400 transition-colors">{stat.value}</div>
+                      <div className="text-[8px] uppercase tracking-[0.15em] text-gray-300 font-bold leading-tight">
+                        {stat.label}
+                      </div>
                     </div>
                   </motion.div>
                 );
@@ -149,21 +153,22 @@ export default function Hero() {
             
             {/* Status indicator floating below card */}
             <motion.div 
-              className="mt-6 flex items-center justify-center gap-4"
+              className="mt-6 flex items-center justify-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
             >
-              <div className="px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl flex items-center gap-3">
+              <div className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl flex items-center gap-3 shadow-lg group hover:bg-white/20 transition-all duration-300">
                 <div className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-500"></span>
                 </div>
-                <p className="text-xs font-black text-accent-500 uppercase tracking-[0.25em] font-sans">
+                <p className="text-[11px] font-black text-white uppercase tracking-[0.25em] font-sans">
                   {isEs ? 'Personal médico activo 24/7' : 'Medical staff active 24/7'}
                 </p>
               </div>
             </motion.div>
+
 
           </motion.div>
         </div>

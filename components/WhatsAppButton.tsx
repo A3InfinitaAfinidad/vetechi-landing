@@ -1,13 +1,17 @@
 'use client';
 
+import { useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { SiWhatsapp } from 'react-icons/si';
 import { BUSINESS_DATA } from '@/utils/constants';
 
 export default function WhatsAppButton() {
+  const locale = useLocale();
+  const isEs = locale === 'es';
+
   return (
     <motion.a
-      href={BUSINESS_DATA.whatsapp}
+      href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.info.es : BUSINESS_DATA.whatsappMessages.info.en)}`}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-8 right-8 z-[1000] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300"
