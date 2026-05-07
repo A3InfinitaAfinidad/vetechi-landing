@@ -3,7 +3,7 @@
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Phone, MessageCircle, AlertCircle, CheckCircle2 } from 'lucide-react';
-import { BUSINESS_DATA, EMERGENCIES_COPY, COLORS } from '@/utils/constants';
+import { BUSINESS_DATA, EMERGENCIES_COPY } from '@/utils/constants';
 import { fadeUpVariants, containerVariants, itemVariants } from '@/utils/animations';
 
 export default function Emergencies() {
@@ -101,7 +101,7 @@ export default function Emergencies() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {copy.cases.map((emergencyCase, i) => (
+            {copy.cases.map((emergencyCase) => (
               <motion.div
                 key={emergencyCase}
                 className="group p-5 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-xl hover:bg-white/[0.08] transition-all"

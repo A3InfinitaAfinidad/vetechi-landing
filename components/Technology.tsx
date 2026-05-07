@@ -22,6 +22,7 @@ export default function Technology() {
   const locale = useLocale();
   const isEs = locale === 'es';
   const techs = isEs ? TECHNOLOGY.es : TECHNOLOGY.en;
+  const progressValues = [98, 92, 96, 90, 95, 99, 94, 97];
 
   const title = isEs ? 'Equipamiento de hospital. Resultados clínicos.' : 'Hospital-grade Equipment. Clinical Results.';
   const subtitle = isEs
@@ -64,29 +65,34 @@ export default function Technology() {
         >
           {techs.map((tech, i) => {
             const IconComponent = iconMap[tech.icon];
+            const value = progressValues[i % progressValues.length];
             return (
               <motion.div
                 key={tech.title}
-                className="bg-gray-50 p-6 rounded-lg hover:shadow-md transition-all border border-gray-200"
+                className="bg-primary-50/40 p-6 rounded-2xl hover:shadow-xl transition-all duration-500 border border-primary-100 hover:border-primary-200 group"
                 variants={itemVariants}
-                whileHover={{ y: -3 }}
+                whileHover={{ y: -5 }}
               >
-                <div className="text-4xl mb-4 text-primary-600">
+                <div className="text-4xl mb-4 text-primary-600 transition-transform duration-500 group-hover:scale-110">
                   {IconComponent && <IconComponent size={36} strokeWidth={1.5} />}
                 </div>
                 <h3 className="text-base font-subtitle font-bold text-dark-900 mb-2">
                   {tech.title}
                 </h3>
-                <p className="text-sm text-text leading-relaxed mb-4">
+                <p className="text-sm text-gray-600 leading-relaxed mb-6">
                   {tech.description}
                 </p>
-                {/* Progress Bar - Green to Accent */}
-                <div className="w-full h-2 bg-gray-300 rounded-full overflow-hidden">
+                {/* Progress Bar - Variable values */}
+                <div className="flex justify-between text-xs font-bold text-primary-700 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span>{isEs ? 'Precisión' : 'Precision'}</span>
+                  <span>{value}%</span>
+                </div>
+                <div className="w-full h-1.5 bg-primary-100 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-primary-600 to-accent-600"
+                    className="h-full bg-gradient-to-r from-primary-600 to-accent-500"
                     initial={{ width: 0 }}
-                    whileInView={{ width: '100%' }}
-                    transition={{ duration: 1.2, delay: 0.2 + i * 0.1 }}
+                    whileInView={{ width: `${value}%` }}
+                    transition={{ duration: 1.2, delay: 0.2 + i * 0.1, ease: "easeOut" }}
                     viewport={{ once: true }}
                   />
                 </div>

@@ -32,7 +32,10 @@
       "cirugia": "Procedimientos quirúrgicos avanzados con monitoreo digital constante.",
       "laboratorio": "Resultados precisos en minutos con nuestro laboratorio in-house.",
       "cardiologia": "Diagnóstico y tratamiento de patologías cardiacas complejas.",
-      "exoticos": "Especialistas en aves, reptiles y pequeños mamíferos."
+      "exoticos": "Especialistas en aves, reptiles y pequeños mamíferos.",
+      "hospitalizacion": "Cuidados intensivos en ambiente seguro 24/7.",
+      "vacunacion": "Protección completa con vacunas y desparasitación.",
+      "endoscopia": "Diagnóstico no invasivo de vías digestivas y respiratorias."
     }
   },
   "successStories": {

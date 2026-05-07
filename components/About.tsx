@@ -4,7 +4,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Heart, Trophy, Clock, Microscope, Handshake, Sprout, CheckCircle2 } from 'lucide-react';
-import { ABOUT_COPY, COLORS } from '@/utils/constants';
+import { ABOUT_COPY } from '@/utils/constants';
 import { containerVariants, itemVariants } from '@/utils/animations';
 
 const ValueIconMap = {

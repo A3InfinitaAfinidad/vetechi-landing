@@ -2,17 +2,20 @@
 
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
-import { Stethoscope, Bell, Activity, FlaskConical, Heart, Bird, ArrowRight } from 'lucide-react';
+import { Stethoscope, Bell, Activity, FlaskConical, Heart, Bird, ArrowRight, Bed, Syringe, Eye } from 'lucide-react';
 import { containerVariants, itemVariants } from '@/utils/animations';
-import { COLORS, BUSINESS_DATA } from '@/utils/constants';
+import { BUSINESS_DATA } from '@/utils/constants';
 
 const SERVICES_CONFIG = [
   { id: 'consulta', icon: Stethoscope },
   { id: 'emergencia', icon: Bell },
   { id: 'cirugia', icon: Activity },
+  { id: 'hospitalizacion', icon: Bed },
   { id: 'laboratorio', icon: FlaskConical },
+  { id: 'vacunacion', icon: Syringe },
   { id: 'cardiologia', icon: Heart },
   { id: 'exoticos', icon: Bird },
+  { id: 'endoscopia', icon: Eye },
 ];
 
 export default function Services() {
@@ -134,6 +137,25 @@ export default function Services() {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        {/* View All Services CTA */}
+        <motion.div
+          className="mt-16 flex justify-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          <a
+            href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? 'Hola VETECHI, me gustaría conocer todos sus servicios.' : 'Hello VETECHI, I would like to know all your services.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-secondary px-8 py-4 flex items-center gap-3 text-lg group"
+          >
+            <span>{isEs ? 'Ver todos los servicios' : 'View all services'}</span>
+            <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
+          </a>
         </motion.div>
       </div>
     </section>

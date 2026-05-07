@@ -24,7 +24,7 @@ export default function LanguageSwitcher() {
         newPathname = newPathname.replace(/^\/en/, '') || '/';
       }
       
-      router.push(newPathname);
+      window.location.href = newPathname;
     });
   };
 

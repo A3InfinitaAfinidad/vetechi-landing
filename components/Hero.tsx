@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Phone, Stethoscope, Star, Clock, PawPrint, MapPin, ShieldCheck } from 'lucide-react';
 import { fadeUpVariants, containerVariants, itemVariants } from '@/utils/animations';
-import { BUSINESS_DATA, STATS, COLORS } from '@/utils/constants';
+import { BUSINESS_DATA, STATS } from '@/utils/constants';
+import AnimatedCounter from './AnimatedCounter';
 
 const IconMap = {
   Stethoscope,
@@ -31,9 +32,10 @@ export default function Hero() {
           className="object-cover"
           priority
         />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-900/85 via-dark-900/50 to-dark-900/20" />
         <div 
-          className="absolute inset-0 bg-gradient-to-r from-dark-900/80 via-dark-900/40 to-transparent" 
-          style={{ backgroundImage: `radial-gradient(circle at 30% 50%, rgba(27, 59, 47, 0.4) 0%, rgba(27, 59, 47, 0.6) 50%, rgba(27, 59, 47, 0.8) 100%)` }}
+          className="absolute inset-0 opacity-60 pointer-events-none" 
+          style={{ background: `radial-gradient(circle at 30% 50%, rgba(27, 59, 47, 0.4) 0%, transparent 70%)` }}
         />
       </div>
 
@@ -52,6 +54,7 @@ export default function Hero() {
               <motion.div 
                 className="latido inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#C5A77A]/40 bg-[#C5A77A]/10 backdrop-blur-md shadow-[0_0_15px_rgba(197,167,122,0.15)]"
                 variants={fadeUpVariants}
+                custom={0}
               >
                 <MapPin size={14} className="text-[#C5A77A]" />
                 <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white">
@@ -61,8 +64,9 @@ export default function Hero() {
 
               {/* Headline */}
               <motion.h1
-                className="text-5xl sm:text-8xl font-display font-extrabold leading-tight text-white tracking-tight"
+                className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold leading-tight text-white tracking-tight"
                 variants={fadeUpVariants}
+                custom={1}
               >
                 {isEs ? (
                   <>
@@ -83,6 +87,7 @@ export default function Hero() {
               <motion.p
                 className="text-xl text-gray-100 max-w-xl leading-relaxed font-light"
                 variants={fadeUpVariants}
+                custom={2}
               >
                 {isEs 
                   ? 'Atención continua, tecnología moderna y un equipo apasionado por la vida animal.' 
@@ -93,6 +98,7 @@ export default function Hero() {
               <motion.div
                 className="flex flex-col sm:flex-row gap-4 pt-4"
                 variants={fadeUpVariants}
+                custom={3}
               >
                 <a
                   href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? 'Hola VETECHI, me gustaría agendar una cita para mi mascota.' : 'Hello VETECHI, I would like to book an appointment for my pet.')}`}
@@ -103,9 +109,8 @@ export default function Hero() {
                   {t('cta1')}
                 </a>
                 <a
-                  href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.emergency.es : BUSINESS_DATA.whatsappMessages.emergency.en)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="tel:+50763303291"
+                  aria-label={isEs ? 'Llamar a VETECHI - Emergencia 24/7' : 'Call VETECHI - Emergency 24/7'}
                   className="btn-emergency px-10 py-4 text-lg font-bold rounded-xl flex items-center justify-center gap-3 shadow-lg"
                 >
                   <Phone size={20} />
@@ -141,7 +146,9 @@ export default function Hero() {
                       {Icon && <Icon size={20} strokeWidth={2.5} />}
                     </div>
                     <div className="text-left sm:text-center">
-                      <div className="text-xl font-display font-black text-white leading-tight group-hover:text-primary-400 transition-colors">{stat.value}</div>
+                      <div className="text-xl font-display font-black text-white leading-tight group-hover:text-primary-400 transition-colors">
+                        <AnimatedCounter value={stat.value} />
+                      </div>
                       <div className="text-[8px] uppercase tracking-[0.15em] text-gray-300 font-bold leading-tight">
                         {stat.label}
                       </div>

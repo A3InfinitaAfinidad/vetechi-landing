@@ -32,7 +32,10 @@
       "cirugia": "Advanced surgical procedures with constant digital monitoring.",
       "laboratorio": "Accurate results in minutes with our in-house laboratory.",
       "cardiologia": "Diagnosis and treatment of complex cardiac pathologies.",
-      "exoticos": "Specialists in birds, reptiles, and small mammals."
+      "exoticos": "Specialists in birds, reptiles, and small mammals.",
+      "hospitalizacion": "Intensive care in a safe environment 24/7.",
+      "vacunacion": "Complete protection with vaccination and deworming.",
+      "endoscopia": "Non-invasive diagnosis of digestive and respiratory tracts."
     }
   },
   "successStories": {
