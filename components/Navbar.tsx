@@ -1,14 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { useLocale } from 'next-intl';
-import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
-import { Phone, Menu, X } from 'lucide-react';
-import LanguageSwitcher from './LanguageSwitcher';
 import { BUSINESS_DATA } from '@/utils/constants';
+import { Menu, Phone, X } from 'lucide-react';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
   const locale = useLocale();

@@ -1,11 +1,11 @@
 'use client';
 
-import { useLocale, useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { Phone, Stethoscope, Star, Clock, PawPrint, MapPin, ShieldCheck } from 'lucide-react';
-import { fadeUpVariants, containerVariants, itemVariants } from '@/utils/animations';
+import { containerVariants, fadeUpVariants, itemVariants } from '@/utils/animations';
 import { BUSINESS_DATA, STATS } from '@/utils/constants';
+import { motion } from 'framer-motion';
+import { Clock, MapPin, PawPrint, Phone, Star, Stethoscope } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+import Image from 'next/image';
 import AnimatedCounter from './AnimatedCounter';
 
 const IconMap = {
@@ -186,4 +186,4 @@ export default function Hero() {
   );
 }
 
-
+

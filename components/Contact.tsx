@@ -1,11 +1,11 @@
 'use client';
 
-import { useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
-import { BUSINESS_DATA, CONTACT_COPY } from '@/utils/constants';
 import { containerVariants, itemVariants } from '@/utils/animations';
+import { BUSINESS_DATA, CONTACT_COPY } from '@/utils/constants';
+import { motion } from 'framer-motion';
+import { Clock, Mail, MapPin, Phone } from 'lucide-react';
+import { useLocale } from 'next-intl';
+import { useState } from 'react';
 
 export default function Contact() {
   const locale = useLocale();
