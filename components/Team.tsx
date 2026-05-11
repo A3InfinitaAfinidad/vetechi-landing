@@ -1,10 +1,10 @@
 'use client';
 
-import { useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { TEAM, VISITING_SPECIALISTS } from '@/utils/constants';
 import { containerVariants, itemVariants } from '@/utils/animations';
+import { TEAM, VISITING_SPECIALISTS } from '@/utils/constants';
+import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
+import Image from 'next/image';
 
 export default function Team() {
   const locale = useLocale();

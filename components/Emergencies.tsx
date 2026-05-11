@@ -1,10 +1,10 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
-import { Phone, MessageCircle, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { containerVariants, fadeUpVariants, itemVariants } from '@/utils/animations';
 import { BUSINESS_DATA, EMERGENCIES_COPY } from '@/utils/constants';
-import { fadeUpVariants, containerVariants, itemVariants } from '@/utils/animations';
+import { motion } from 'framer-motion';
+import { AlertCircle, CheckCircle2, MessageCircle, Phone } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
 
 export default function Emergencies() {
   const t = useTranslations('emergencies');

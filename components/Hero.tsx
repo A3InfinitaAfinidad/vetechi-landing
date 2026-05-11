@@ -27,8 +27,9 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero/hero-bg.jpg"
-          alt="VETECHI Hospital Exterior"
+          alt="Hospital Veterinario VETECHI - Fachada exterior, instalaciones modernas"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
@@ -134,7 +135,7 @@ export default function Hero() {
               {/* Animated background glow */}
               <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover/stats:opacity-100 transition-opacity duration-700 pointer-events-none" />
               
-              {stats.map((stat, i) => {
+              {stats.map((stat) => {
                 const Icon = IconMap[stat.icon as keyof typeof IconMap];
                 return (
                   <motion.div

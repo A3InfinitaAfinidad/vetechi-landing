@@ -1,11 +1,10 @@
 'use client';
 
-import { useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { Microscope, HeartPulse, Scan, Activity, Eye, Stethoscope, Zap, ClipboardList } from 'lucide-react';
-import { TECHNOLOGY } from '@/utils/constants';
 import { containerVariants, itemVariants } from '@/utils/animations';
+import { TECHNOLOGY } from '@/utils/constants';
+import { motion } from 'framer-motion';
+import { Activity, ClipboardList, Eye, HeartPulse, Microscope, Scan, Stethoscope, Zap } from 'lucide-react';
+import { useLocale } from 'next-intl';
 
 const iconMap: Record<string, React.ElementType> = {
   Microscope,
@@ -28,7 +27,6 @@ export default function Technology() {
   const subtitle = isEs
     ? 'Tecnología que iguala los estándares internacionales — para diagnósticos precisos y cirugías seguras.'
     : 'Technology matching international standards — for precise diagnostics and safe surgeries.';
-  const ctaText = isEs ? 'Conocer más' : 'Learn more';
 
   return (
     <section id="tecnologia" className="py-20 bg-white">

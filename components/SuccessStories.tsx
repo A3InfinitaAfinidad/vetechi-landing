@@ -4,7 +4,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { containerVariants, fadeUpVariants } from '@/utils/animations';
-import { SUCCESS_STORIES_DATA, COLORS, BUSINESS_DATA } from '@/utils/constants';
+import { SUCCESS_STORIES_DATA, COLORS } from '@/utils/constants';
 
 export default function SuccessStories() {
   const t = useTranslations('successStories');
@@ -66,7 +66,7 @@ export default function SuccessStories() {
               <div className="relative h-64 overflow-hidden">
                 <Image
                   src={story.image}
-                  alt={t(`${story.id}.title`)}
+                  alt={`Caso de éxito - Paciente feliz atendido en VETECHI Hospital - ${t(`${story.id}.title`)}`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />

@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import { useState } from 'react';
+import { validateContactForm, isValidWhatsAppUrl, sanitizeWhatsAppText } from '@/utils/validation';
 
 export default function Contact() {
   const locale = useLocale();
@@ -21,22 +22,44 @@ export default function Contact() {
     language: locale,
   });
 
-  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [formErrors, setFormErrors] = useState<string[]>([]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate form
+    const validation = validateContactForm(formData);
+    if (!validation.isValid) {
+      setFormErrors(validation.errors);
+      setFormStatus('error');
+      setTimeout(() => setFormStatus('idle'), 5000);
+      return;
+    }
+    
     setFormStatus('sending');
+    setFormErrors([]);
+    
+    // Validate WhatsApp URL
+    if (!isValidWhatsAppUrl(BUSINESS_DATA.whatsapp)) {
+      console.error('[Contact] Invalid WhatsApp URL');
+      setFormErrors([isEs ? 'Error de configuración' : 'Configuration error']);
+      setFormStatus('error');
+      return;
+    }
     
     // Build WhatsApp Message
     const text = isEs 
-      ? `Hola VETECHI. Soy ${formData.name} y escribo por mi mascota ${formData.petName || 'mi compañero'} (${formData.species || 'No especificado'}).\n\nMotivo: ${formData.reason || 'Consulta general'}`
-      : `Hello VETECHI. I am ${formData.name} and I am writing about my pet ${formData.petName || 'my companion'} (${formData.species || 'Not specified'}).\n\nReason: ${formData.reason || 'General inquiry'}`;
+      ? `Hola VETECHI. Soy ${sanitizeWhatsAppText(formData.name)} y escribo por mi mascota ${sanitizeWhatsAppText(formData.petName || 'mi compañero')} (${sanitizeWhatsAppText(formData.species || 'No especificado')}).\n\nMotivo: ${sanitizeWhatsAppText(formData.reason || 'Consulta general')}`
+      : `Hello VETECHI. I am ${sanitizeWhatsAppText(formData.name)} and I am writing about my pet ${sanitizeWhatsAppText(formData.petName || 'my companion')} (${sanitizeWhatsAppText(formData.species || 'Not specified')}).\n\nReason: ${sanitizeWhatsAppText(formData.reason || 'General inquiry')}`;
       
     const whatsappUrl = `${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(text)}`;
     
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
       setFormStatus('success');
+      setFormData({ name: '', phone: '', petName: '', species: '', reason: '', language: locale });
+      setTimeout(() => setFormStatus('idle'), 3000);
     }, 800);
   };
 
@@ -201,6 +224,20 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
+              {/* Error Messages */}
+              {formStatus === 'error' && formErrors.length > 0 && (
+                <motion.div
+                  className="bg-red-50 p-4 rounded-lg border border-red-200 space-y-2"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  {formErrors.map((error, idx) => (
+                    <p key={idx} className="text-red-700 text-sm font-semibold">
+                      • {error}
+                    </p>
+                  ))}
+                </motion.div>
+              )}
               {/* Name */}
               <div>
                 <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">

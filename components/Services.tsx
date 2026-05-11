@@ -1,10 +1,10 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
-import { Stethoscope, Bell, Activity, FlaskConical, Heart, Bird, ArrowRight, Bed, Syringe, Eye } from 'lucide-react';
 import { containerVariants, itemVariants } from '@/utils/animations';
 import { BUSINESS_DATA } from '@/utils/constants';
+import { motion } from 'framer-motion';
+import { Activity, ArrowRight, Bed, Bell, Bird, Eye, FlaskConical, Heart, Stethoscope, Syringe } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
 
 const SERVICES_CONFIG = [
   { id: 'consulta', icon: Stethoscope },
@@ -65,7 +65,7 @@ export default function Services() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {SERVICES_CONFIG.map((service, index) => {
+          {SERVICES_CONFIG.map((service) => {
             const Icon = service.icon;
             const isEmergency = service.id === 'emergencia';
             

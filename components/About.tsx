@@ -1,11 +1,11 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { Heart, Trophy, Clock, Microscope, Handshake, Sprout, CheckCircle2 } from 'lucide-react';
-import { ABOUT_COPY } from '@/utils/constants';
 import { containerVariants, itemVariants } from '@/utils/animations';
+import { ABOUT_COPY } from '@/utils/constants';
+import { motion } from 'framer-motion';
+import { CheckCircle2, Clock, Handshake, Heart, Microscope, Sprout, Trophy } from 'lucide-react';
+import { useLocale, useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 const ValueIconMap = {
   '❤️': Heart,
@@ -76,7 +76,7 @@ export default function About() {
             >
               <Image 
                 src="/images/about/about-1.jpg" 
-                alt="Equipo Vetechi" 
+                alt="Equipo médico veterinario de VETECHI - Profesionales especializados" 
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover object-[center_20%] transition-transform duration-700 group-hover:scale-110" 
@@ -97,7 +97,7 @@ export default function About() {
             >
               <Image 
                 src="/images/about/about-2.jpg" 
-                alt="Excelencia Clínica" 
+                alt="Procedimiento médico - Ecografía veterinaria en VETECHI" 
                 fill
                 sizes="(max-width: 768px) 100vw, 25vw"
                 className="object-cover object-[center_25%] transition-transform duration-700 group-hover:scale-110" 
@@ -117,7 +117,7 @@ export default function About() {
             >
               <Image 
                 src="/images/about/about-3.jpg" 
-                alt="Tecnología Moderna" 
+                alt="Tecnología moderna - Equipamiento especializado de VETECHI Hospital" 
                 fill
                 sizes="(max-width: 768px) 100vw, 25vw"
                 className="object-cover object-[center_30%] transition-transform duration-700 group-hover:scale-110" 

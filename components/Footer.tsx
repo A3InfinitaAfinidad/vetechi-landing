@@ -1,14 +1,14 @@
 'use client';
 
+import { motion } from 'framer-motion';
+import { Clock, MapPin, Phone } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Phone, MapPin, Clock } from 'lucide-react';
 
 
-import { FaInstagram, FaFacebook } from 'react-icons/fa';
-import { SiWhatsapp } from 'react-icons/si';
 import { BUSINESS_DATA } from '@/utils/constants';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { SiWhatsapp } from 'react-icons/si';
 
 export default function Footer() {
   const locale = useLocale();

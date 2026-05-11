@@ -1,10 +1,10 @@
 'use client';
 
-import { useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
 import { TESTIMONIALS } from '@/utils/constants';
+import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { useLocale } from 'next-intl';
+import { useState } from 'react';
 
 export default function Testimonials() {
   const locale = useLocale();
