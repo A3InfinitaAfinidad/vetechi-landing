@@ -5,6 +5,7 @@ import { BUSINESS_DATA } from '@/utils/constants';
 import { motion } from 'framer-motion';
 import { Activity, ArrowRight, Bed, Bell, Bird, Eye, FlaskConical, Heart, Stethoscope, Syringe } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
+import PremiumServiceContainer from './PremiumServiceContainer';
 
 const SERVICES_CONFIG = [
   { id: 'consulta', icon: Stethoscope },
@@ -72,68 +73,51 @@ export default function Services() {
             return (
               <motion.div
                 key={service.id}
-                className={`group relative p-8 rounded-[2rem] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-2xl ${
-                  isEmergency
-                    ? 'bg-dark-900 border border-white/10'
-                    : 'bg-white border border-gray-100 hover:border-accent-500/30'
-                }`}
                 variants={itemVariants}
-                whileHover={{ y: -12 }}
               >
-                {/* Icon Container */}
-                <div
-                  className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-500 ${
-                    isEmergency 
-                      ? 'bg-accent-500/20 text-accent-500 group-hover:bg-accent-500 group-hover:text-white' 
-                      : 'bg-accent-500/10 text-accent-500 group-hover:bg-accent-500 group-hover:text-white'
-                  }`}
-                >
-                  <Icon size={32} strokeWidth={1.5} className="transition-transform duration-500 group-hover:scale-110" />
-                </div>
-
-                {/* Content */}
-                <div className="space-y-4">
-                  <h3 className={`text-2xl font-display font-bold leading-tight ${
-                    isEmergency ? 'text-white' : 'text-dark-900'
-                  }`}>
-                    {isEs 
-                      ? t(`items.${service.id}`).split(' ')[0] + ' ' + (t(`items.${service.id}`).split(' ')[1] || '')
-                      : t(`items.${service.id}`).split(' ')[0] + ' ' + (t(`items.${service.id}`).split(' ')[1] || '')
-                    }
-                    {/* Note: I'm just making the title look more prominent by using the translation directly or a simplified version */}
-                    {isEs && service.id === 'emergencia' ? 'Emergencias 24/7' : ''}
-                    {isEs && service.id === 'consulta' ? 'Consulta Médica' : ''}
-                  </h3>
-                  
-                  {/* I'll use the translation for the full text but style it */}
-                  <p className={`text-base leading-relaxed font-light ${
-                    isEmergency ? 'text-gray-400' : 'text-gray-600'
-                  }`}>
-                    {t(`items.${service.id}`)}
-                  </p>
-                  
-                  {/* Learn More link */}
-                  <a 
-                    href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? `Hola Vetechi, me gustaría recibir más información sobre el servicio de ${t(`items.${service.id}`)}` : `Hello Vetechi, I'd like more information about the service: ${t(`items.${service.id}`)}`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-2 pt-4 text-sm font-bold uppercase tracking-wider transition-all duration-300 hover:opacity-80 ${
-                      isEmergency ? 'text-accent-500' : 'text-primary-700'
-                    }`}
-                  >
-                    <span>{isEs ? 'Saber más' : 'Learn more'}</span>
-                    <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
-                  </a>
-
-                </div>
-
-                {/* Emergency Tag */}
-                {isEmergency && (
-                  <div className="absolute top-8 right-8 flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                    <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest tracking-widest">24/7</span>
+                <PremiumServiceContainer isEmergency={isEmergency} className="p-8 h-full">
+                  {/* Icon Container */}
+                  <div className="icon-container-premium mb-8 group-hover:bg-accent-500">
+                    <Icon size={32} strokeWidth={1.5} className="transition-transform duration-500 group-hover:scale-110" />
                   </div>
-                )}
+
+                  {/* Content */}
+                  <div className="space-y-4">
+                    <h3 className={`text-2xl font-display font-bold leading-tight ${
+                      isEmergency ? 'text-white' : 'text-dark-900'
+                    }`}>
+                      {t(`items.${service.id}`).split(' ')[0]}
+                    </h3>
+                    
+                    <p className={`text-base leading-relaxed font-light ${
+                      isEmergency ? 'text-gray-400' : 'text-gray-600'
+                    }`}>
+                      {t(`items.${service.id}`)}
+                    </p>
+                    
+                    {/* Learn More link with Shine */}
+                    <a 
+                      href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? `Hola Vetechi, me gustaría recibir más información sobre el servicio de ${t(`items.${service.id}`)}` : `Hello Vetechi, I'd like more information about the service: ${t(`items.${service.id}`)}`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`btn-shine inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-lg font-bold uppercase tracking-wider text-sm ${
+                        isEmergency ? 'text-accent-500 border border-accent-500' : 'text-white'
+                      }`}
+                    >
+                      <span>{isEs ? 'Saber más' : 'Learn more'}</span>
+                      <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+                    </a>
+
+                  </div>
+
+                  {/* Emergency Tag */}
+                  {isEmergency && (
+                    <div className="absolute top-8 right-8 flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20">
+                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                      <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest">24/7</span>
+                    </div>
+                  )}
+                </PremiumServiceContainer>
               </motion.div>
             );
           })}

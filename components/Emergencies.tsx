@@ -121,7 +121,7 @@ export default function Emergencies() {
             
             {/* Call to Action Card */}
             <motion.div
-              className="sm:col-span-2 p-6 rounded-2xl bg-accent-500/10 border border-accent-500/20 mt-4 flex items-center gap-6"
+              className="sm:col-span-2 p-6 rounded-2xl bg-accent-500/30 border border-accent-500/30 mt-4 flex items-center gap-6"
               variants={itemVariants}
             >
               <div className="w-12 h-12 rounded-xl bg-accent-500 flex items-center justify-center text-dark-900">

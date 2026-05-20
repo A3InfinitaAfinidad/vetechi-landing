@@ -242,3 +242,160 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1);
   }
 }
+
+/* ============================================
+   PREMIUM CARD SYSTEM - Glassmorphism + 3D
+   ============================================ */
+
+/* Glassmorphism Base */
+.card-glassmorphism {
+  position: relative;
+  border-radius: 2rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transition: all 0.36s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform, box-shadow;
+}
+
+.card-glassmorphism:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  border-color: rgba(27, 59, 47, 0.3);
+  transform: translateY(-8px) scale(1.02);
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.08) 100%);
+}
+
+/* 3D Image Hover Effect */
+.image-3d-hover {
+  perspective: 1200px;
+  -webkit-perspective: 1200px;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.image-3d-hover:hover {
+  transform: rotateX(10deg) rotateY(10deg) scale(1.06);
+}
+
+/* Image with Premium Overlay */
+.image-overlay-premium {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+}
+
+.image-overlay-premium::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 59, 47, 0) 0%,
+    rgba(27, 59, 47, 0.4) 60%,
+    rgba(27, 59, 47, 0.95) 100%
+  );
+  z-index: 10;
+  transition: opacity 0.36s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.image-overlay-premium:hover::after {
+  background: linear-gradient(
+    180deg,
+    rgba(27, 59, 47, 0.1) 0%,
+    rgba(27, 59, 47, 0.5) 50%,
+    rgba(27, 59, 47, 0.98) 100%
+  );
+}
+
+/* Info Container with Gradient */
+.info-container-gradient {
+  background: linear-gradient(135deg, rgba(27, 59, 47, 0.05) 0%, rgba(197, 167, 122, 0.05) 100%);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(197, 167, 122, 0.15);
+  border-radius: 1rem;
+  transition: all 0.36s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.info-container-gradient:hover {
+  background: linear-gradient(135deg, rgba(27, 59, 47, 0.1) 0%, rgba(197, 167, 122, 0.1) 100%);
+  border-color: rgba(197, 167, 122, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Shine Effect */
+.btn-shine {
+  position: relative;
+  background: linear-gradient(135deg, #1B3B2F 0%, #2d5a48 100%);
+  transition: all 0.36s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  color: white;
+}
+
+.btn-shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.btn-shine:hover::before {
+  transform: translateX(300%);
+}
+
+.btn-shine:hover {
+  background: linear-gradient(135deg, #2d5a48 0%, #1B3B2F 100%);
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+/* Icon Container Premium */
+.icon-container-premium {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.icon-container-premium:hover {
+  background: linear-gradient(135deg, #1B3B2F 0%, #2d5a48 100%);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .card-glassmorphism,
+  .image-3d-hover,
+  .image-overlay-premium,
+  .image-overlay-premium::after,
+  .info-container-gradient,
+  .btn-shine,
+  .btn-shine::before,
+  .icon-container-premium {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .image-3d-hover:hover {
+    transform: scale(1.02);
+  }
+
+  .btn-shine:hover::before {
+    transform: none;
+  }
+}

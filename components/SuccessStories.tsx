@@ -1,10 +1,10 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { containerVariants, fadeUpVariants } from '@/utils/animations';
-import { SUCCESS_STORIES_DATA, COLORS } from '@/utils/constants';
+import { COLORS, SUCCESS_STORIES_DATA } from '@/utils/constants';
+import { motion } from 'framer-motion';
+import { useLocale, useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export default function SuccessStories() {
   const t = useTranslations('successStories');
@@ -13,16 +13,6 @@ export default function SuccessStories() {
 
   return (
     <section id="exito" className="py-24 bg-white relative overflow-hidden">
-      {/* Decorative background element */}
-      <div 
-        className="absolute top-0 right-0 w-96 h-96 opacity-5 pointer-events-none"
-        style={{ color: COLORS.accent }}
-      >
-        <svg viewBox="0 0 100 100" fill="currentColor">
-          <circle cx="50" cy="50" r="40" />
-        </svg>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           className="text-center mb-16"
@@ -55,7 +45,7 @@ export default function SuccessStories() {
           {SUCCESS_STORIES_DATA.map((story, index) => (
             <motion.div
               key={story.id}
-              className="group relative bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100"
+              className="card-glassmorphism group overflow-hidden"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -63,7 +53,7 @@ export default function SuccessStories() {
               custom={index}
             >
               {/* Image Container */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="image-overlay-premium h-64 relative">
                 <Image
                   src={story.image}
                   alt={`Caso de éxito - Paciente feliz atendido en VETECHI Hospital - ${t(`${story.id}.title`)}`}
@@ -72,7 +62,6 @@ export default function SuccessStories() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                
                 {/* Tag */}
                 <div 
                   className="absolute top-4 left-4 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-white shadow-lg"
@@ -83,7 +72,7 @@ export default function SuccessStories() {
               </div>
 
               {/* Content */}
-              <div className="p-8">
+              <div className="info-container-gradient p-8 m-4">
                 <h3 
                   className="text-xl font-display font-bold mb-3 group-hover:text-primary transition-colors"
                   style={{ color: COLORS.dark }}
@@ -93,9 +82,7 @@ export default function SuccessStories() {
                 <p className="text-text text-sm leading-relaxed mb-6 opacity-80">
                   {t(`${story.id}.description`)}
                 </p>
-
               </div>
-
             </motion.div>
           ))}
         </div>
