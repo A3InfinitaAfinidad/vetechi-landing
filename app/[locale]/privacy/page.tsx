@@ -53,7 +53,7 @@ export default function PrivacyPolicyPage() {
             
             <h2 className="text-2xl font-bold mt-8 mb-4">1. Information We Collect</h2>
             <p>
-              We may collect personal information such as your name, phone number, email address, and your pets' medical history when you use our services, book appointments, or contact us via WhatsApp or forms on our website.
+              We may collect personal information such as your name, phone number, email address, and your pets&apos; medical history when you use our services, book appointments, or contact us via WhatsApp or forms on our website.
             </p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">2. Use of Information</h2>

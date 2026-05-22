@@ -60,8 +60,8 @@ export default function Testimonials() {
           </div>
 
           {/* Text */}
-          <p className="text-lg text-text italic mb-8 leading-relaxed">
-            "{text}"
+          <p className="text-xl md:text-2xl font-serif italic text-dark-900 leading-relaxed mb-6 text-center">
+            &quot;{text}&quot;
           </p>
 
           {/* Author */}

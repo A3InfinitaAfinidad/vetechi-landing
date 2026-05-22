@@ -364,6 +364,7 @@ export default function Contact() {
             backgroundSize: '40px 40px'
           }}></div>
 
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src="/images/optimized/map-bg.webp" 
             alt="Ubicación aproximada en el mapa" 

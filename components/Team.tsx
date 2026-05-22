@@ -92,7 +92,7 @@ export default function Team() {
   );
 }
 
-function TeamMemberCard({ member, idx, teamImageMap, isEs }: { member: any, idx: number, teamImageMap: Record<string, string>, isEs: boolean }) {
+function TeamMemberCard({ member, idx, teamImageMap, isEs }: { member: typeof TEAM[number], idx: number, teamImageMap: Record<string, string>, isEs: boolean }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
