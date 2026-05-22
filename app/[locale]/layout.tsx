@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { Poppins, Montserrat, Open_Sans } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, unstable_setRequestLocale } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n.config';
 import '../globals.css';
@@ -43,11 +43,20 @@ export const metadata: Metadata = {
     title: 'VETECHI | Hospital Veterinario Chiriquí',
     description: 'La mejor clínica veterinaria premium en Chiriquí. Emergencias 24/7, especialistas apasionados.',
     siteName: 'VETECHI',
+    images: [
+      {
+        url: '/images/optimized/hero/hero-bg.webp',
+        width: 1200,
+        height: 630,
+        alt: 'VETECHI Hospital Veterinario',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'VETECHI | Hospital Veterinario Chiriquí',
-    description: 'Emergencias 24/7. Tu mascota merece lo mejor.',
+    description: 'La mejor clínica veterinaria premium en Chiriquí. Emergencias 24/7, especialistas apasionados.',
+    images: ['/images/optimized/hero/hero-bg.webp'],
   },
   alternates: {
     canonical: 'https://vetechi.pa',
@@ -64,16 +73,18 @@ export function generateStaticParams() {
 
 export default async function LocaleLayout({
   children,
-  params: { locale },
+  params,
 }: {
   children: ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+
   if (!locales.includes(locale as any)) {
     notFound();
   }
 
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
 
   const messages = await getMessages();
 

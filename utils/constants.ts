@@ -323,19 +323,19 @@ export const COLORS = {
 export const SUCCESS_STORIES_DATA = [
   {
     id: 'mickey',
-    image: '/images/casos/caso-mickey.jpg',
+    image: '/images/optimized/casos/caso-mickey.webp',
     tagEs: 'Ortopedia',
     tagEn: 'Orthopedics',
   },
   {
     id: 'hunter',
-    image: '/images/casos/caso-hunter.jpg',
+    image: '/images/optimized/casos/caso-hunter.webp',
     tagEs: 'Hospitalización',
     tagEn: 'Hospitalization',
   },
   {
     id: 'guacamayo',
-    image: '/images/casos/caso-guacamayo.jpg',
+    image: '/images/optimized/casos/caso-guacamayo.webp',
     tagEs: 'Especies No Tradicionales',
     tagEn: 'Non-Traditional Species',
   },

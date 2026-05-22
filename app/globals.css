@@ -60,7 +60,8 @@ h1, h2, h3, h4, h5, h6 {
   will-change: transform;
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner,
+.flip-card.flipped .flip-card-inner {
   transform: rotateY(180deg) translateY(-6px) scale(1.02);
   -webkit-transform: rotateY(180deg) translateY(-6px) scale(1.02);
 }

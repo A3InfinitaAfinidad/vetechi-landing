@@ -365,8 +365,8 @@ export default function Contact() {
           }}></div>
 
           <img 
-            src="/images/map-bg.png" 
-            alt="Mapa de ubicación VETECHI" 
+            src="/images/optimized/map-bg.webp" 
+            alt="Ubicación aproximada en el mapa" 
             className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 ease-out"
           />
 

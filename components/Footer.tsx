@@ -30,8 +30,8 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="relative w-14 h-14">
                 <Image 
-                  src="/images/logo/logo.png" 
-                  alt="Vetechi Logo" 
+                  src="/images/optimized/logo/logo.webp" 
+                  alt="VETECHI Hospital Veterinario" 
                   fill
                   className="object-contain brightness-0 invert"
                 />

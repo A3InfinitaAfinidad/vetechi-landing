@@ -54,8 +54,8 @@ export default function Navbar() {
               whileHover={{ scale: 1.05 }}
             >
               <Image 
-                src="/images/logo/logo.png" 
-                alt="Vetechi Logo" 
+                src="/images/optimized/logo/logo.webp" 
+                alt="VETECHI Hospital Veterinario Logo" 
                 fill
                 className="object-contain brightness-0 invert"
                 priority

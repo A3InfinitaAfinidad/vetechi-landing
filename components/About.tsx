@@ -79,7 +79,7 @@ export default function About() {
                 <Parallax3DImage intensity={15} scale={1.05}>
                   <div className="image-overlay-premium relative h-full aspect-[16/9]">
                     <Image
-                      src="/images/about/about-1.jpg"
+                      src="/images/optimized/about/about-1.webp"
                       alt="Equipo médico veterinario de VETECHI - Profesionales especializados"
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
@@ -102,7 +102,7 @@ export default function About() {
                 <Parallax3DImage intensity={15} scale={1.05}>
                   <div className="image-overlay-premium relative h-full aspect-square">
                     <Image
-                      src="/images/about/about-2.jpg"
+                      src="/images/optimized/about/about-2.webp"
                       alt="Procedimiento médico - Ecografía veterinaria en VETECHI"
                       fill
                       sizes="(max-width: 768px) 100vw, 25vw"
@@ -125,7 +125,7 @@ export default function About() {
                 <Parallax3DImage intensity={15} scale={1.05}>
                   <div className="image-overlay-premium relative h-full aspect-square">
                     <Image
-                      src="/images/about/about-3.jpg"
+                      src="/images/optimized/about/about-3.webp"
                       alt="Tecnología moderna - Equipamiento especializado de VETECHI Hospital"
                       fill
                       sizes="(max-width: 768px) 100vw, 25vw"

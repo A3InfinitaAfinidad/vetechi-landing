@@ -26,7 +26,7 @@ export default function Hero() {
       {/* Background with Horizontal Image and Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero/hero-bg.jpg"
+          src="/images/optimized/hero/hero-bg.webp"
           alt="Hospital Veterinario VETECHI - Fachada exterior, instalaciones modernas"
           fill
           sizes="100vw"
