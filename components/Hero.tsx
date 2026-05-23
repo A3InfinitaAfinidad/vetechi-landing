@@ -26,12 +26,13 @@ export default function Hero() {
       {/* Background with Horizontal Image and Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/optimized/hero/hero-bg.webp"
+          src="/images/optimized/hero/hero-bg.avif"
           alt="Hospital Veterinario VETECHI - Fachada exterior, instalaciones modernas"
           fill
           sizes="100vw"
           className="object-cover"
           priority
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-dark-900/85 via-dark-900/50 to-dark-900/20" />
         <div 
@@ -82,8 +83,7 @@ export default function Hero() {
               {/* Headline */}
               <motion.h1
                 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold leading-tight text-white tracking-tight"
-                variants={fadeUpVariants}
-                custom={1}
+                initial={{ opacity: 1, y: 0 }} // Do not animate opacity/y from 0 for LCP element
               >
                 {isEs ? (
                   <>

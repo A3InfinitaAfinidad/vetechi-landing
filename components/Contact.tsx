@@ -18,6 +18,8 @@ export default function Contact() {
     phone: '',
     petName: '',
     species: '',
+    date: '',
+    time: '',
     reason: '',
     language: locale,
   });
@@ -50,15 +52,15 @@ export default function Contact() {
     
     // Build WhatsApp Message
     const text = isEs 
-      ? `Hola VETECHI. Soy ${sanitizeWhatsAppText(formData.name)} y escribo por mi mascota ${sanitizeWhatsAppText(formData.petName || 'mi compañero')} (${sanitizeWhatsAppText(formData.species || 'No especificado')}).\n\nMotivo: ${sanitizeWhatsAppText(formData.reason || 'Consulta general')}`
-      : `Hello VETECHI. I am ${sanitizeWhatsAppText(formData.name)} and I am writing about my pet ${sanitizeWhatsAppText(formData.petName || 'my companion')} (${sanitizeWhatsAppText(formData.species || 'Not specified')}).\n\nReason: ${sanitizeWhatsAppText(formData.reason || 'General inquiry')}`;
+      ? `Hola VETECHI. Soy ${sanitizeWhatsAppText(formData.name)} y escribo por mi mascota ${sanitizeWhatsAppText(formData.petName || 'mi compañero')} (${sanitizeWhatsAppText(formData.species || 'No especificado')}).\n\n🗓️ Preferencia: ${formData.date || 'Lo antes posible'} a las ${formData.time || 'N/A'}\n\nMotivo: ${sanitizeWhatsAppText(formData.reason || 'Consulta general')}`
+      : `Hello VETECHI. I am ${sanitizeWhatsAppText(formData.name)} and I am writing about my pet ${sanitizeWhatsAppText(formData.petName || 'my companion')} (${sanitizeWhatsAppText(formData.species || 'Not specified')}).\n\n🗓️ Preference: ${formData.date || 'As soon as possible'} at ${formData.time || 'N/A'}\n\nReason: ${sanitizeWhatsAppText(formData.reason || 'General inquiry')}`;
       
     const whatsappUrl = `${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(text)}`;
     
     setTimeout(() => {
       window.open(whatsappUrl, '_blank');
       setFormStatus('success');
-      setFormData({ name: '', phone: '', petName: '', species: '', reason: '', language: locale });
+      setFormData({ name: '', phone: '', petName: '', species: '', date: '', time: '', reason: '', language: locale });
       setTimeout(() => setFormStatus('idle'), 3000);
     }, 800);
   };
@@ -195,7 +197,7 @@ export default function Contact() {
               transition={{ duration: 0.5 }}
             >
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-2">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg aria-hidden="true" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
@@ -208,7 +210,7 @@ export default function Contact() {
               <button
                 onClick={() => {
                   setFormStatus('idle');
-                  setFormData({ ...formData, name: '', phone: '', petName: '', species: '', reason: '' });
+                  setFormData({ ...formData, name: '', phone: '', petName: '', species: '', date: '', time: '', reason: '' });
                 }}
                 className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
               >
@@ -240,10 +242,11 @@ export default function Contact() {
               )}
               {/* Name */}
               <div>
-                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                <label htmlFor="contact-name" className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
                   {contactCopy.form.name} *
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
@@ -255,10 +258,11 @@ export default function Contact() {
 
               {/* Phone */}
               <div>
-                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                <label htmlFor="contact-phone" className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
                   {contactCopy.form.phone} *
                 </label>
                 <input
+                  id="contact-phone"
                   type="tel"
                   required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
@@ -270,10 +274,11 @@ export default function Contact() {
 
               {/* Pet Name */}
               <div>
-                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                <label htmlFor="contact-petName" className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
                   {contactCopy.form.petName}
                 </label>
                 <input
+                  id="contact-petName"
                   type="text"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                   value={formData.petName}
@@ -284,10 +289,11 @@ export default function Contact() {
 
               {/* Species */}
               <div>
-                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                <label htmlFor="contact-species" className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
                   {contactCopy.form.species}
                 </label>
                 <select
+                  id="contact-species"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                   value={formData.species}
                   onChange={(e) => setFormData({ ...formData, species: e.target.value })}
@@ -303,12 +309,43 @@ export default function Contact() {
                 </select>
               </div>
 
+              {/* Date & Time Preferences */}
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="contact-date" className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                    {isEs ? 'Fecha Deseada' : 'Preferred Date'}
+                  </label>
+                  <input
+                    id="contact-date"
+                    type="date"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                    value={formData.date}
+                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                    disabled={formStatus === 'sending'}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="contact-time" className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                    {isEs ? 'Hora (Aprox)' : 'Time (Approx)'}
+                  </label>
+                  <input
+                    id="contact-time"
+                    type="time"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                    value={formData.time}
+                    onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                    disabled={formStatus === 'sending'}
+                  />
+                </div>
+              </div>
+
               {/* Reason */}
               <div>
-                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                <label htmlFor="contact-reason" className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
                   {contactCopy.form.reason}
                 </label>
                 <textarea
+                  id="contact-reason"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent h-24 resize-none"
                   value={formData.reason}
                   onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
@@ -318,10 +355,11 @@ export default function Contact() {
 
               {/* Language */}
               <div>
-                <label className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
+                <label htmlFor="contact-language" className="block text-sm font-subtitle font-bold text-dark-900 mb-2">
                   {contactCopy.form.language}
                 </label>
                 <select
+                  id="contact-language"
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                   value={formData.language}
                   onChange={(e) => setFormData({ ...formData, language: e.target.value })}
@@ -339,7 +377,7 @@ export default function Contact() {
                 disabled={formStatus === 'sending'}
               >
                 {formStatus === 'sending' ? (
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg aria-hidden="true" className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>

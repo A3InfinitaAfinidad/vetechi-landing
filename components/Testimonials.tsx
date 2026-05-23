@@ -86,11 +86,15 @@ export default function Testimonials() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  i === current ? 'bg-primary-600 w-8' : 'bg-gray-300'
-                }`}
+                className="p-2 -m-2 group"
                 aria-label={`Testimonio ${i + 1}`}
-              />
+              >
+                <div
+                  className={`h-3 rounded-full transition-all ${
+                    i === current ? 'bg-primary-600 w-8' : 'bg-gray-300 w-3 group-hover:bg-primary-400'
+                  }`}
+                />
+              </button>
             ))}
           </div>
 

@@ -48,7 +48,7 @@ export default function Footer() {
             <p className="text-sm text-gray-300 mb-6 italic font-subtitle">
               {isEs ? '¡Tu mejor amigo merece lo mejor!' : 'Your best friend deserves the best!'}
             </p>
-            <p className="text-xs text-gray-400 mb-4">
+            <p className="text-xs text-gray-300 mb-4">
               {isEs
                 ? 'Hospital Veterinario en David, Chiriquí - Panamá.'
                 : 'Veterinary Hospital in David, Chiriquí - Panama.'}
@@ -105,7 +105,7 @@ export default function Footer() {
                 <MapPin size={18} className="flex-shrink-0 text-primary-400 mt-0.5" />
                 <div>
                   <p>{isEs ? 'Antigua Vía a Boquete' : 'Old Boquete Road'}</p>
-                  <p className="text-xs text-gray-400">David, Chiriquí, Panamá</p>
+                  <p className="text-xs text-gray-300">David, Chiriquí, Panamá</p>
                 </div>
               </li>
             </ul>
@@ -132,7 +132,7 @@ export default function Footer() {
                 <p className="text-primary-400 font-bold text-xs">
                   🚨 {isEs ? 'EMERGENCIAS 24/7/365' : 'EMERGENCIES 24/7/365'}
                 </p>
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-xs text-gray-300 mt-1">
                   {isEs ? BUSINESS_DATA.emergencies.es : BUSINESS_DATA.emergencies.en}
                 </p>
               </li>
@@ -149,7 +149,7 @@ export default function Footer() {
             <p className="text-sm text-accent-500 italic font-subtitle">
               {isEs ? 'Siempre listos para cuidar a tu mejor amigo' : 'Always ready to care for your best friend'}
             </p>
-            <p className="text-xs text-gray-500 max-w-2xl mx-auto leading-relaxed pt-2">
+            <p className="text-xs text-gray-400 max-w-2xl mx-auto leading-relaxed pt-2">
               {isEs 
                 ? 'VETECHI es el único hospital veterinario 24 horas en Chiriquí. Ofrecemos atención continua, emergencias 24/7 y especialistas en todas las áreas de la salud animal.'
                 : 'VETECHI is the only 24-hour veterinary hospital in Chiriquí. We offer continuous care, 24/7 emergencies, and specialists in all areas of animal health.'}
@@ -159,7 +159,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <motion.div
-          className="text-center text-xs text-gray-500 pt-6 border-t border-gray-800"
+          className="text-center text-xs text-gray-400 pt-6 border-t border-gray-800"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}

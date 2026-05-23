@@ -19,8 +19,9 @@ Landing page bilingüe y premium desarrollada para el **Hospital Veterinario VET
 - **CTAs Diferenciados:** Botón principal "Agendar Cita" con efecto shine premium y botón secundario "Emergencia 24/7" en estilo ghost con icono pulsante.
 - **Soporte Bilingüe (ES/EN):** Sistema de cambio de idioma fluido con enrutamiento automático sin prefijos innecesarios (`as-needed`).
 - **Experiencia de Usuario Fluida (UX):** Animaciones suaves de scroll-reveal, tarjetas 3D en servicios y micro-interacciones de hover (ej. el efecto "latido" en emergencias y ubicación).
-- **Integración con WhatsApp:** Formulario validado del lado del cliente y CTAs dinámicos con mensajes pre-escritos en ambos idiomas.
-- **Rendimiento y Seguridad:** CSP endurecido (sin `unsafe-eval`), HSTS, etiquetas semánticas SEO y sitemap con rutas i18n válidas.
+- **Agendador (Booking Preview):** Formulario de contacto avanzado con selección de "Fecha Preferida" y "Hora (Aprox)", que pre-formatea mensajes intencionales listos para WhatsApp.
+- **Accesibilidad (A11y) y Rendimiento:** LCP optimizado con imágenes AVIF y `fetchPriority="high"`. Formularios semánticos y botones del carrusel ampliados para cumplir con métricas AAA y Mobile Tap Targets.
+- **Rendimiento y Seguridad:** CSP estricto (`frame-ancestors 'none'`, sin `unsafe-eval`), HSTS, etiquetas semánticas SEO y sitemap con rutas i18n válidas. `npm audit` con 0 vulnerabilidades.
 
 ## 🛠️ Estructura del Proyecto
 
