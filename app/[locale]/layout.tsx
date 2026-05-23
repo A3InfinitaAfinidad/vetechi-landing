@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
-import { Poppins, Montserrat, Open_Sans } from 'next/font/google';
+import { Outfit, Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -10,22 +10,16 @@ import Navbar from '@/components/Navbar';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { BUSINESS_DATA, TEAM } from '@/utils/constants';
 
-const poppins = Poppins({
-  variable: '--font-poppins',
+const outfit = Outfit({
+  variable: '--font-outfit',
   subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
+  weight: ['400', '500', '600', '700', '800'],
 });
 
-const montserrat = Montserrat({
-  variable: '--font-montserrat',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-});
-
-const openSans = Open_Sans({
-  variable: '--font-opensans',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -141,7 +135,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${poppins.variable} ${montserrat.variable} ${openSans.variable} bg-white text-text antialiased`}
+        className={`${outfit.variable} ${inter.variable} bg-white text-text antialiased`}
         suppressHydrationWarning
       >
         <NextIntlClientProvider locale={locale} messages={messages}>

@@ -63,6 +63,22 @@ export default function Hero() {
                 </span>
               </motion.div>
 
+              {/* Social Proof */}
+              <motion.div
+                className="flex items-center gap-3 pt-2"
+                variants={fadeUpVariants}
+                custom={0.5}
+              >
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+                  ))}
+                </div>
+                <span className="text-sm font-medium text-white/90">
+                  <strong className="text-white font-bold text-base">4.8/5</strong> {isEs ? 'en Google (42 reseñas)' : 'on Google (42 reviews)'}
+                </span>
+              </motion.div>
+
               {/* Headline */}
               <motion.h1
                 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold leading-tight text-white tracking-tight"
@@ -105,16 +121,16 @@ export default function Hero() {
                   href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? 'Hola VETECHI, me gustaría agendar una cita para mi mascota.' : 'Hello VETECHI, I would like to book an appointment for my pet.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary px-10 py-4 text-lg font-bold rounded-xl shadow-lg hover:shadow-primary-500/20 transition-all text-center"
+                  className="btn-shine px-10 py-4 text-lg font-bold rounded-xl shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-primary-500/40 transition-all text-center flex items-center justify-center"
                 >
                   {t('cta1')}
                 </a>
                 <a
                   href="tel:+50763303291"
                   aria-label={isEs ? 'Llamar a VETECHI - Emergencia 24/7' : 'Call VETECHI - Emergency 24/7'}
-                  className="btn-emergency px-10 py-4 text-lg font-bold rounded-xl flex items-center justify-center gap-3 shadow-lg"
+                  className="px-10 py-4 text-lg font-bold rounded-xl flex items-center justify-center gap-3 border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-all backdrop-blur-sm"
                 >
-                  <Phone size={20} />
+                  <Phone size={20} className="text-emergency animate-pulse" />
                   <span>{t('cta2')}</span>
                 </a>
               </motion.div>

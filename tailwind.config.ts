@@ -49,9 +49,9 @@ const config: Config = {
         'bg-soft': '#F7F9F7',
       },
       fontFamily: {
-        display: ['var(--font-poppins)', 'system-ui'],
-        subtitle: ['var(--font-montserrat)', 'system-ui'],
-        body: ['var(--font-opensans)', 'system-ui'],
+        display: ['var(--font-outfit)', 'system-ui'],
+        subtitle: ['var(--font-inter)', 'system-ui'],
+        body: ['var(--font-inter)', 'system-ui'],
       },
       animation: {
         pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',

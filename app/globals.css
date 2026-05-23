@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -15,18 +15,18 @@ html {
 }
 
 body {
-  font-family: var(--font-opensans), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
   color: #4F4F4F;
   background-color: #FFFFFF;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-family: var(--font-outfit), system-ui, sans-serif;
   font-weight: 700;
 }
 
 .subtitle {
-  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
   font-weight: 600;
 }
 
