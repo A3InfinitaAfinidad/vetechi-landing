@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:worker": "opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint app components",
     "format": "prettier --write .",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.5",
     "@next/bundle-analyzer": "^16.2.6",
+    "@opennextjs/cloudflare": "^1.19.11",
     "@tailwindcss/forms": "^0.5.7",
     "@types/node": "^20.0.0",
     "@types/react": "^18.3.0",
@@ -39,6 +41,7 @@
     "eslint-config-next": "^14.2.15",
     "lighthouse": "^13.3.0",
     "prettier": "^3.2.0",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "wrangler": "^4.94.0"
   }
 }
