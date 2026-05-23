@@ -21,7 +21,7 @@ Landing page bilingüe y premium desarrollada para el **Hospital Veterinario VET
 - **Experiencia de Usuario Fluida (UX):** Animaciones suaves de scroll-reveal, tarjetas 3D en servicios y micro-interacciones de hover (ej. el efecto "latido" en emergencias y ubicación).
 - **Agendador (Booking Preview):** Formulario de contacto avanzado con selección de "Fecha Preferida" y "Hora (Aprox)", que pre-formatea mensajes intencionales listos para WhatsApp.
 - **Accesibilidad (A11y) y Rendimiento:** LCP optimizado con imágenes AVIF y `fetchPriority="high"`. Formularios semánticos y botones del carrusel ampliados para cumplir con métricas AAA y Mobile Tap Targets.
-- **Rendimiento y Seguridad:** CSP estricto (`frame-ancestors 'none'`, sin `unsafe-eval`), HSTS, etiquetas semánticas SEO y sitemap con rutas i18n válidas. `npm audit` con 0 vulnerabilidades.
+- **Rendimiento y Seguridad:** HSTS, etiquetas semánticas SEO y sitemap con rutas i18n válidas. `npm audit` con 0 vulnerabilidades. **CSP estricto** (`frame-ancestors 'none'`, sin `unsafe-eval`); nota: se mantiene `'unsafe-inline'` para `style-src` y `script-src` como *trade-off* necesario para permitir la hidratación estática de Next.js y las animaciones de Framer Motion sin requerir una arquitectura de servidor dinámico con nonces.
 
 ## 🛠️ Estructura del Proyecto
 

@@ -249,7 +249,7 @@ export default function Contact() {
                   id="contact-name"
                   type="text"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  className="w-full px-4 py-3 min-h-[48px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   disabled={formStatus === 'sending'}
@@ -265,7 +265,7 @@ export default function Contact() {
                   id="contact-phone"
                   type="tel"
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  className="w-full px-4 py-3 min-h-[48px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   disabled={formStatus === 'sending'}
@@ -280,7 +280,7 @@ export default function Contact() {
                 <input
                   id="contact-petName"
                   type="text"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  className="w-full px-4 py-3 min-h-[48px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                   value={formData.petName}
                   onChange={(e) => setFormData({ ...formData, petName: e.target.value })}
                   disabled={formStatus === 'sending'}
@@ -294,7 +294,7 @@ export default function Contact() {
                 </label>
                 <select
                   id="contact-species"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  className="w-full px-4 py-3 min-h-[48px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                   value={formData.species}
                   onChange={(e) => setFormData({ ...formData, species: e.target.value })}
                   disabled={formStatus === 'sending'}
@@ -318,7 +318,7 @@ export default function Contact() {
                   <input
                     id="contact-date"
                     type="date"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                    className="w-full px-4 py-3 min-h-[48px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                     disabled={formStatus === 'sending'}
@@ -331,7 +331,7 @@ export default function Contact() {
                   <input
                     id="contact-time"
                     type="time"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                    className="w-full px-4 py-3 min-h-[48px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                     value={formData.time}
                     onChange={(e) => setFormData({ ...formData, time: e.target.value })}
                     disabled={formStatus === 'sending'}
@@ -360,7 +360,7 @@ export default function Contact() {
                 </label>
                 <select
                   id="contact-language"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
+                  className="w-full px-4 py-3 min-h-[48px] border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent"
                   value={formData.language}
                   onChange={(e) => setFormData({ ...formData, language: e.target.value })}
                   disabled={formStatus === 'sending'}

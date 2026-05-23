@@ -100,7 +100,7 @@ export default function Services() {
                       href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? `Hola Vetechi, me gustaría recibir más información sobre el servicio de ${t(`items.${service.id}`)}` : `Hello Vetechi, I'd like more information about the service: ${t(`items.${service.id}`)}`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`btn-shine inline-flex items-center gap-2 mt-6 px-6 py-3 rounded-lg font-bold uppercase tracking-wider text-sm ${
+                      className={`btn-shine inline-flex items-center gap-2 mt-6 px-6 py-3 min-h-[48px] rounded-lg font-bold uppercase tracking-wider text-sm ${
                         isEmergency ? 'text-accent-500 border border-accent-500' : 'text-white'
                       }`}
                     >

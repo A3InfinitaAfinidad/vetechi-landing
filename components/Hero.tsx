@@ -1,6 +1,6 @@
 'use client';
 
-import { containerVariants, fadeUpVariants, itemVariants } from '@/utils/animations';
+import { fadeUpVariants, itemVariants } from '@/utils/animations';
 import { BUSINESS_DATA, STATS } from '@/utils/constants';
 import { motion } from 'framer-motion';
 import { Clock, MapPin, PawPrint, Phone, Star, Stethoscope } from 'lucide-react';
@@ -46,12 +46,7 @@ export default function Hero() {
           {/* Main Content Area */}
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             {/* Content Side */}
-            <motion.div
-              className="flex-1 space-y-8"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-            >
+            <div className="flex-1 space-y-8">
               {/* Top Badge — Latido Institucional */}
               <motion.div 
                 className="latido inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#C5A77A]/40 bg-[#C5A77A]/10 backdrop-blur-md shadow-[0_0_15px_rgba(197,167,122,0.15)]"
@@ -81,10 +76,7 @@ export default function Hero() {
               </motion.div>
 
               {/* Headline */}
-              <motion.h1
-                className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold leading-tight text-white tracking-tight"
-                initial={{ opacity: 1, y: 0 }} // Do not animate opacity/y from 0 for LCP element
-              >
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold leading-tight text-white tracking-tight">
                 {isEs ? (
                   <>
                     Hospital Veterinario<br />
@@ -98,7 +90,7 @@ export default function Hero() {
                     <span className="text-3xl sm:text-5xl font-semibold">24 hours in Chiriquí</span>
                   </>
                 )}
-              </motion.h1>
+              </h1>
 
               {/* Subheadline */}
               <motion.p
@@ -134,7 +126,7 @@ export default function Hero() {
                   <span>{t('cta2')}</span>
                 </a>
               </motion.div>
-            </motion.div>
+            </div>
 
             {/* Decorative spacer for desktop to balance with the wide stats below */}
             <div className="hidden lg:block lg:w-32" />

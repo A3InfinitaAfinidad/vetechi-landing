@@ -1,13 +1,15 @@
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import SuccessStories from '@/components/SuccessStories';
-import Emergencies from '@/components/Emergencies';
-import Testimonials from '@/components/Testimonials';
-import Team from '@/components/Team';
-import Technology from '@/components/Technology';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import dynamic from 'next/dynamic';
+
+const About = dynamic(() => import('@/components/About'));
+const Services = dynamic(() => import('@/components/Services'));
+const SuccessStories = dynamic(() => import('@/components/SuccessStories'));
+const Emergencies = dynamic(() => import('@/components/Emergencies'));
+const Testimonials = dynamic(() => import('@/components/Testimonials'));
+const Team = dynamic(() => import('@/components/Team'));
+const Technology = dynamic(() => import('@/components/Technology'));
+const Contact = dynamic(() => import('@/components/Contact'));
+const Footer = dynamic(() => import('@/components/Footer'));
 
 export const metadata = {
   title: 'VETECHI | Hospital Veterinario Chiriquí - David, Panamá',
