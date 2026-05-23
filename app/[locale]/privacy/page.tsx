@@ -1,6 +1,9 @@
 import { useLocale } from 'next-intl';
+import { locales } from '@/i18n.config';
 
-export const runtime = 'edge';
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export default function PrivacyPolicyPage() {
   const locale = useLocale();
