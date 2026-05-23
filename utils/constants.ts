@@ -25,7 +25,7 @@ export const BUSINESS_DATA = {
   googleMaps: 'https://maps.app.goo.gl/S9VeaqRXJSKkZZrR8',
   geoReference: 'FH5H+CQ David, Panamá',
   social: {
-    instagram: 'https://instagram.com/vetechi.pa',
+    instagram: 'https://www.instagram.com/vetechic4?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
     facebook: 'https://facebook.com/vetechipa',
   },
   hours: {
