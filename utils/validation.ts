@@ -19,7 +19,7 @@ export const isValidWhatsAppUrl = (url: string): boolean => {
  */
 export const isValidPhoneNumber = (phone: string): boolean => {
   if (!phone) return false;
-  return /^[\d\s\-\+\(\)]{10,}$/.test(phone.replace(/\s+/g, ''));
+  return /^[\d\s\-\+\(\)]{7,}$/.test(phone.replace(/\s+/g, ''));
 };
 
 /**
