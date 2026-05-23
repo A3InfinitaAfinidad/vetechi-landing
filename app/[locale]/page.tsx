@@ -9,6 +9,8 @@ import Technology from '@/components/Technology';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
+export const runtime = 'edge';
+
 export const metadata = {
   title: 'VETECHI | Hospital Veterinario Chiriquí - David, Panamá',
 };

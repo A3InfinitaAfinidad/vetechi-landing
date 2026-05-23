@@ -10,6 +10,8 @@ import Navbar from '@/components/Navbar';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { BUSINESS_DATA, TEAM } from '@/utils/constants';
 
+export const runtime = 'edge';
+
 const poppins = Poppins({
   variable: '--font-poppins',
   subsets: ['latin'],

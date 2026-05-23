@@ -1,5 +1,7 @@
 import { useLocale } from 'next-intl';
 
+export const runtime = 'edge';
+
 export default function PrivacyPolicyPage() {
   const locale = useLocale();
   const isEs = locale === 'es';
