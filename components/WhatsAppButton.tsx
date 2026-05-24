@@ -34,7 +34,7 @@ export default function WhatsAppButton() {
       aria-label={isEs ? 'WhatsApp de Emergencia' : 'Emergency WhatsApp'}
       title={isEs ? 'Contactar por WhatsApp' : 'Contact via WhatsApp'}
     >
-      <SiWhatsapp size={32} />
+      <SiWhatsapp size={32} aria-hidden="true" />
       {/* Pulse effect */}
       <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20" />
     </motion.a>

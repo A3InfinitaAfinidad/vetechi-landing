@@ -75,7 +75,7 @@ export default function Testimonials() {
         <div className="flex justify-center items-center gap-6 mt-8">
           <button
             onClick={prevTestimonial}
-            className="bg-gray-200 text-dark-900 w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary-400 hover:text-white transition-all"
+            className="bg-gray-200 text-dark-900 w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary-400 hover:text-white transition-all min-w-[48px] min-h-[48px]"
             aria-label="Anterior"
           >
             <ChevronLeft size={20} />
@@ -86,7 +86,7 @@ export default function Testimonials() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className="p-2 -m-2 group"
+                className="group min-w-[48px] min-h-[48px] flex items-center justify-center"
                 aria-label={`Testimonio ${i + 1}`}
               >
                 <div
@@ -100,7 +100,7 @@ export default function Testimonials() {
 
           <button
             onClick={nextTestimonial}
-            className="bg-gray-200 text-dark-900 w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary-400 hover:text-white transition-all"
+            className="bg-gray-200 text-dark-900 w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary-400 hover:text-white transition-all min-w-[48px] min-h-[48px]"
             aria-label="Siguiente"
           >
             <ChevronRight size={20} />

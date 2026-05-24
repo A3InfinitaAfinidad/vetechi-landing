@@ -5,7 +5,7 @@ import { BUSINESS_DATA, STATS } from '@/utils/constants';
 import { motion } from 'framer-motion';
 import { Clock, MapPin, PawPrint, Phone, Star, Stethoscope } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
-import Image from 'next/image';
+import { preload } from 'react-dom';
 import AnimatedCounter from './AnimatedCounter';
 
 const IconMap = {
@@ -16,6 +16,9 @@ const IconMap = {
 };
 
 export default function Hero() {
+  preload('/images/optimized/hero/hero-bg-mobile.avif', { as: 'image', fetchPriority: 'high', media: '(max-width: 768px)' });
+  preload('/images/optimized/hero/hero-bg.avif', { as: 'image', fetchPriority: 'high', media: '(min-width: 769px)' });
+
   const t = useTranslations('hero');
   const locale = useLocale();
   const isEs = locale === 'es';
@@ -25,15 +28,17 @@ export default function Hero() {
     <section id="inicio" className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-dark-900">
       {/* Background with Horizontal Image and Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/optimized/hero/hero-bg.avif"
-          alt="Hospital Veterinario VETECHI - Fachada exterior, instalaciones modernas"
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-          fetchPriority="high"
-        />
+        <picture>
+          <source media="(max-width: 768px)" srcSet="/images/optimized/hero/hero-bg-mobile.avif" type="image/avif" />
+          <source media="(min-width: 769px)" srcSet="/images/optimized/hero/hero-bg.avif" type="image/avif" />
+          <img
+            src="/images/optimized/hero/hero-bg.webp"
+            alt="Hospital Veterinario VETECHI - Fachada exterior, instalaciones modernas"
+            className="absolute inset-0 object-cover w-full h-full"
+            fetchPriority="high"
+            decoding="sync"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-dark-900/85 via-dark-900/50 to-dark-900/20" />
         <div 
           className="absolute inset-0 opacity-60 pointer-events-none" 

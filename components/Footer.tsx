@@ -58,28 +58,28 @@ export default function Footer() {
                 href={BUSINESS_DATA.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
+                className="w-12 h-12 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
                 aria-label="Instagram"
               >
-                <FaInstagram size={20} className="text-white" />
+                <FaInstagram size={20} className="text-white" aria-hidden="true" />
               </a>
               <a
                 href={BUSINESS_DATA.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
+                className="w-12 h-12 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
                 aria-label="Facebook"
               >
-                <FaFacebook size={20} className="text-white" />
+                <FaFacebook size={20} className="text-white" aria-hidden="true" />
               </a>
               <a
                 href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.info.es : BUSINESS_DATA.whatsappMessages.info.en)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
+                className="w-12 h-12 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
                 aria-label="WhatsApp"
               >
-                <SiWhatsapp size={20} className="text-white" />
+                <SiWhatsapp size={20} className="text-white" aria-hidden="true" />
               </a>
             </div>
           </motion.div>

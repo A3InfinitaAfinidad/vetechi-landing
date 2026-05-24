@@ -1,0 +1,577 @@
+ INFO  Accepting connections at http://localhost:3001
+ HTTP  05/23/2026 6:32:29 p. m. 127.0.0.1 GET /es.html
+ HTTP  05/23/2026 6:32:29 p. m. 127.0.0.1 Returned 301 in 56 ms
+ HTTP  05/23/2026 6:32:29 p. m. 127.0.0.1 GET /es
+ HTTP  05/23/2026 6:32:29 p. m. 127.0.0.1 Returned 200 in 65 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /es.html
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 301 in 3 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /es
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /images/optimized/hero/hero-bg.avif
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/0ontp~l8p.dep.css
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 12 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 9 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 8 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 9 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 20 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 10 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 9 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 8 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 8 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 16 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 19 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/0dc2xnyxs~bu3.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/14ab_nh9jrk9b.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 16 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 10 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 10 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 13 ms
+ HTTP  05/23/2026 6:33:06 p. m. ::1 GET /_next/static/chunks/0-xrlw8guev~n.js
+ HTTP  05/23/2026 6:33:06 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:33:07 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 6:33:07 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 6:33:07 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 6:33:07 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 6:33:07 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:33:07 p. m. ::1 Returned 200 in 9 ms
+ HTTP  05/23/2026 6:33:07 p. m. ::1 HEAD /
+ HTTP  05/23/2026 6:33:07 p. m. ::1 Returned 200 in 11 ms
+ HTTP  05/23/2026 6:33:07 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 6:33:07 p. m. ::1 Returned 404 in 3 ms
+ HTTP  05/23/2026 6:33:13 p. m. ::1 GET /es.html
+ HTTP  05/23/2026 6:33:13 p. m. ::1 Returned 301 in 2 ms
+ HTTP  05/23/2026 6:33:13 p. m. ::1 GET /es
+ HTTP  05/23/2026 6:33:13 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 16 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /images/optimized/hero/hero-bg.avif
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/0ontp~l8p.dep.css
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/0dc2xnyxs~bu3.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/14ab_nh9jrk9b.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /_next/static/chunks/0-xrlw8guev~n.js
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 5 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 HEAD /
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 6:33:14 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 6:33:14 p. m. ::1 Returned 404 in 2 ms
+ HTTP  05/23/2026 6:34:30 p. m. ::1 GET /es.html
+ HTTP  05/23/2026 6:34:30 p. m. ::1 Returned 301 in 1 ms
+ HTTP  05/23/2026 6:34:30 p. m. ::1 GET /es
+ HTTP  05/23/2026 6:34:30 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:34:30 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 6:34:30 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 6:34:30 p. m. ::1 GET /_next/static/chunks/0ontp~l8p.dep.css
+ HTTP  05/23/2026 6:34:30 p. m. ::1 GET /images/optimized/hero/hero-bg.avif
+ HTTP  05/23/2026 6:34:30 p. m. ::1 Returned 200 in 8 ms
+ HTTP  05/23/2026 6:34:30 p. m. ::1 Returned 200 in 9 ms
+ HTTP  05/23/2026 6:34:30 p. m. ::1 Returned 200 in 7 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 6:34:30 p. m. ::1 Returned 200 in 9 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/0dc2xnyxs~bu3.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/14ab_nh9jrk9b.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /_next/static/chunks/0-xrlw8guev~n.js
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /images/logo/favicon.svg
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /images/logo/favicon.svg
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 HEAD /
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 6:34:31 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 6:34:31 p. m. ::1 Returned 404 in 2 ms
+ HTTP  05/23/2026 6:34:40 p. m. ::1 GET /llms.txt
+ HTTP  05/23/2026 6:34:40 p. m. ::1 Returned 404 in 4 ms
+ HTTP  05/23/2026 6:34:41 p. m. ::1 GET /_next/static/chunks/0ontp~l8p.dep.css
+ HTTP  05/23/2026 6:34:41 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:34:41 p. m. ::1 GET /robots.txt
+ HTTP  05/23/2026 6:34:41 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:34:45 p. m. ::1 HEAD /
+ HTTP  05/23/2026 6:34:45 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 6:34:45 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 6:34:45 p. m. ::1 Returned 404 in 2 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /es.html
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 301 in 1 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /es
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/0ontp~l8p.dep.css
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /images/optimized/hero/hero-bg.avif
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 9 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/0dc2xnyxs~bu3.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/14ab_nh9jrk9b.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /_next/static/chunks/0-xrlw8guev~n.js
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 1 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /images/logo/favicon.svg
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 200 in 1 ms
+ HTTP  05/23/2026 6:35:43 p. m. ::1 GET /images/logo/favicon.svg
+ HTTP  05/23/2026 6:35:43 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 6:35:44 p. m. ::1 HEAD /
+ HTTP  05/23/2026 6:35:44 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 6:35:44 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 6:35:44 p. m. ::1 Returned 404 in 1 ms
+ HTTP  05/23/2026 6:35:48 p. m. ::1 GET /llms.txt
+ HTTP  05/23/2026 6:35:48 p. m. ::1 Returned 404 in 4 ms
+ HTTP  05/23/2026 6:35:48 p. m. ::1 GET /_next/static/chunks/0ontp~l8p.dep.css
+ HTTP  05/23/2026 6:35:48 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 6:35:49 p. m. ::1 GET /robots.txt
+ HTTP  05/23/2026 6:35:49 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 6:36:17 p. m. ::1 GET /es
+ HTTP  05/23/2026 6:36:17 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:36:17 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 6:36:17 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:36:17 p. m. ::1 GET /_next/static/chunks/0ontp~l8p.dep.css
+ HTTP  05/23/2026 6:36:17 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 6:36:17 p. m. ::1 GET /images/optimized/hero/hero-bg.avif
+ HTTP  05/23/2026 6:36:17 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 6:36:17 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 6:36:17 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 6:36:17 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 6:36:17 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 6:36:17 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:36:17 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:36:17 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 6:36:17 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 6:36:17 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 6:36:17 p. m. ::1 Returned 304 in 7 ms
+ HTTP  05/23/2026 6:36:17 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 6:36:17 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /_next/static/chunks/0dc2xnyxs~bu3.js
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 7 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 5 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /_next/static/chunks/14ab_nh9jrk9b.js
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /_next/static/chunks/0-xrlw8guev~n.js
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 HEAD /
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 6:36:18 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 6:36:18 p. m. ::1 Returned 404 in 2 ms
+ HTTP  05/23/2026 7:07:10 p. m. ::1 GET /es/
+ HTTP  05/23/2026 7:07:10 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /es/
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 200 in 10 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /_next/static/chunks/0ontp~l8p.dep.css
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /images/optimized/hero/hero-bg.avif
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 7 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 7 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 10 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 8 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 7:07:28 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 7:07:28 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 7:07:29 p. m. ::1 GET /_next/static/chunks/0dc2xnyxs~bu3.js
+ HTTP  05/23/2026 7:07:29 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 7:07:29 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 7:07:29 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 7:07:29 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 7:07:29 p. m. ::1 GET /_next/static/chunks/14ab_nh9jrk9b.js
+ HTTP  05/23/2026 7:07:29 p. m. ::1 GET /_next/static/chunks/0-xrlw8guev~n.js
+ HTTP  05/23/2026 7:07:29 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:07:29 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:07:29 p. m. ::1 Returned 304 in 5 ms
+ HTTP  05/23/2026 7:07:29 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 7:07:29 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 7:07:29 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 7:07:29 p. m. ::1 Returned 304 in 5 ms
+ HTTP  05/23/2026 7:07:29 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:07:29 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:07:29 p. m. ::1 HEAD /
+ HTTP  05/23/2026 7:07:29 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 7:07:29 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 7:07:29 p. m. ::1 Returned 404 in 3 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /es/
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/0ontp~l8p.dep.css
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /images/optimized/hero/hero-bg.avif
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 5 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 8 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 5 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 7 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/0dc2xnyxs~bu3.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 5 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 5 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 5 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 6 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/14ab_nh9jrk9b.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 GET /_next/static/chunks/0-xrlw8guev~n.js
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:08:13 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:08:14 p. m. ::1 HEAD /
+ HTTP  05/23/2026 7:08:14 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 7:08:14 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 7:08:14 p. m. ::1 Returned 404 in 3 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /es/
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/001egyyzeaj94.css
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /images/optimized/hero/hero-bg-mobile.avif
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 12 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 14 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 13 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 16 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 8 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 7 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 14 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 11 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 10 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 8 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/11_vkxixyeyss.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/101i0ytkxkhh1.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /_next/static/chunks/06sa30~ms81t8.js
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 9 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 8 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /images/logo/favicon.svg
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 7:09:49 p. m. ::1 GET /images/logo/favicon.svg
+ HTTP  05/23/2026 7:09:49 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 7:09:50 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 7:09:50 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 7:09:50 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 7:09:50 p. m. ::1 HEAD /
+ HTTP  05/23/2026 7:09:50 p. m. ::1 Returned 200 in 14 ms
+ HTTP  05/23/2026 7:09:50 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:09:50 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 7:09:50 p. m. ::1 Returned 200 in 9 ms
+ HTTP  05/23/2026 7:09:50 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 7:09:50 p. m. ::1 Returned 404 in 2 ms
+ HTTP  05/23/2026 7:09:55 p. m. ::1 GET /llms.txt
+ HTTP  05/23/2026 7:09:55 p. m. ::1 Returned 404 in 2 ms
+ HTTP  05/23/2026 7:09:56 p. m. ::1 GET /_next/static/chunks/001egyyzeaj94.css
+ HTTP  05/23/2026 7:09:56 p. m. ::1 Returned 304 in 11 ms
+ HTTP  05/23/2026 7:09:56 p. m. ::1 GET /robots.txt
+ HTTP  05/23/2026 7:09:56 p. m. ::1 Returned 200 in 1 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /es/
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/001egyyzeaj94.css
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /images/optimized/hero/hero-bg.avif
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 7 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 8 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/11_vkxixyeyss.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/101i0ytkxkhh1.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 7 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /_next/static/chunks/06sa30~ms81t8.js
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /images/logo/favicon.svg
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 200 in 1 ms
+ HTTP  05/23/2026 7:10:12 p. m. ::1 GET /images/logo/favicon.svg
+ HTTP  05/23/2026 7:10:12 p. m. ::1 Returned 304 in 2 ms
+ HTTP  05/23/2026 7:10:13 p. m. ::1 HEAD /
+ HTTP  05/23/2026 7:10:13 p. m. ::1 Returned 200 in 8 ms
+ HTTP  05/23/2026 7:10:13 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 7:10:13 p. m. ::1 Returned 404 in 6 ms
+ HTTP  05/23/2026 7:10:16 p. m. ::1 GET /llms.txt
+ HTTP  05/23/2026 7:10:16 p. m. ::1 Returned 404 in 3 ms
+ HTTP  05/23/2026 7:10:17 p. m. ::1 GET /_next/static/chunks/001egyyzeaj94.css
+ HTTP  05/23/2026 7:10:17 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 7:10:17 p. m. ::1 GET /robots.txt
+ HTTP  05/23/2026 7:10:17 p. m. ::1 Returned 200 in 11 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /es/
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/001egyyzeaj94.css
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /images/optimized/hero/hero-bg.avif
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 5 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/11_vkxixyeyss.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 6 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/101i0ytkxkhh1.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /_next/static/chunks/06sa30~ms81t8.js
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 12 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /images/logo/favicon.svg
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 7:10:42 p. m. ::1 GET /images/logo/favicon.svg
+ HTTP  05/23/2026 7:10:42 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:10:43 p. m. ::1 HEAD /
+ HTTP  05/23/2026 7:10:43 p. m. ::1 Returned 200 in 10 ms
+ HTTP  05/23/2026 7:10:43 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 7:10:43 p. m. ::1 Returned 404 in 5 ms
+ HTTP  05/23/2026 7:10:46 p. m. ::1 GET /llms.txt
+ HTTP  05/23/2026 7:10:46 p. m. ::1 Returned 404 in 12 ms
+ HTTP  05/23/2026 7:10:47 p. m. ::1 GET /_next/static/chunks/001egyyzeaj94.css
+ HTTP  05/23/2026 7:10:47 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 7:10:47 p. m. ::1 GET /robots.txt
+ HTTP  05/23/2026 7:10:47 p. m. ::1 Returned 200 in 1 ms
+ HTTP  05/23/2026 7:11:27 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 7:11:27 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 7:11:27 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 7:11:27 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:11:27 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:11:27 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /es/
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/001egyyzeaj94.css
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 200 in 2 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/media/1b99372b3eaef0c8-s.p.0gx2haw2tmll8.woff2
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /images/optimized/hero/hero-bg-mobile.avif
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/media/83afe278b6a6bb3c-s.p.0q-301v4kxxnr.woff2
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /images/optimized/map-bg.webp
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /images/optimized/logo/logo.webp
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/05of3wrdw7.af.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/0dvdt71sp510r.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/0whvh662-zl_q.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/turbopack-0d4wcdr5ax3_i.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/01xlw8hd842-c.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/11_vkxixyeyss.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/0d3shmwh5_nmn.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 5 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/0zk4uowsee-a_.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 1 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/101i0ytkxkhh1.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/06sa30~ms81t8.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /_next/static/chunks/10ea57h~qfrtd.js
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 200 in 3 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 HEAD /
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 200 in 4 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /__next._tree.txt?_rsc=UOlQcfOPFbguJJrh
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 404 in 2 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /images/optimized/hero/hero-bg.avif
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /images/optimized/about/about-1.webp
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /images/optimized/about/about-2.webp
+ HTTP  05/23/2026 7:12:15 p. m. ::1 GET /images/optimized/about/about-3.webp
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 3 ms
+ HTTP  05/23/2026 7:12:15 p. m. ::1 Returned 304 in 4 ms
