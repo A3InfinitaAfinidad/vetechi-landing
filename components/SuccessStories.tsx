@@ -1,8 +1,6 @@
 'use client';
 
-import { containerVariants, fadeUpVariants } from '@/utils/animations';
 import { COLORS, SUCCESS_STORIES_DATA } from '@/utils/constants';
-import { motion } from 'framer-motion';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -14,43 +12,31 @@ export default function SuccessStories() {
   return (
     <section id="exito" className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
+        <div
           className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
         >
-          <motion.h2
+          <h2
             className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-4"
             style={{ color: COLORS.dark }}
-            variants={fadeUpVariants}
           >
             {t('title')}
-          </motion.h2>
-          <motion.div
+          </h2>
+          <div
             className="w-20 h-1 mx-auto mb-6 rounded-full"
             style={{ backgroundColor: COLORS.accent }}
-            variants={fadeUpVariants}
           />
-          <motion.p
+          <p
             className="text-lg text-text max-w-2xl mx-auto"
-            variants={fadeUpVariants}
           >
             {t('subtitle')}
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {SUCCESS_STORIES_DATA.map((story, index) => (
-            <motion.div
+          {SUCCESS_STORIES_DATA.map((story) => (
+            <div
               key={story.id}
               className="card-glassmorphism group overflow-hidden"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUpVariants}
-              custom={index}
             >
               {/* Image Container */}
               <div className="image-overlay-premium h-64 relative">
@@ -83,7 +69,7 @@ export default function SuccessStories() {
                   {t(`${story.id}.description`)}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

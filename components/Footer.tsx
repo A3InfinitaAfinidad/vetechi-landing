@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Clock, MapPin, Phone } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
@@ -21,16 +20,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand & Social */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+          <div
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="relative w-14 h-14">
                 <Image 
-                  src="/images/optimized/logo/logo.webp" 
+                  src="/images/optimized/logo/logo-nav.webp" 
                   alt="VETECHI Hospital Veterinario" 
                   fill
                   className="object-contain brightness-0 invert"
@@ -82,14 +77,10 @@ export default function Footer() {
                 <SiWhatsapp size={20} className="text-white" aria-hidden="true" />
               </a>
             </div>
-          </motion.div>
+          </div>
 
           {/* Contact Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
+          <div
           >
             <h4 className="font-subtitle font-bold text-accent-500 uppercase text-sm mb-6">
               {isEs ? 'Contacto' : 'Contact'}
@@ -109,14 +100,10 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
-          </motion.div>
+          </div>
 
           {/* Hours */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
+          <div
           >
             <h4 className="font-subtitle font-bold text-accent-500 uppercase text-sm mb-6">
               {isEs ? 'Abierto' : 'Hours'}
@@ -137,7 +124,7 @@ export default function Footer() {
                 </p>
               </li>
             </ul>
-          </motion.div>
+          </div>
         </div>
 
         {/* Institutional Banner */}
@@ -158,18 +145,14 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <motion.div
+        <div
           className="text-center text-xs text-gray-400 pt-6 border-t border-gray-800"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <p>
             © {year} VETECHI {isEs ? 'Hospital Veterinario Chiriquí' : 'Veterinary Hospital Chiriquí'}
             . {isEs ? 'Todos los derechos reservados.' : 'All rights reserved.'}
           </p>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

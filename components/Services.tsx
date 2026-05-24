@@ -1,8 +1,6 @@
 'use client';
 
-import { containerVariants, itemVariants } from '@/utils/animations';
 import { BUSINESS_DATA } from '@/utils/constants';
-import { motion } from 'framer-motion';
 import { Activity, ArrowRight, Bed, Bell, Bird, Eye, FlaskConical, Heart, Stethoscope, Syringe } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import PremiumServiceContainer from './PremiumServiceContainer';
@@ -32,23 +30,16 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <motion.div
+        <div
           className="text-center mb-24"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
-          <motion.div 
+          <div 
             className="inline-block px-4 py-1.5 rounded-full bg-accent-500/10 border border-accent-500/20 mb-6"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
           >
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-600">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-accent-900">
               {isEs ? 'Especialidades Médicas' : 'Medical Specialties'}
             </span>
-          </motion.div>
+          </div>
           <h2 className="text-4xl sm:text-6xl font-display font-extrabold mb-6 leading-tight text-dark-900 tracking-tight">
             {isEs ? 'Excelencia en cada' : 'Excellence in every'}<br />
             <span className="text-primary-700 italic font-serif serif-italic">{isEs ? 'detalle clínico' : 'clinical detail'}</span>
@@ -56,24 +47,19 @@ export default function Services() {
           <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
             {t('subtitle')}
           </p>
-        </motion.div>
+        </div>
 
         {/* Services Grid */}
-        <motion.div
+        <div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
         >
           {SERVICES_CONFIG.map((service) => {
             const Icon = service.icon;
             const isEmergency = service.id === 'emergencia';
             
             return (
-              <motion.div
+              <div
                 key={service.id}
-                variants={itemVariants}
               >
                 <PremiumServiceContainer isEmergency={isEmergency} className="p-8 h-full">
                   {/* Icon Container */}
@@ -114,22 +100,18 @@ export default function Services() {
                   {isEmergency && (
                     <div className="absolute top-8 right-8 flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20">
                       <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                      <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest">24/7</span>
+                      <span className="text-[10px] font-bold text-red-200 uppercase tracking-widest">24/7</span>
                     </div>
                   )}
                 </PremiumServiceContainer>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
 
         {/* View All Services CTA */}
-        <motion.div
+        <div
           className="mt-16 flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
         >
           <a
             href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? 'Hola VETECHI, me gustaría conocer todos sus servicios.' : 'Hello VETECHI, I would like to know all your services.')}`}
@@ -140,7 +122,7 @@ export default function Services() {
             <span>{isEs ? 'Ver todos los servicios' : 'View all services'}</span>
             <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" />
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

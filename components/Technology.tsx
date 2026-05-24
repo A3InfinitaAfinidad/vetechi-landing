@@ -1,8 +1,6 @@
 'use client';
 
-import { containerVariants, itemVariants } from '@/utils/animations';
 import { TECHNOLOGY } from '@/utils/constants';
-import { motion } from 'framer-motion';
 import { Activity, ClipboardList, Eye, HeartPulse, Microscope, Scan, Stethoscope, Zap } from 'lucide-react';
 import { useLocale } from 'next-intl';
 
@@ -32,16 +30,12 @@ export default function Technology() {
     <section id="tecnologia" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
+        <div
           className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-6 bg-accent-500"></div>
-            <p className="font-subtitle font-bold text-accent-600 uppercase text-sm">
+            <p className="font-subtitle font-bold text-accent-900 uppercase text-sm">
               {isEs ? 'Tecnología y Diagnóstico' : 'Technology & Diagnostics'}
             </p>
           </div>
@@ -51,25 +45,19 @@ export default function Technology() {
           <p className="text-lg text-text max-w-2xl">
             {subtitle}
           </p>
-        </motion.div>
+        </div>
 
         {/* Technology Grid */}
-        <motion.div
+        <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
         >
           {techs.map((tech, i) => {
             const IconComponent = iconMap[tech.icon];
             const value = progressValues[i % progressValues.length];
             return (
-              <motion.div
+              <div
                 key={tech.title}
                 className="bg-primary-50/40 p-6 rounded-2xl hover:shadow-xl transition-all duration-500 border border-primary-100 hover:border-primary-200 group"
-                variants={itemVariants}
-                whileHover={{ y: -5 }}
               >
                 <div className="text-4xl mb-4 text-primary-600 transition-transform duration-500 group-hover:scale-110">
                   {IconComponent && <IconComponent size={36} strokeWidth={1.5} />}
@@ -86,18 +74,14 @@ export default function Technology() {
                   <span>{value}%</span>
                 </div>
                 <div className="w-full h-1.5 bg-primary-100 rounded-full overflow-hidden">
-                  <motion.div
+                  <div
                     className="h-full bg-gradient-to-r from-primary-600 to-accent-500"
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${value}%` }}
-                    transition={{ duration: 1.2, delay: 0.2 + i * 0.1, ease: "easeOut" }}
-                    viewport={{ once: true }}
                   />
                 </div>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
 
       </div>
     </section>

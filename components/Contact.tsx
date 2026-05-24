@@ -1,8 +1,6 @@
 'use client';
 
-import { containerVariants, itemVariants } from '@/utils/animations';
 import { BUSINESS_DATA, CONTACT_COPY } from '@/utils/constants';
-import { motion } from 'framer-motion';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import { useState } from 'react';
@@ -69,16 +67,12 @@ export default function Contact() {
     <section id="contacto" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
+        <div
           className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-6 bg-accent-500"></div>
-            <p className="font-subtitle font-bold text-accent-600 uppercase text-sm">
+            <p className="font-subtitle font-bold text-accent-900 uppercase text-sm">
               {isEs ? 'Contacto' : 'Contact'}
             </p>
           </div>
@@ -88,23 +82,18 @@ export default function Contact() {
           <p className="text-lg text-text">
             {contactCopy.description}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Contact Info */}
-          <motion.div
+          <div
             className="space-y-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
           >
             {/* Address */}
-            <motion.div
+            <div
               className="flex gap-4"
-              variants={itemVariants}
             >
-              <div className="text-primary-600 flex-shrink-0 mt-1">
+              <div className="text-primary-800 flex-shrink-0 mt-1">
                 <MapPin size={24} />
               </div>
               <div>
@@ -118,19 +107,18 @@ export default function Contact() {
                   href={BUSINESS_DATA.googleMaps}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary-600 font-subtitle hover:underline text-sm mt-2 inline-block"
+                  className="text-primary-800 font-subtitle hover:underline text-sm mt-2 inline-block"
                 >
                   {isEs ? 'Ver en Google Maps' : 'View on Google Maps'} →
                 </a>
               </div>
-            </motion.div>
+            </div>
 
             {/* Phone */}
-            <motion.div
+            <div
               className="flex gap-4"
-              variants={itemVariants}
             >
-              <div className="text-primary-600 flex-shrink-0 mt-1">
+              <div className="text-primary-800 flex-shrink-0 mt-1">
                 <Phone size={24} />
               </div>
               <div>
@@ -139,20 +127,19 @@ export default function Contact() {
                 </h3>
                 <a
                   href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
-                  className="text-text hover:text-primary-600 transition-colors font-semibold"
+                  className="text-text hover:text-primary-800 transition-colors font-semibold"
                 >
                   {BUSINESS_DATA.phone}
                 </a>
                 <p className="text-xs text-gray-500 mt-1">WhatsApp</p>
               </div>
-            </motion.div>
+            </div>
 
             {/* Hours */}
-            <motion.div
+            <div
               className="flex gap-4"
-              variants={itemVariants}
             >
-              <div className="text-primary-600 flex-shrink-0 mt-1">
+              <div className="text-primary-800 flex-shrink-0 mt-1">
                 <Clock size={24} />
               </div>
               <div>
@@ -160,18 +147,17 @@ export default function Contact() {
                   {isEs ? 'Horario' : 'Hours'}
                 </h3>
                 <p className="text-text">{isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en}</p>
-                <p className="text-xs text-primary-600 font-bold mt-1">
+                <p className="text-xs text-primary-800 font-bold mt-1">
                   {isEs ? BUSINESS_DATA.emergencies.es : BUSINESS_DATA.emergencies.en}
                 </p>
               </div>
-            </motion.div>
+            </div>
 
             {/* Email */}
-            <motion.div
+            <div
               className="flex gap-4"
-              variants={itemVariants}
             >
-              <div className="text-primary-600 flex-shrink-0 mt-1">
+              <div className="text-primary-800 flex-shrink-0 mt-1">
                 <Mail size={24} />
               </div>
               <div>
@@ -180,21 +166,18 @@ export default function Contact() {
                 </h3>
                 <a
                   href={`mailto:${BUSINESS_DATA.email}`}
-                  className="text-text hover:text-primary-600 transition-colors"
+                  className="text-text hover:text-primary-800 transition-colors"
                 >
                   {BUSINESS_DATA.email}
                 </a>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Contact Form */}
           {formStatus === 'success' ? (
-            <motion.div
+            <div
               className="bg-green-50 p-8 rounded-lg border border-green-200 flex flex-col items-center justify-center text-center space-y-4"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
             >
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-2">
                 <svg aria-hidden="true" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,29 +199,23 @@ export default function Contact() {
               >
                 {isEs ? 'Enviar otro mensaje' : 'Send another message'}
               </button>
-            </motion.div>
+            </div>
           ) : (
-            <motion.form
+            <form
               onSubmit={handleSubmit}
               className="bg-gray-50 p-8 rounded-lg border border-gray-200 space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
             >
               {/* Error Messages */}
               {formStatus === 'error' && formErrors.length > 0 && (
-                <motion.div
+                <div
                   className="bg-red-50 p-4 rounded-lg border border-red-200 space-y-2"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
                 >
                   {formErrors.map((error, idx) => (
                     <p key={idx} className="text-red-700 text-sm font-semibold">
                       • {error}
                     </p>
                   ))}
-                </motion.div>
+                </div>
               )}
               {/* Name */}
               <div>
@@ -396,17 +373,13 @@ export default function Contact() {
                 </div>
                 <span>{isEs ? 'Únete a más de 500 clientes satisfechos' : 'Join over 500 happy clients'}</span>
               </div>
-            </motion.form>
+            </form>
           )}
         </div>
 
         {/* Interactive Google Maps Embed */}
-        <motion.div
+        <div
           className="relative overflow-hidden rounded-[24px] transition-all duration-700 ease-in-out group shadow-xl bg-[#E8EDE9] h-[450px]"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           {/* Fondo vectorial minimalista con líneas blancas finas */}
           <div className="absolute inset-0" style={{
@@ -418,6 +391,8 @@ export default function Contact() {
           <img 
             src="/images/optimized/map-bg.webp" 
             alt="Ubicación aproximada en el mapa" 
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 ease-out"
           />
 
@@ -440,7 +415,7 @@ export default function Contact() {
               {isEs ? 'ABRIR EN GOOGLE MAPS' : 'OPEN IN GOOGLE MAPS'}
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

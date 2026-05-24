@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -37,31 +36,27 @@ export default function Navbar() {
 
 
   return (
-    <motion.nav
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-dark-900 shadow-lg' : 'bg-transparent'
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
           <Link href="/" className="flex items-center gap-3">
-            <motion.div
+            <div
               className="relative w-14 h-14"
-              whileHover={{ scale: 1.05 }}
             >
               <Image 
-                src="/images/optimized/logo/logo.webp" 
+                src="/images/optimized/logo/logo-nav.webp" 
                 alt="VETECHI Hospital Veterinario Logo" 
                 fill
                 className="object-contain brightness-0 invert"
                 priority
               />
 
-            </motion.div>
+            </div>
             <div>
               <div className="text-xl font-display font-bold text-white tracking-tight">VETECHI</div>
               <div className="text-[10px] font-subtitle text-accent-500 font-bold leading-none tracking-widest uppercase">
@@ -74,14 +69,13 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <motion.a
+              <a
                 key={link.href}
                 href={link.href}
                 className="font-subtitle text-sm font-semibold text-white hover:text-primary-300 transition-colors"
-                whileHover={{ scale: 1.05 }}
               >
                 {link.label}
-              </motion.a>
+              </a>
             ))}
           </div>
 
@@ -112,10 +106,8 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <motion.div
+          <div
             className="md:hidden bg-dark-800 pb-4 space-y-3"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
           >
             {navLinks.map((link) => (
               <a
@@ -139,9 +131,9 @@ export default function Navbar() {
                 {BUSINESS_DATA.phone}
               </a>
             </div>
-          </motion.div>
+          </div>
         )}
       </div>
-    </motion.nav>
+    </nav>
   );
 }

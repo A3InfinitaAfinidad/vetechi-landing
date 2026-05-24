@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { ReactNode } from 'react';
-import { Outfit, Inter } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -9,20 +8,6 @@ import '../globals.css';
 import Navbar from '@/components/Navbar';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import { BUSINESS_DATA, TEAM } from '@/utils/constants';
-
-const outfit = Outfit({
-  variable: '--font-outfit',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  display: 'swap',
-});
-
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: 'VETECHI | Hospital Veterinario 24/7 - Chiriquí',
@@ -123,12 +108,6 @@ export default async function LocaleLayout({
       <head>
         <meta name="theme-color" content="#2E7D32" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
         <link rel="icon" href="/images/logo/favicon.svg" />
         <script
           type="application/ld+json"
@@ -137,7 +116,7 @@ export default async function LocaleLayout({
         />
       </head>
       <body
-        className={`${outfit.variable} ${inter.variable} bg-white text-text antialiased`}
+        className="bg-white text-text antialiased"
         suppressHydrationWarning
       >
         <NextIntlClientProvider locale={locale} messages={messages}>

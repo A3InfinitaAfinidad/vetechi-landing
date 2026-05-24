@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { ReactNode } from 'react';
 
 interface PremiumServiceContainerProps {
@@ -15,9 +14,7 @@ export default function PremiumServiceContainer({
   className = ''
 }: PremiumServiceContainerProps) {
   return (
-    <motion.div
-      whileHover={{ y: -8, scale: 1.05 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
+    <div
       className="group"
     >
       <div
@@ -46,6 +43,6 @@ export default function PremiumServiceContainer({
           {children}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

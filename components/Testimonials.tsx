@@ -1,7 +1,6 @@
 'use client';
 
 import { TESTIMONIALS } from '@/utils/constants';
-import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import { useState } from 'react';
@@ -26,31 +25,24 @@ export default function Testimonials() {
     <section id="testimonios" className="py-20 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
+        <div
           className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <div className="w-1 h-6 bg-accent-500"></div>
-            <p className="font-subtitle font-bold text-accent-600 uppercase text-sm">
+            <p className="font-subtitle font-bold text-accent-900 uppercase text-sm">
               {isEs ? 'Lo que dicen nuestras familias' : 'What Our Families Say'}
             </p>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-dark-900 mb-2">
             4.8 ⭐ en Google • 42 reseñas verificadas
           </h2>
-        </motion.div>
+        </div>
 
         {/* Testimonial Carousel */}
-        <motion.div
+        <div
           key={current}
           className="bg-gray-50 p-8 sm:p-12 rounded-lg border border-gray-200"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
         >
           {/* Stars */}
           <div className="flex gap-1 mb-6">
@@ -69,7 +61,7 @@ export default function Testimonials() {
             <p className="font-subtitle font-bold text-dark-900">{testimonial.author}</p>
             <p className="text-sm text-text">{testimonial.location}</p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Navigation */}
         <div className="flex justify-center items-center gap-6 mt-8">

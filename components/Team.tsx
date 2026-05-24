@@ -1,8 +1,6 @@
 'use client';
 
-import { containerVariants, itemVariants } from '@/utils/animations';
 import { TEAM, VISITING_SPECIALISTS } from '@/utils/constants';
-import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import { useState } from 'react';
 import Image from 'next/image';
@@ -23,16 +21,12 @@ export default function Team() {
     <section id="equipo" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <motion.div
+        <div
           className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
         >
           <div className="flex items-center gap-3 mb-4">
             <div className="w-1 h-6 bg-accent-500"></div>
-            <p className="font-subtitle font-bold text-accent-600 uppercase text-sm">
+            <p className="font-subtitle font-bold text-accent-900 uppercase text-sm">
               {isEs ? 'Nuestro Equipo' : 'Our Team'}
             </p>
           </div>
@@ -42,15 +36,14 @@ export default function Team() {
           <p className="text-lg text-text">
             {isEs ? 'Especialistas apasionados por tu mascota' : 'Specialists passionate about your pet'}
           </p>
-        </motion.div>
+        </div>
         
         {/* Main Team - Flip Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-32">
-          {TEAM.map((member, idx) => (
+          {TEAM.map((member) => (
             <TeamMemberCard 
               key={member.name}
               member={member} 
-              idx={idx} 
               teamImageMap={teamImageMap} 
               isEs={isEs} 
             />
@@ -62,46 +55,36 @@ export default function Team() {
           <h3 className="text-2xl font-subtitle font-bold text-dark-900 mb-8 text-center">
             {isEs ? 'Especialistas Visitantes' : 'Visiting Specialists'}
           </h3>
-          <motion.div
+          <div
             className="grid grid-cols-1 sm:grid-cols-3 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
           >
             {VISITING_SPECIALISTS.map((specialist) => (
-              <motion.div
+              <div
                 key={specialist.name}
                 className="bg-white p-6 rounded-lg text-center border border-gray-100"
-                variants={itemVariants}
-                whileHover={{ y: -3 }}
               >
                 <p className="font-subtitle font-bold text-dark-900">{specialist.name}</p>
-                <p className="text-sm text-primary-600 mt-1">
+                <p className="text-sm text-primary-800 mt-1">
                   {isEs ? specialist.specialtyEs : specialist.specialtyEn}
                 </p>
                 <p className="text-xs text-gray-500 mt-3">
                   {isEs ? 'Jornadas programadas' : 'By appointment'}
                 </p>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
-function TeamMemberCard({ member, idx, teamImageMap, isEs }: { member: typeof TEAM[number], idx: number, teamImageMap: Record<string, string>, isEs: boolean }) {
+function TeamMemberCard({ member, teamImageMap, isEs }: { member: typeof TEAM[number], teamImageMap: Record<string, string>, isEs: boolean }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <motion.div
+    <div
       className="card-glassmorphism"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: idx * 0.1 }}
-      viewport={{ once: true }}
     >
       <div 
         className={`flip-card aspect-[3/4] cursor-pointer ${isFlipped ? 'flipped' : ''}`}
@@ -150,7 +133,7 @@ function TeamMemberCard({ member, idx, teamImageMap, isEs }: { member: typeof TE
           <div className="flip-card-back rounded-[2rem] overflow-hidden shadow-2xl border-2 border-accent-500/30 bg-[#1B3B2F] p-8 flex flex-col justify-between">
             <div className="space-y-5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20">
-                <span className="text-[9px] font-bold text-[#C5A77A] uppercase tracking-[0.3em]">
+                <span className="text-[9px] font-bold text-accent-100 uppercase tracking-[0.3em]">
                   {isEs ? 'Ficha Profesional' : 'Professional Profile'}
                 </span>
               </div>
@@ -159,7 +142,7 @@ function TeamMemberCard({ member, idx, teamImageMap, isEs }: { member: typeof TE
                 <h3 className="text-2xl font-display font-bold text-white leading-tight">
                   {member.name}
                 </h3>
-                <p className="text-sm text-[#C5A77A] font-bold uppercase tracking-wider mt-2">
+                <p className="text-sm text-accent-100 font-bold uppercase tracking-wider mt-2">
                   {isEs ? member.specialtyEs : member.specialtyEn}
                 </p>
               </div>
@@ -180,6 +163,6 @@ function TeamMemberCard({ member, idx, teamImageMap, isEs }: { member: typeof TE
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

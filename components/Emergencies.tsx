@@ -1,8 +1,6 @@
 'use client';
 
-import { containerVariants, fadeUpVariants, itemVariants } from '@/utils/animations';
 import { BUSINESS_DATA, EMERGENCIES_COPY } from '@/utils/constants';
-import { motion } from 'framer-motion';
 import { AlertCircle, CheckCircle2, MessageCircle, Phone } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 
@@ -26,29 +24,23 @@ export default function Emergencies() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
-          <motion.div
+          <div
             className="text-left space-y-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
           >
-            <motion.div
+            <div
               className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-red-500/10 border border-red-500/20"
-              variants={fadeUpVariants}
             >
               <div className="relative flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
               </div>
-              <span className="text-xs font-bold text-red-500 uppercase tracking-widest">
+              <span className="text-xs font-bold text-red-200 uppercase tracking-widest">
                 {t('online')}
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h2
+            <h2
               className="text-4xl sm:text-6xl font-display font-extrabold text-white leading-tight"
-              variants={fadeUpVariants}
             >
               {isEs ? (
                 <>
@@ -61,18 +53,16 @@ export default function Emergencies() {
                   <span className="text-accent-500 italic font-serif">Act now.</span>
                 </>
               )}
-            </motion.h2>
+            </h2>
 
-            <motion.p
+            <p
               className="text-lg text-gray-300 max-w-xl leading-relaxed font-light"
-              variants={fadeUpVariants}
             >
               {t('description')}
-            </motion.p>
+            </p>
 
-            <motion.div
+            <div
               className="flex flex-col sm:flex-row gap-4 pt-4"
-              variants={fadeUpVariants}
             >
               <a
                 href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
@@ -90,23 +80,17 @@ export default function Emergencies() {
                 <MessageCircle size={22} className="text-green-500" />
                 <span>WhatsApp</span>
               </a>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Cases Grid */}
-          <motion.div
+          <div
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
           >
             {copy.cases.map((emergencyCase) => (
-              <motion.div
+              <div
                 key={emergencyCase}
                 className="group p-5 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-xl hover:bg-white/[0.08] transition-all"
-                variants={itemVariants}
-                whileHover={{ scale: 1.02 }}
               >
                 <div className="flex items-start gap-4">
                   <div className="mt-1">
@@ -116,27 +100,26 @@ export default function Emergencies() {
                     {emergencyCase}
                   </span>
                 </div>
-              </motion.div>
+              </div>
             ))}
             
             {/* Call to Action Card */}
-            <motion.div
+            <div
               className="sm:col-span-2 p-6 rounded-2xl bg-accent-500/30 border border-accent-500/30 mt-4 flex items-center gap-6"
-              variants={itemVariants}
             >
               <div className="w-12 h-12 rounded-xl bg-accent-500 flex items-center justify-center text-dark-900">
                 <AlertCircle size={24} />
               </div>
               <div>
-                <p className="text-accent-500 font-bold uppercase tracking-widest text-[10px] mb-1">{isEs ? 'Prioridad Absoluta' : 'Absolute Priority'}</p>
+                <p className="text-white font-bold uppercase tracking-widest text-[10px] mb-1">{isEs ? 'Prioridad Absoluta' : 'Absolute Priority'}</p>
                 <p className="text-white font-medium text-sm leading-snug">
                   {isEs 
                     ? 'Atención inmediata garantizada. Contamos con quirófano y laboratorio 24/7.' 
                     : 'Immediate care guaranteed. We have operating rooms and labs available 24/7.'}
                 </p>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
