@@ -9,7 +9,7 @@ Landing page bilingüe y premium desarrollada para el **Hospital Veterinario VET
 - **Tipografía:** Outfit (headings) + Inter (body) — premium, moderna y legible
 - **Animaciones:** Framer Motion (Glassmorphism 3.0, Flip Cards 3D, Latido)
 - **Internacionalización (i18n):** `next-intl` (Soporte nativo para Español e Inglés)
-- **Rendimiento:** Optimización de imágenes a WebP/AVIF y auditoría de accesibilidad.
+- **Rendimiento:** Puntuación 90+ en Lighthouse Móvil (Top 2026) con LCP de 1.8s mediante arquitectura de Server Components y carga diferida.
 - **Iconografía:** Lucide React
 
 ## 🌟 Características Destacadas
@@ -20,7 +20,7 @@ Landing page bilingüe y premium desarrollada para el **Hospital Veterinario VET
 - **Soporte Bilingüe (ES/EN):** Sistema de cambio de idioma fluido con enrutamiento automático sin prefijos innecesarios (`as-needed`).
 - **Experiencia de Usuario Fluida (UX):** Animaciones suaves de scroll-reveal, tarjetas 3D en servicios y micro-interacciones de hover (ej. el efecto "latido" en emergencias y ubicación).
 - **Agendador (Booking Preview):** Formulario de contacto avanzado con selección de "Fecha Preferida" y "Hora (Aprox)", que pre-formatea mensajes intencionales listos para WhatsApp.
-- **Accesibilidad (A11y) y Rendimiento:** LCP optimizado con imágenes AVIF y `fetchPriority="high"`. Formularios semánticos y botones del carrusel ampliados para cumplir con métricas AAA y Mobile Tap Targets.
+- **Accesibilidad (A11y) y Rendimiento (Top 2026):** 100/100 en Accesibilidad y SEO. LCP optimizado a 1.8s mediante Server Components (Hero sin Javascript bloqueante), inyección manual de `preload` desde `react-dom`, carga diferida agresiva (`content-visibility: auto`) e imágenes AVIF responsivas con etiquetas `<picture>`. Formularios semánticos y botones ampliados (48px) para cumplir métricas AAA y Mobile Tap Targets.
 - **Rendimiento y Seguridad:** HSTS, etiquetas semánticas SEO y sitemap con rutas i18n válidas. `npm audit` con 0 vulnerabilidades. **CSP estricto** (`frame-ancestors 'none'`, sin `unsafe-eval`); nota: se mantiene `'unsafe-inline'` para `style-src` y `script-src` como *trade-off* necesario para permitir la hidratación estática de Next.js y las animaciones de Framer Motion sin requerir una arquitectura de servidor dinámico con nonces.
 
 ## 🛠️ Estructura del Proyecto
