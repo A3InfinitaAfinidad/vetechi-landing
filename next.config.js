@@ -7,6 +7,7 @@ const nextConfig = {
   output: 'export',
   trailingSlash: true,
   reactStrictMode: true,
+  allowedDevOrigins: ['192.168.40.5'],
   images: {
     unoptimized: true,
     remotePatterns: [

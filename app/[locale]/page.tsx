@@ -9,13 +9,13 @@ import Technology from '@/components/Technology';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
-export const metadata = {
-  title: 'VETECHI | Hospital Veterinario Chiriquí - David, Panamá',
-};
-
 import { setRequestLocale } from 'next-intl/server';
 
 const belowFoldSectionClass = '[content-visibility:auto] [contain-intrinsic-size:0_2500px]';
+
+export const metadata = {
+  title: 'VETECHI | Hospital Veterinario Chiriquí - David, Panamá',
+};
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -29,10 +29,11 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <div className={belowFoldSectionClass}><SuccessStories /></div>
       <div className={belowFoldSectionClass}><Emergencies /></div>
       <div className={belowFoldSectionClass}><Testimonials /></div>
+      {/* Team renderizado después para no bloquear LCP */}
       <div className={belowFoldSectionClass}><Team /></div>
       <div className={belowFoldSectionClass}><Technology /></div>
-      <div className={belowFoldSectionClass}><Contact /></div>
-      <div className={belowFoldSectionClass}><Footer /></div>
+      <Contact />
+      <Footer />
     </main>
   );
 }

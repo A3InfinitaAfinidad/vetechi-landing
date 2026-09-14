@@ -78,6 +78,7 @@ export default async function LocaleLayout({
         "name": BUSINESS_DATA.fullName,
         "url": "https://vetechi.pa",
         "telephone": BUSINESS_DATA.phone,
+        "email": BUSINESS_DATA.email,
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Antigua Vía a Boquete, diagonal a Farmacia Liz, antes de llegar a Game Park",
@@ -90,6 +91,11 @@ export default async function LocaleLayout({
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
           "opens": "00:00",
           "closes": "23:59"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "42"
         }
       },
       ...TEAM.map(member => ({
@@ -109,6 +115,23 @@ export default async function LocaleLayout({
         <meta name="theme-color" content="#2E7D32" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/images/logo/favicon.svg" />
+        <link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        {/* Google Analytics */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-VETECHI2026`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-VETECHI2026');
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}

@@ -27,12 +27,13 @@ export default async function Hero() {
           <source media="(max-width: 768px)" srcSet="/images/optimized/hero/hero-bg-mobile-lcp.avif" type="image/avif" />
           <source media="(min-width: 769px)" srcSet="/images/optimized/hero/hero-bg-lcp.avif" type="image/avif" />
           <img
-            src="/images/optimized/hero/hero-bg.webp"
-            alt="Hospital Veterinario VETECHI - Fachada exterior, instalaciones modernas"
-            className="absolute inset-0 object-cover w-full h-full"
-            fetchPriority="high"
-            decoding="async"
-          />
+              src="/images/optimized/hero/hero-bg.webp"
+              alt="Hospital Veterinario VETECHI - Fachada exterior, instalaciones modernas"
+              className="absolute inset-0 object-cover w-full h-full"
+              fetchPriority="high"
+              decoding="async"
+              sizes="100vw"
+            />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-r from-dark-900/85 via-dark-900/50 to-dark-900/20" />
         <div 

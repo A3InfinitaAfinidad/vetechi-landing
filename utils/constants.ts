@@ -2,7 +2,7 @@ export const BUSINESS_DATA = {
   name: 'VETECHI',
   fullName: 'Hospital Veterinario Chiriquí',
   phone: '+507 6330-3291',
-  email: 'contacto@vetechi.com',
+  email: 'info@vetechi.pa',
   whatsapp: 'https://wa.me/50763303291',
   whatsappMessages: {
     appointment: {
