@@ -10,12 +10,13 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 import { setRequestLocale } from 'next-intl/server';
+import { locales } from '@/i18n.config';
 
 const belowFoldSectionClass = '[content-visibility:auto] [contain-intrinsic-size:0_2500px]';
 
-export const metadata = {
-  title: 'VETECHI | Hospital Veterinario Chiriquí - David, Panamá',
-};
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

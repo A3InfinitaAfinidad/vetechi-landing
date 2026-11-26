@@ -1,7 +1,7 @@
 'use client';
 
 import { Clock, MapPin, Phone } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 
 
@@ -11,6 +11,7 @@ import { SiWhatsapp } from 'react-icons/si';
 
 export default function Footer() {
   const locale = useLocale();
+  const t = useTranslations('footer');
   const year = new Date().getFullYear();
 
   const isEs = locale === 'es';
@@ -41,7 +42,7 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-gray-300 mb-6 italic font-subtitle">
-              {isEs ? '¡Tu mejor amigo merece lo mejor!' : 'Your best friend deserves the best!'}
+              {t('slogan')}
             </p>
             <p className="text-xs text-gray-300 mb-4">
               {isEs
@@ -72,7 +73,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
-                aria-label="WhatsApp"
+                aria-label={isEs ? 'WhatsApp para consultas e información general' : 'WhatsApp for general questions and information'}
               >
                 <SiWhatsapp size={20} className="text-white" aria-hidden="true" />
               </a>
@@ -88,7 +89,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-300">
               <li className="flex items-start gap-3">
                 <Phone size={18} className="flex-shrink-0 text-primary-400 mt-0.5" />
-                <a href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`} className="hover:text-accent-500 transition-colors">
+                <a href={BUSINESS_DATA.phoneHref} className="hover:text-accent-500 transition-colors">
                   {BUSINESS_DATA.phone}
                 </a>
               </li>
@@ -106,21 +107,20 @@ export default function Footer() {
           <div
           >
             <h4 className="font-subtitle font-bold text-accent-500 uppercase text-sm mb-6">
-              {isEs ? 'Abierto' : 'Hours'}
+              {isEs ? 'Horario presencial' : 'In-person hours'}
             </h4>
             <ul className="space-y-4 text-sm text-gray-300">
               <li className="flex items-start gap-3">
                 <Clock size={18} className="flex-shrink-0 text-primary-400 mt-0.5" />
                 <div>
-                  <p>{isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en}</p>
+                  {(isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en).map((hours) => (
+                    <p key={hours}>{hours}</p>
+                  ))}
                 </div>
               </li>
               <li>
-                <p className="text-primary-400 font-bold text-xs">
-                  🚨 {isEs ? 'EMERGENCIAS 24/7/365' : 'EMERGENCIES 24/7/365'}
-                </p>
                 <p className="text-xs text-gray-300 mt-1">
-                  {isEs ? BUSINESS_DATA.emergencies.es : BUSINESS_DATA.emergencies.en}
+                  {isEs ? BUSINESS_DATA.afterHoursEmergency.es : BUSINESS_DATA.afterHoursEmergency.en}
                 </p>
               </li>
             </ul>
@@ -131,15 +131,15 @@ export default function Footer() {
         <div className="border-t border-gray-700 pt-8 pb-4">
           <div className="text-center space-y-2">
             <p className="text-lg font-display font-bold text-white tracking-tight">
-              VETECHI — {isEs ? 'Hospital Veterinario 24/7 en Chiriquí' : 'Veterinary Hospital 24/7 in Chiriquí'}
+              {isEs ? 'Atención veterinaria extendida en David, Chiriquí.' : 'Extended veterinary care in David, Chiriquí.'}
             </p>
             <p className="text-sm text-accent-500 italic font-subtitle">
-              {isEs ? 'Siempre listos para cuidar a tu mejor amigo' : 'Always ready to care for your best friend'}
+              {t('slogan')}
             </p>
             <p className="text-xs text-gray-400 max-w-2xl mx-auto leading-relaxed pt-2">
-              {isEs 
-                ? 'VETECHI es el único hospital veterinario 24 horas en Chiriquí. Ofrecemos atención continua, emergencias 24/7 y especialistas en todas las áreas de la salud animal.'
-                : 'VETECHI is the only 24-hour veterinary hospital in Chiriquí. We offer continuous care, 24/7 emergencies, and specialists in all areas of animal health.'}
+              {isEs
+                ? 'Atención presencial de lunes a sábado de 8:00 a.m. a 10:00 p.m. y los domingos de 10:00 a.m. a 3:00 p.m. Fuera de horario, llama al +507 6330-3291 por una urgencia.'
+                : 'In-person care is available Monday to Saturday from 8:00 AM to 10:00 PM and Sunday from 10:00 AM to 3:00 PM. After in-person hours, call +507 6330-3291 for emergencies.'}
             </p>
           </div>
         </div>

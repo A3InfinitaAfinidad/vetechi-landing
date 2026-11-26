@@ -1,14 +1,8 @@
-import { BUSINESS_DATA, STATS } from '@/utils/constants';
-import { Clock, MapPin, PawPrint, Phone, Star, Stethoscope } from 'lucide-react';
+import { BUSINESS_DATA, HOURS_ROWS } from '@/utils/constants';
+import { Clock, MapPin, Phone } from 'lucide-react';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { preload } from 'react-dom';
-
-const IconMap = {
-  Stethoscope,
-  Star,
-  Clock,
-  PawPrint,
-};
+import { SiWhatsapp } from 'react-icons/si';
 
 export default async function Hero() {
   preload('/images/optimized/hero/hero-bg-mobile-lcp.avif', { as: 'image', fetchPriority: 'high', media: '(max-width: 768px)' });
@@ -17,168 +11,135 @@ export default async function Hero() {
   const t = await getTranslations('hero');
   const locale = await getLocale();
   const isEs = locale === 'es';
-  const stats = isEs ? STATS.es : STATS.en;
+  const hoursRows = isEs ? HOURS_ROWS.es : HOURS_ROWS.en;
+  const trustItems = [
+    t('trustSpecialists'),
+    t('trustSmall'),
+    t('trustLarge'),
+    t('trustExotic'),
+    t('trustBilingual'),
+  ];
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-dark-900">
-      {/* Background with Horizontal Image and Overlay */}
-      <div className="absolute inset-0 z-0">
+    <section id="inicio" className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden bg-dark-900 pb-8 pt-24 sm:pt-28 lg:pt-32">
+      <div className="absolute inset-0 z-0" aria-hidden="true">
         <picture>
           <source media="(max-width: 768px)" srcSet="/images/optimized/hero/hero-bg-mobile-lcp.avif" type="image/avif" />
           <source media="(min-width: 769px)" srcSet="/images/optimized/hero/hero-bg-lcp.avif" type="image/avif" />
           <img
-              src="/images/optimized/hero/hero-bg.webp"
-              alt="Hospital Veterinario VETECHI - Fachada exterior, instalaciones modernas"
-              className="absolute inset-0 object-cover w-full h-full"
-              fetchPriority="high"
-              decoding="async"
-              sizes="100vw"
-            />
+            src="/images/optimized/hero/hero-bg.webp"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover"
+            fetchPriority="high"
+            decoding="async"
+            sizes="100vw"
+          />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-r from-dark-900/85 via-dark-900/50 to-dark-900/20" />
-        <div 
-          className="absolute inset-0 opacity-60 pointer-events-none" 
-          style={{ background: `radial-gradient(circle at 30% 50%, rgba(27, 59, 47, 0.4) 0%, transparent 70%)` }}
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-900/95 via-dark-900/85 to-dark-900/75" />
+        <div
+          className="absolute inset-0 opacity-60"
+          style={{ background: 'radial-gradient(circle at 30% 50%, rgba(27, 59, 47, 0.4) 0%, transparent 70%)' }}
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="flex flex-col gap-16">
-          {/* Main Content Area */}
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            {/* Content Side */}
-            <div className="flex-1 space-y-8">
-              {/* Top Badge — Latido Institucional */}
-              <div 
-                className="latido inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#C5A77A]/40 bg-[#C5A77A]/10 backdrop-blur-md shadow-[0_0_15px_rgba(197,167,122,0.15)]"
-              >
-                <MapPin size={14} className="text-[#C5A77A]" />
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white">
-                  {isEs ? 'Único hospital veterinario 24h en Chiriquí' : 'Only 24h veterinary hospital in Chiriquí'}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-7 lg:gap-8">
+          <div className="grid grid-cols-1 gap-7 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-center lg:gap-12">
+            <div className="min-w-0 space-y-5">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#C5A77A]/40 bg-[#C5A77A]/10 px-4 py-2 backdrop-blur-md">
+                <MapPin size={15} className="shrink-0 text-accent-500" aria-hidden="true" />
+                <span className="text-xs font-bold tracking-wide text-white sm:text-sm">
+                  {isEs ? 'David, Chiriquí · Panamá' : 'David, Chiriquí · Panama'}
                 </span>
               </div>
 
-              {/* Social Proof */}
-              <div
-                className="flex items-center gap-3 pt-2"
-              >
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
-                  ))}
-                </div>
-                <span className="text-sm font-medium text-white/90">
-                  <strong className="text-white font-bold text-base">4.8/5</strong> {isEs ? 'en Google (42 reseñas)' : 'on Google (42 reviews)'}
-                </span>
+              <div>
+                <h1 className="max-w-2xl font-display text-3xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                  {isEs ? (
+                    <>
+                      {t('title')} <span className="text-accent-400">{t('brand')}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-accent-400">{t('brand')}</span> {t('title')}
+                    </>
+                  )}
+                </h1>
               </div>
 
-              {/* Headline */}
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans font-extrabold leading-tight text-white tracking-tight">
-                {isEs ? (
-                  <>
-                    Hospital Veterinario<br />
-                    <span className="text-accent-500 italic font-serif">VETECHI</span><br />
-                    <span className="text-3xl sm:text-5xl font-semibold">24 horas en Chiriquí</span>
-                  </>
-                ) : (
-                  <>
-                    Veterinary Hospital<br />
-                    <span className="text-accent-500 italic font-serif">VETECHI</span><br />
-                    <span className="text-3xl sm:text-5xl font-semibold">24 hours in Chiriquí</span>
-                  </>
-                )}
-              </h1>
-
-              {/* Subheadline */}
-              <p
-                className="text-xl text-gray-100 max-w-xl leading-relaxed font-light"
-              >
-                {isEs 
-                  ? 'Atención continua, tecnología moderna y un equipo apasionado por la vida animal.' 
-                  : 'Continuous care, modern technology, and a team passionate about animal life.'}
+              <p className="max-w-2xl text-base leading-relaxed text-gray-100 sm:text-lg">
+                {t('subheadline')}
               </p>
 
-              {/* CTAs */}
-              <div
-                className="flex flex-col sm:flex-row gap-4 pt-4"
-              >
+              <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
                 <a
-                  href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? 'Hola VETECHI, me gustaría agendar una cita para mi mascota.' : 'Hello VETECHI, I would like to book an appointment for my pet.')}`}
+                  href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.info.es : BUSINESS_DATA.whatsappMessages.info.en)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-shine px-10 py-4 text-lg font-bold rounded-xl shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-primary-500/40 transition-all text-center flex items-center justify-center"
+                  className="flex min-h-[52px] items-center justify-center gap-3 rounded-xl bg-primary-700 px-6 py-3 text-center text-base font-bold text-white transition-colors hover:bg-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-lg"
                 >
-                  {t('cta1')}
+                  <SiWhatsapp size={20} aria-hidden="true" />
+                  <span>{t('cta1')}</span>
                 </a>
                 <a
-                  href="tel:+50763303291"
-                  aria-label={isEs ? 'Llamar a VETECHI - Emergencia 24/7' : 'Call VETECHI - Emergency 24/7'}
-                  className="px-10 py-4 text-lg font-bold rounded-xl flex items-center justify-center gap-3 border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-all backdrop-blur-sm"
+                  href={BUSINESS_DATA.phoneHref}
+                  aria-label={t('phoneCtaAria')}
+                  className="flex min-h-[52px] items-center justify-center gap-3 rounded-xl border border-white/50 bg-white/5 px-6 py-3 text-center text-base font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-lg"
                 >
-                  <Phone size={20} className="text-emergency animate-pulse" />
+                  <Phone size={19} aria-hidden="true" />
                   <span>{t('cta2')}</span>
                 </a>
               </div>
             </div>
 
-            {/* Decorative spacer for desktop to balance with the wide stats below */}
-            <div className="hidden lg:block lg:w-32" />
+            <aside
+              id="horario"
+              aria-label={t('hoursHeading')}
+              className="w-full rounded-2xl border border-white/20 bg-dark-900/75 p-5 text-white shadow-xl backdrop-blur-xl sm:p-6 lg:w-[400px] lg:shrink-0"
+            >
+              <h2 className="mb-3 flex items-center gap-3 text-base font-bold text-accent-400 sm:text-lg">
+                <Clock size={20} aria-hidden="true" />
+                <span>{t('hoursHeading')}</span>
+              </h2>
+              <dl className="divide-y divide-white/15 text-sm sm:text-base">
+                {hoursRows.map((row) => (
+                  <div key={row.day} className="flex items-center justify-between gap-4 py-3">
+                    <dt className="text-gray-100">{row.day}</dt>
+                    <dd className="whitespace-nowrap text-right font-semibold tabular-nums text-white">{row.time}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <div className="mt-3 border-t border-white/15 pt-4">
+                <h3 className="text-sm font-bold text-white">{t('afterHoursLabel')}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-gray-100">
+                  {t('afterHoursMessage')}
+                </p>
+                <a
+                  href={BUSINESS_DATA.phoneHref}
+                  aria-label={`${t('phoneCtaAria')}: ${BUSINESS_DATA.phone}`}
+                  className="mt-2 inline-flex min-h-[44px] items-center gap-2 font-semibold text-accent-400 underline-offset-4 hover:underline"
+                >
+                  <Phone size={16} aria-hidden="true" />
+                  <span className="tabular-nums">{BUSINESS_DATA.phone}</span>
+                </a>
+              </div>
+            </aside>
           </div>
 
-          {/* Stats Row - Wide Horizontal Block */}
           <div
-            className="w-full"
+            aria-label={t('trustHeading')}
+            className="grid grid-cols-2 gap-x-4 gap-y-3 border-t border-white/20 pt-5 text-sm font-medium text-white sm:grid-cols-5 sm:gap-4"
           >
-            <div className="glassmorphism p-4 sm:p-6 rounded-[2rem] w-full flex flex-col sm:flex-row items-center justify-around gap-6 shadow-2xl relative overflow-hidden group/stats">
-              {/* Animated background glow */}
-              <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover/stats:opacity-100 transition-opacity duration-700 pointer-events-none" />
-              
-              {stats.map((stat) => {
-                const Icon = IconMap[stat.icon as keyof typeof IconMap];
-                return (
-                  <div
-                    key={stat.label}
-                    className="flex flex-row sm:flex-col items-center gap-4 sm:gap-1 text-center group relative z-10"
-                  >
-                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-500 group-hover:bg-primary-500 group-hover:text-white transition-all duration-500 shadow-inner">
-                      {Icon && <Icon size={20} strokeWidth={2.5} />}
-                    </div>
-                    <div className="text-left sm:text-center">
-                      <div className="text-xl font-display font-black text-white leading-tight group-hover:text-primary-400 transition-colors">
-                        {stat.value}
-                      </div>
-                      <div className="text-[8px] uppercase tracking-[0.15em] text-gray-300 font-bold leading-tight">
-                        {stat.label}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            
-            {/* Status indicator floating below card */}
-            <div 
-              className="mt-6 flex items-center justify-center"
-            >
-              <div className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl flex items-center gap-3 shadow-lg group hover:bg-white/20 transition-all duration-300">
-                <div className="relative flex h-2.5 w-2.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-500"></span>
-                </div>
-                <p className="text-[11px] font-black text-white uppercase tracking-[0.25em] font-sans">
-                  {isEs ? 'Personal médico activo 24/7' : 'Medical staff active 24/7'}
-                </p>
+            {trustItems.map((item) => (
+              <div key={item} className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent-400" aria-hidden="true" />
+                <span>{item}</span>
               </div>
-            </div>
-
-
+            ))}
           </div>
         </div>
       </div>
-
-
     </section>
   );
 }
-
-

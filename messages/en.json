@@ -7,15 +7,26 @@
     "contacto": "Contact"
   },
   "hero": {
-    "headline": "Veterinary Hospital VETECHI — 24 hours in Chiriquí",
-    "subheadline": "The only 24-hour veterinary hospital in Chiriquí. Continuous care, modern technology, and a team passionate about animal life.",
-    "cta1": "Book Appointment",
-    "cta2": "Emergency 24/7"
+    "title": "Veterinary Hospital",
+    "brand": "VETECHI",
+    "subheadline": "Extended-hours in-person veterinary care, with specialists for small and large animals and exotic species. In David, Chiriquí, in Spanish and English.",
+    "cta1": "Message us on WhatsApp",
+    "cta2": "Call for after-hours emergency guidance",
+    "hoursHeading": "In-person hours",
+    "afterHoursLabel": "After-hours emergency guidance",
+    "afterHoursMessage": "Available by phone call only.",
+    "phoneCtaAria": "Call for emergency guidance outside in-person hours",
+    "trustHeading": "Care and species",
+    "trustSpecialists": "Care by specialists",
+    "trustSmall": "Small animals",
+    "trustLarge": "Large animals",
+    "trustExotic": "Exotic animals",
+    "trustBilingual": "Care in Spanish and English"
   },
   "stats": {
     "specialists": "4+ Specialists",
     "rating": "Google Rating",
-    "emergencies": "Emergencies 24/7",
+    "emergencies": "In-person hours",
     "species": "All Species"
   },
   "about": {
@@ -28,12 +39,12 @@
     "subtitle": "Specialized medical care with international standards",
     "items": {
       "consulta": "Comprehensive evaluation by specialists for preventive and curative well-being.",
-      "emergencia": "Immediate critical care available 24 hours a day, 365 days a year.",
+      "emergencia": "In-person emergency care during regular hours. After hours, call +507 6330-3291.",
       "cirugia": "Advanced surgical procedures with constant digital monitoring.",
       "laboratorio": "Accurate results in minutes with our in-house laboratory.",
       "cardiologia": "Diagnosis and treatment of complex cardiac pathologies.",
       "exoticos": "Specialists in birds, reptiles, and small mammals.",
-      "hospitalizacion": "Intensive care in a safe environment 24/7.",
+      "hospitalizacion": "Intensive care in a safe environment during hospitalization.",
       "vacunacion": "Complete protection with vaccination and deworming.",
       "endoscopia": "Non-invasive diagnosis of digestive and respiratory tracts."
     }
@@ -59,10 +70,9 @@
   "emergencies": {
     "title": "Emergency?",
     "subtitle": "Is your pet having an emergency?",
-    "description": "Don't wait. Every second matters. We are the only veterinary hospital in Chiriquí with permanent care. Emergencies handled by specialists at all times.",
-    "cta": "Call Now",
-    "whatsapp": "Emergency WhatsApp",
-    "online": "ONLINE NOW"
+    "description": "In-person veterinary care is available Monday to Saturday, 8:00 AM to 10:00 PM, and Sunday, 10:00 AM to 3:00 PM. After in-person hours, call +507 6330-3291 for emergencies.",
+    "cta": "Call for an emergency",
+    "afterHoursLabel": "Emergencies outside in-person hours"
   },
   "testimonials": {
     "title": "What our clients say"
@@ -78,7 +88,7 @@
   "contact": {
     "title": "Contact",
     "subtitle": "Ready to take care of your pet?",
-    "description": "Book an appointment or visit us in David, Chiriquí. Someone will always be here for you.",
+    "description": "Book an appointment or visit us in David, Chiriquí.",
     "form": {
       "name": "Name",
       "phone": "Phone",
@@ -90,7 +100,7 @@
     }
   },
   "footer": {
-    "slogan": "Always ready to care for your best friend",
+    "slogan": "Your best friend deserves the best!",
     "rights": "All rights reserved"
   }
 }

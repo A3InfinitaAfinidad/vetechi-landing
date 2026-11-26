@@ -2,16 +2,12 @@ export const BUSINESS_DATA = {
   name: 'VETECHI',
   fullName: 'Hospital Veterinario Chiriquí',
   phone: '+507 6330-3291',
-  email: 'info@vetechi.pa',
+  phoneHref: 'tel:+50763303291',
   whatsapp: 'https://wa.me/50763303291',
   whatsappMessages: {
     appointment: {
       es: 'Hola VETECHI, me gustaría agendar una cita para mi mascota.',
       en: 'Hello VETECHI, I would like to book an appointment for my pet.',
-    },
-    emergency: {
-      es: 'Emergencia veterinaria, necesito atención inmediata para mi mascota.',
-      en: 'Veterinary emergency, I need immediate attention for my pet.',
     },
     info: {
       es: 'Hola VETECHI, necesito información sobre sus servicios.',
@@ -29,12 +25,18 @@ export const BUSINESS_DATA = {
     facebook: 'https://facebook.com/vetechipa',
   },
   hours: {
-    es: 'Abierto — Cierra a las 10:00 PM',
-    en: 'Open — Closes at 10:00 PM',
+    es: [
+      'Lunes a sábado: 8:00 a.m. – 10:00 p.m.',
+      'Domingos: 10:00 a.m. – 3:00 p.m.',
+    ],
+    en: [
+      'Monday to Saturday: 8:00 AM – 10:00 PM.',
+      'Sunday: 10:00 AM – 3:00 PM.',
+    ],
   },
-  emergencies: {
-    es: '24 horas / 7 días / 365 días al año',
-    en: '24 hours / 7 days / 365 days a year',
+  afterHoursEmergency: {
+    es: 'Fuera del horario presencial, llama al +507 6330-3291 por una urgencia.',
+    en: 'After in-person hours, call +507 6330-3291 for emergencies.',
   },
   googleRating: {
     stars: 4.8,
@@ -42,18 +44,33 @@ export const BUSINESS_DATA = {
   },
 };
 
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://vetechi-landing.pages.dev').replace(/\/+$/, '');
+
+export const SHOW_GOOGLE_RATING = true;
+
+export const HOURS_ROWS = {
+  es: [
+    { day: 'Lunes a sábado', time: '8:00 a.m. – 10:00 p.m.' },
+    { day: 'Domingos', time: '10:00 a.m. – 3:00 p.m.' },
+  ],
+  en: [
+    { day: 'Monday to Saturday', time: '8:00 AM – 10:00 PM' },
+    { day: 'Sunday', time: '10:00 AM – 3:00 PM' },
+  ],
+};
+
 export const HERO_COPY = {
   es: {
-    headline: 'Hospital Veterinario VETECHI — 24 horas en Chiriquí',
-    subheadline: 'Único hospital veterinario 24 horas en Chiriquí. Atención continua, tecnología moderna y un equipo apasionado por la vida animal.',
-    cta1: 'Agendar Cita',
-    cta2: 'Emergencia 24/7',
+    headline: 'Atención veterinaria extendida en David, Chiriquí.',
+    subheadline: 'En VETECHI brindamos atención veterinaria presencial durante horarios extendidos para cuidar la salud y el bienestar de tus mascotas.',
+    cta1: 'Contactar por WhatsApp',
+    cta2: 'Llamar por urgencia',
   },
   en: {
-    headline: 'Veterinary Hospital VETECHI — 24 hours in Chiriquí',
-    subheadline: 'The only 24-hour veterinary hospital in Chiriquí. Continuous care, modern technology, and a team passionate about animal life.',
-    cta1: 'Book Appointment',
-    cta2: 'Emergency 24/7',
+    headline: 'Extended veterinary care in David, Chiriquí.',
+    subheadline: 'At VETECHI, we provide extended in-person veterinary care to support the health and well-being of your pets.',
+    cta1: 'Contact us on WhatsApp',
+    cta2: 'Call for an emergency',
   },
 };
 
@@ -61,13 +78,11 @@ export const STATS = {
   es: [
     { icon: 'Stethoscope', label: '4+ Especialistas', value: '4+' },
     { icon: 'Star', label: 'Valoración Google', value: '4.8' },
-    { icon: 'Clock', label: 'Emergencias 24/7', value: '24/7' },
     { icon: 'PawPrint', label: 'Todas las Especies', value: 'Todas' },
   ],
   en: [
     { icon: 'Stethoscope', label: '4+ Specialists', value: '4+' },
     { icon: 'Star', label: 'Google Rating', value: '4.8' },
-    { icon: 'Clock', label: 'Emergencies 24/7', value: '24/7' },
     { icon: 'PawPrint', label: 'All Species', value: 'All' },
   ],
 };
@@ -81,7 +96,7 @@ export const ABOUT_COPY = {
     values: [
       { icon: '❤️', title: 'Atención con Amor', subtitle: 'Care with Love' },
       { icon: '🏆', title: 'Excelencia Técnica', subtitle: 'Technical Excellence' },
-      { icon: '🕐', title: 'Disponibilidad 24/7', subtitle: '24/7 Availability' },
+      { icon: '🕐', title: 'Horario extendido', subtitle: 'Extended hours' },
       { icon: '🔬', title: 'Tecnología Moderna', subtitle: 'Modern Technology' },
       { icon: '🤝', title: 'Transparencia', subtitle: 'Transparency' },
       { icon: '🌱', title: 'Compromiso', subtitle: 'Commitment' },
@@ -94,7 +109,7 @@ export const ABOUT_COPY = {
     values: [
       { icon: '❤️', title: 'Care with Love', subtitle: 'Atención con Amor' },
       { icon: '🏆', title: 'Technical Excellence', subtitle: 'Excelencia Técnica' },
-      { icon: '🕐', title: '24/7 Availability', subtitle: 'Disponibilidad 24/7' },
+      { icon: '🕐', title: 'Extended hours', subtitle: 'Horario extendido' },
       { icon: '🔬', title: 'Modern Technology', subtitle: 'Tecnología Moderna' },
       { icon: '🤝', title: 'Transparency', subtitle: 'Transparencia' },
       { icon: '🌱', title: 'Commitment', subtitle: 'Compromiso' },
@@ -105,7 +120,7 @@ export const ABOUT_COPY = {
 export const SERVICES = {
   es: [
     { icon: '🔍', title: 'Consulta General', description: 'Evaluación completa de tu mascota por nuestros especialistas' },
-    { icon: '🚨', title: 'Emergencias 24/7', description: 'Atención inmediata para situaciones críticas' },
+    { icon: '🚨', title: 'Urgencias', description: 'Atención presencial durante el horario de atención; fuera de horario, llamar al +507 6330-3291' },
     { icon: '🏥', title: 'Cirugía Especializada', description: 'Procedimientos quirúrgicos con tecnología avanzada' },
     { icon: '💉', title: 'Vacunación y Desparasitación', description: 'Protección completa para tu mascota' },
     { icon: '🧪', title: 'Laboratorio Clínico', description: 'Análisis rápidos y precisos in-house' },
@@ -124,7 +139,7 @@ export const SERVICES = {
   ],
   en: [
     { icon: '🔍', title: 'General Consultation', description: 'Complete evaluation by our specialists' },
-    { icon: '🚨', title: 'Emergencies 24/7', description: 'Immediate care for critical situations' },
+    { icon: '🚨', title: 'Emergencies', description: 'In-person care during regular hours; after hours, call +507 6330-3291' },
     { icon: '🏥', title: 'Specialized Surgery', description: 'Surgical procedures with advanced technology' },
     { icon: '💉', title: 'Vaccination & Deworming', description: 'Complete protection for your pet' },
     { icon: '🧪', title: 'Clinical Laboratory', description: 'Fast and accurate in-house analysis' },
@@ -145,13 +160,6 @@ export const SERVICES = {
 
 export const EMERGENCIES_COPY = {
   es: {
-    title: '¿Emergencia?',
-    subtitle: '¿Tu mascota tiene una emergencia?',
-    description:
-      'No esperes. Cada segundo importa. Estamos disponibles las 24 horas, los 7 días de la semana, los 365 días del año para atender cualquier situación crítica que ponga en riesgo la vida de tu mascota.',
-    cta: 'Llamar Ahora',
-    whatsapp: 'WhatsApp de Emergencia',
-    online: 'EN LÍNEA AHORA',
     cases: [
       'Accidentes y atropellamientos',
       'Envenenamientos',
@@ -163,13 +171,6 @@ export const EMERGENCIES_COPY = {
     ],
   },
   en: {
-    title: 'Emergency?',
-    subtitle: 'Is your pet having an emergency?',
-    description:
-      'Don\'t wait. Every second matters. We are available 24 hours a day, 7 days a week, 365 days a year to handle any critical situation threatening your pet\'s life.',
-    cta: 'Call Now',
-    whatsapp: 'Emergency WhatsApp',
-    online: 'ONLINE NOW',
     cases: [
       'Accidents & hit-by-car',
       'Poisoning & toxic ingestion',
@@ -184,6 +185,7 @@ export const EMERGENCIES_COPY = {
 
 export const TESTIMONIALS = [
   {
+    temporarilyHidden: true,
     author: 'Quiel Barrios',
     location: 'David, Chiriquí',
     rating: 5,
@@ -282,7 +284,7 @@ export const CONTACT_COPY = {
   es: {
     title: 'Contacto',
     subtitle: '¿Listo para cuidar a tu mascota?',
-    description: 'Agenda tu cita o visítanos en David, Chiriquí. Siempre habrá alguien esperándote.',
+    description: 'Agenda tu cita o visítanos en David, Chiriquí.',
     form: {
       name: 'Nombre',
       phone: 'Teléfono',
@@ -296,7 +298,7 @@ export const CONTACT_COPY = {
   en: {
     title: 'Contact',
     subtitle: 'Ready to take care of your pet?',
-    description: 'Book an appointment or visit us in David, Chiriquí. Someone will always be here for you.',
+    description: 'Book an appointment or visit us in David, Chiriquí.',
     form: {
       name: 'Name',
       phone: 'Phone',

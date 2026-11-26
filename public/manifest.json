@@ -1,7 +1,7 @@
 {
   "name": "VETECHI Hospital Veterinario",
   "short_name": "VETECHI",
-  "description": "Hospital Veterinario 24/7 en David, Chiriquí. Emergencias 24/7, tecnología moderna y equipo apasionado.",
+  "description": "Hospital Veterinario en David, Chiriquí. Atención presencial de lunes a sábado de 8:00 a.m. a 10:00 p.m. y domingos de 10:00 a.m. a 3:00 p.m.",
   "start_url": "/es",
   "display": "standalone",
   "background_color": "#1B3B2F",

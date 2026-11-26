@@ -1,0 +1,1505 @@
+diff --git a/README.md b/README.md
+index b423efe0..ab970802 100644
+--- a/README.md
++++ b/README.md
+@@ -1,6 +1,6 @@
+-# VETECHI - Hospital Veterinario 24/7
++# VETECHI - Hospital Veterinario
+ 
+-Hospital Veterinario premium en David, Chiriquí — únicos con atención 24/7 los 365 días del año.
++Atención veterinaria extendida en David, Chiriquí. La atención presencial es de lunes a sábado, de 8:00 a.m. a 10:00 p.m., y los domingos, de 10:00 a.m. a 3:00 p.m. Después del cierre, las urgencias se atienden únicamente mediante llamada al +507 6330-3291.
+ 
+ ## Installation
+ 
+diff --git a/README_fixed.md b/README_fixed.md
+index 3bc7a4d33ed61840f4ecb40d692486526fbfa45e..ba6935d4578a837f2305cea483f4b24f12c7a4d5 100644
+GIT binary patch
+delta 108
+zcmW;Du?@mN3<c081v8}jtDw}>l<4c?kdw^W@?8o>$reZ%0nug+)*zyOdf)!jzb@Tv
+zu+o^C;Vwmj3b(*@W~*m+JfX@5N1}<!^xjHNgfoaGj*&7ersaqjMKN12vcW^@A9dTi
+G_4EVO$SI}(
+
+delta 143
+zcmXBM%?ScA5QbrpJy^q@KGJ|7f@c+v77^pPJCMwT{2V-4hdp=@wgj;j+c4_=eco69
+z?jMKly4CWW1TnEVj@H9$29lFa*m1E2P6c!(R}^_<p;l7h8gRk!Pcymt1*|apK&f%Z
+g7R%LQZ9q-u!d@|qn#*s;?Wu^>XDhQp)4jXRKPNjh&;S4c
+
+diff --git a/app/[locale]/layout.tsx b/app/[locale]/layout.tsx
+index 0df3bca0..14f4b520 100644
+--- a/app/[locale]/layout.tsx
++++ b/app/[locale]/layout.tsx
+@@ -7,46 +7,65 @@ import { locales } from '@/i18n.config';
+ import '../globals.css';
+ import Navbar from '@/components/Navbar';
+ import WhatsAppButton from '@/components/WhatsAppButton';
+-import { BUSINESS_DATA, TEAM } from '@/utils/constants';
++import { BUSINESS_DATA, SHOW_GOOGLE_RATING, SITE_URL, TEAM } from '@/utils/constants';
+ 
+-export const metadata: Metadata = {
+-  title: 'VETECHI | Hospital Veterinario 24/7 - Chiriquí',
+-  description: 'Hospital Veterinario premium en David, Chiriquí. Emergencias 24/7, cirugía especializada y atención integral para todas las especies.',
+-  icons: {
+-    icon: '/images/logo/favicon.svg',
+-  },
+-  keywords: 'veterinaria, clínica veterinaria, David, Chiriquí, Panamá, emergencias 24/7, especialistas, cirugía veterinaria',
+-  metadataBase: new URL('https://vetechi.pa'),
+-  openGraph: {
+-    type: 'website',
+-    locale: 'es_PA',
+-    url: 'https://vetechi.pa',
+-    title: 'VETECHI | Hospital Veterinario Chiriquí',
+-    description: 'La mejor clínica veterinaria premium en Chiriquí. Emergencias 24/7, especialistas apasionados.',
+-    siteName: 'VETECHI',
+-    images: [
+-      {
+-        url: '/images/optimized/hero/hero-bg.webp',
+-        width: 1200,
+-        height: 630,
+-        alt: 'VETECHI Hospital Veterinario',
++export async function generateMetadata({
++  params,
++}: {
++  params: Promise<{ locale: string }>;
++}): Promise<Metadata> {
++  const { locale } = await params;
++  const isEs = locale === 'es';
++  const title = isEs
++    ? 'VETECHI | Atención veterinaria extendida en David, Chiriquí'
++    : 'VETECHI | Extended veterinary care in David, Chiriquí';
++  const description = isEs
++    ? 'Atención presencial: lunes a sábado, 8:00 a.m.–10:00 p.m.; domingos, 10:00 a.m.–3:00 p.m. Fuera del horario presencial, llama al +507 6330-3291 por una urgencia.'
++    : 'In-person hours: Monday to Saturday, 8:00 AM–10:00 PM; Sunday, 10:00 AM–3:00 PM. After in-person hours, call +507 6330-3291 for emergencies.';
++  const pageUrl = `${SITE_URL}/${locale}/`;
++
++  return {
++    title,
++    description,
++    icons: {
++      icon: '/images/logo/favicon.svg',
++    },
++    keywords: isEs
++      ? 'veterinaria, atención veterinaria, David, Chiriquí, Panamá, horario extendido, urgencias telefónicas'
++      : 'veterinary care, David, Chiriquí, Panama, extended hours, after-hours emergencies by phone',
++    metadataBase: new URL(SITE_URL),
++    openGraph: {
++      type: 'website',
++      locale: isEs ? 'es_PA' : 'en_PA',
++      url: pageUrl,
++      title,
++      description,
++      siteName: 'VETECHI',
++      images: [
++        {
++          url: '/images/optimized/hero/hero-bg.webp',
++          width: 1200,
++          height: 630,
++          alt: 'VETECHI Hospital Veterinario',
++        },
++      ],
++    },
++    twitter: {
++      card: 'summary_large_image',
++      title,
++      description,
++      images: ['/images/optimized/hero/hero-bg.webp'],
++    },
++    alternates: {
++      canonical: pageUrl,
++      languages: {
++        es: `${SITE_URL}/es/`,
++        en: `${SITE_URL}/en/`,
++        'x-default': `${SITE_URL}/es/`,
+       },
+-    ],
+-  },
+-  twitter: {
+-    card: 'summary_large_image',
+-    title: 'VETECHI | Hospital Veterinario Chiriquí',
+-    description: 'La mejor clínica veterinaria premium en Chiriquí. Emergencias 24/7, especialistas apasionados.',
+-    images: ['/images/optimized/hero/hero-bg.webp'],
+-  },
+-  alternates: {
+-    canonical: 'https://vetechi.pa',
+-    languages: {
+-      es: 'https://vetechi.pa/es',
+-      en: 'https://vetechi.pa/en',
+     },
+-  },
+-};
++  };
++}
+ 
+ export function generateStaticParams() {
+   return locales.map((locale) => ({ locale }));
+@@ -74,11 +93,10 @@ export default async function LocaleLayout({
+     "@graph": [
+       {
+         "@type": ["VeterinaryCare", "LocalBusiness"],
+-        "@id": "https://vetechi.pa",
++        "@id": SITE_URL,
+         "name": BUSINESS_DATA.fullName,
+-        "url": "https://vetechi.pa",
++        "url": SITE_URL,
+         "telephone": BUSINESS_DATA.phone,
+-        "email": BUSINESS_DATA.email,
+         "address": {
+           "@type": "PostalAddress",
+           "streetAddress": "Antigua Vía a Boquete, diagonal a Farmacia Liz, antes de llegar a Game Park",
+@@ -86,24 +104,34 @@ export default async function LocaleLayout({
+           "addressRegion": "Chiriquí",
+           "addressCountry": "PA"
+         },
+-        "openingHoursSpecification": {
+-          "@type": "OpeningHoursSpecification",
+-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+-          "opens": "00:00",
+-          "closes": "23:59"
+-        },
+-        "aggregateRating": {
+-          "@type": "AggregateRating",
+-          "ratingValue": "4.8",
+-          "reviewCount": "42"
+-        }
++        "openingHoursSpecification": [
++          {
++            "@type": "OpeningHoursSpecification",
++            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
++            "opens": "08:00",
++            "closes": "22:00"
++          },
++          {
++            "@type": "OpeningHoursSpecification",
++            "dayOfWeek": "Sunday",
++            "opens": "10:00",
++            "closes": "15:00"
++          }
++        ],
++        ...(SHOW_GOOGLE_RATING ? {
++          "aggregateRating": {
++            "@type": "AggregateRating",
++            "ratingValue": "4.8",
++            "reviewCount": "42"
++          }
++        } : {})
+       },
+       ...TEAM.map(member => ({
+         "@type": "Person",
+         "name": member.name,
+         "jobTitle": "Veterinarian",
+         "worksFor": {
+-          "@id": "https://vetechi.pa"
++          "@id": SITE_URL
+         }
+       }))
+     ]
+diff --git a/app/[locale]/page.tsx b/app/[locale]/page.tsx
+index 8c72e324..bcc2dcd7 100644
+--- a/app/[locale]/page.tsx
++++ b/app/[locale]/page.tsx
+@@ -10,12 +10,13 @@ import Contact from '@/components/Contact';
+ import Footer from '@/components/Footer';
+ 
+ import { setRequestLocale } from 'next-intl/server';
++import { locales } from '@/i18n.config';
+ 
+ const belowFoldSectionClass = '[content-visibility:auto] [contain-intrinsic-size:0_2500px]';
+ 
+-export const metadata = {
+-  title: 'VETECHI | Hospital Veterinario Chiriquí - David, Panamá',
+-};
++export function generateStaticParams() {
++  return locales.map((locale) => ({ locale }));
++}
+ 
+ export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+   const { locale } = await params;
+diff --git a/app/[locale]/privacy/page.tsx b/app/[locale]/privacy/page.tsx
+index fafd8406..68513739 100644
+--- a/app/[locale]/privacy/page.tsx
++++ b/app/[locale]/privacy/page.tsx
+@@ -1,6 +1,7 @@
+ 
+ import { setRequestLocale } from 'next-intl/server';
+ import { locales } from '@/i18n.config';
++import { BUSINESS_DATA } from '@/utils/constants';
+ 
+ export function generateStaticParams() {
+   return locales.map((locale) => ({ locale }));
+@@ -48,7 +49,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{
+ 
+             <h2 className="text-2xl font-bold mt-8 mb-4">4. Contacto</h2>
+             <p>
+-              Si tienes preguntas sobre esta política o deseas ejercer tus derechos sobre tus datos personales, por favor contáctanos en <strong>info@vetechi.pa</strong> o visítanos en nuestras instalaciones en David, Chiriquí.
++              Si tienes preguntas sobre esta política o deseas ejercer tus derechos sobre tus datos personales, llámanos al <a href={BUSINESS_DATA.phoneHref}>{BUSINESS_DATA.phone}</a> o visítanos en David, Chiriquí.
+             </p>
+           </>
+         ) : (
+@@ -81,7 +82,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{
+ 
+             <h2 className="text-2xl font-bold mt-8 mb-4">4. Contact Us</h2>
+             <p>
+-              If you have any questions about this policy or wish to exercise your rights regarding your personal data, please contact us at <strong>info@vetechi.pa</strong> or visit our facilities in David, Chiriquí.
++              If you have any questions about this policy or wish to exercise your rights regarding your personal data, call us at <a href={BUSINESS_DATA.phoneHref}>{BUSINESS_DATA.phone}</a> or visit us in David, Chiriquí.
+             </p>
+           </>
+         )}
+diff --git a/components/Contact.tsx b/components/Contact.tsx
+index fea0ddf8..bb332f19 100644
+--- a/components/Contact.tsx
++++ b/components/Contact.tsx
+@@ -1,7 +1,7 @@
+ 'use client';
+ 
+ import { BUSINESS_DATA, CONTACT_COPY } from '@/utils/constants';
+-import { Clock, Mail, MapPin, Phone } from 'lucide-react';
++import { Clock, MapPin, Phone } from 'lucide-react';
+ import { useLocale } from 'next-intl';
+ import { useState } from 'react';
+ import { validateContactForm, isValidWhatsAppUrl, sanitizeWhatsAppText } from '@/utils/validation';
+@@ -123,15 +123,22 @@ export default function Contact() {
+               </div>
+               <div>
+                 <h3 className="font-subtitle font-bold text-dark-900 mb-2">
+-                  {isEs ? 'Teléfono' : 'Phone'}
++                  {isEs ? 'Teléfono y urgencias fuera de horario' : 'Phone and after-hours emergencies'}
+                 </h3>
+                 <a
+-                  href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
++                  href={BUSINESS_DATA.phoneHref}
+                   className="text-text hover:text-primary-800 transition-colors font-semibold"
+                 >
+                   {BUSINESS_DATA.phone}
+                 </a>
+-                <p className="text-xs text-gray-500 mt-1">WhatsApp</p>
++                <a
++                  href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.info.es : BUSINESS_DATA.whatsappMessages.info.en)}`}
++                  target="_blank"
++                  rel="noopener noreferrer"
++                  className="mt-1 inline-block text-xs font-semibold text-primary-800 hover:underline"
++                >
++                  {isEs ? 'WhatsApp para consultas e información general' : 'WhatsApp for general questions and information'}
++                </a>
+               </div>
+             </div>
+ 
+@@ -146,32 +153,17 @@ export default function Contact() {
+                 <h3 className="font-subtitle font-bold text-dark-900 mb-2">
+                   {isEs ? 'Horario' : 'Hours'}
+                 </h3>
+-                <p className="text-text">{isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en}</p>
+-                <p className="text-xs text-primary-800 font-bold mt-1">
+-                  {isEs ? BUSINESS_DATA.emergencies.es : BUSINESS_DATA.emergencies.en}
++                <div className="space-y-1 text-text">
++                  {(isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en).map((hours) => (
++                    <p key={hours}>{hours}</p>
++                  ))}
++                </div>
++                <p className="mt-2 text-xs font-bold text-primary-800">
++                  {isEs ? BUSINESS_DATA.afterHoursEmergency.es : BUSINESS_DATA.afterHoursEmergency.en}
+                 </p>
+               </div>
+             </div>
+ 
+-            {/* Email */}
+-            <div
+-              className="flex gap-4"
+-            >
+-              <div className="text-primary-800 flex-shrink-0 mt-1">
+-                <Mail size={24} />
+-              </div>
+-              <div>
+-                <h3 className="font-subtitle font-bold text-dark-900 mb-2">
+-                  {isEs ? 'Email' : 'Email'}
+-                </h3>
+-                <a
+-                  href={`mailto:${BUSINESS_DATA.email}`}
+-                  className="text-text hover:text-primary-800 transition-colors"
+-                >
+-                  {BUSINESS_DATA.email}
+-                </a>
+-              </div>
+-            </div>
+           </div>
+ 
+           {/* Contact Form */}
+diff --git a/components/Emergencies.tsx b/components/Emergencies.tsx
+index b2ddf461..4fc1ccf7 100644
+--- a/components/Emergencies.tsx
++++ b/components/Emergencies.tsx
+@@ -1,7 +1,7 @@
+ 'use client';
+ 
+ import { BUSINESS_DATA, EMERGENCIES_COPY } from '@/utils/constants';
+-import { AlertCircle, CheckCircle2, MessageCircle, Phone } from 'lucide-react';
++import { AlertCircle, CheckCircle2, Phone } from 'lucide-react';
+ import { useLocale, useTranslations } from 'next-intl';
+ 
+ export default function Emergencies() {
+@@ -30,12 +30,9 @@ export default function Emergencies() {
+             <div
+               className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-red-500/10 border border-red-500/20"
+             >
+-              <div className="relative flex h-3 w-3">
+-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+-                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+-              </div>
++              <AlertCircle size={16} className="text-red-300" aria-hidden="true" />
+               <span className="text-xs font-bold text-red-200 uppercase tracking-widest">
+-                {t('online')}
++                {t('afterHoursLabel')}
+               </span>
+             </div>
+ 
+@@ -65,20 +62,12 @@ export default function Emergencies() {
+               className="flex flex-col sm:flex-row gap-4 pt-4"
+             >
+               <a
+-                href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
++                href={BUSINESS_DATA.phoneHref}
++                aria-label={`${t('cta')}: ${BUSINESS_DATA.phone}`}
+                 className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-red-600 text-white font-bold text-lg hover:bg-red-700 transition-all hover:shadow-[0_15px_30px_rgba(220,38,38,0.3)] hover:-translate-y-1"
+               >
+                 <Phone size={22} className="group-hover:rotate-12 transition-transform" />
+-                <span>{isEs ? 'Llamar Urgente' : 'Emergency Call'}</span>
+-              </a>
+-              <a
+-                href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.emergency.es : BUSINESS_DATA.whatsappMessages.emergency.en)}`}
+-                target="_blank"
+-                rel="noopener noreferrer"
+-                className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-all hover:-translate-y-1"
+-              >
+-                <MessageCircle size={22} className="text-green-500" />
+-                <span>WhatsApp</span>
++                <span>{t('cta')} · {BUSINESS_DATA.phone}</span>
+               </a>
+             </div>
+           </div>
+@@ -111,12 +100,15 @@ export default function Emergencies() {
+                 <AlertCircle size={24} />
+               </div>
+               <div>
+-                <p className="text-white font-bold uppercase tracking-widest text-[10px] mb-1">{isEs ? 'Prioridad Absoluta' : 'Absolute Priority'}</p>
+-                <p className="text-white font-medium text-sm leading-snug">
+-                  {isEs 
+-                    ? 'Atención inmediata garantizada. Contamos con quirófano y laboratorio 24/7.' 
+-                    : 'Immediate care guaranteed. We have operating rooms and labs available 24/7.'}
+-                </p>
++                <p className="text-white font-bold uppercase tracking-widest text-[10px] mb-2">{isEs ? 'Horario presencial' : 'In-person hours'}</p>
++                <div className="space-y-1 text-white font-medium text-sm leading-snug">
++                  {(isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en).map((hours) => (
++                    <p key={hours}>{hours}</p>
++                  ))}
++                  <p className="pt-2 text-gray-100">
++                    {isEs ? BUSINESS_DATA.afterHoursEmergency.es : BUSINESS_DATA.afterHoursEmergency.en}
++                  </p>
++                </div>
+               </div>
+             </div>
+           </div>
+diff --git a/components/Footer.tsx b/components/Footer.tsx
+index 14c4847b..6f6b6480 100644
+--- a/components/Footer.tsx
++++ b/components/Footer.tsx
+@@ -1,7 +1,7 @@
+ 'use client';
+ 
+ import { Clock, MapPin, Phone } from 'lucide-react';
+-import { useLocale } from 'next-intl';
++import { useLocale, useTranslations } from 'next-intl';
+ import Image from 'next/image';
+ 
+ 
+@@ -11,6 +11,7 @@ import { SiWhatsapp } from 'react-icons/si';
+ 
+ export default function Footer() {
+   const locale = useLocale();
++  const t = useTranslations('footer');
+   const year = new Date().getFullYear();
+ 
+   const isEs = locale === 'es';
+@@ -41,7 +42,7 @@ export default function Footer() {
+             </div>
+ 
+             <p className="text-sm text-gray-300 mb-6 italic font-subtitle">
+-              {isEs ? '¡Tu mejor amigo merece lo mejor!' : 'Your best friend deserves the best!'}
++              {t('slogan')}
+             </p>
+             <p className="text-xs text-gray-300 mb-4">
+               {isEs
+@@ -72,7 +73,7 @@ export default function Footer() {
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="w-12 h-12 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
+-                aria-label="WhatsApp"
++                aria-label={isEs ? 'WhatsApp para consultas e información general' : 'WhatsApp for general questions and information'}
+               >
+                 <SiWhatsapp size={20} className="text-white" aria-hidden="true" />
+               </a>
+@@ -88,7 +89,7 @@ export default function Footer() {
+             <ul className="space-y-4 text-sm text-gray-300">
+               <li className="flex items-start gap-3">
+                 <Phone size={18} className="flex-shrink-0 text-primary-400 mt-0.5" />
+-                <a href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`} className="hover:text-accent-500 transition-colors">
++                <a href={BUSINESS_DATA.phoneHref} className="hover:text-accent-500 transition-colors">
+                   {BUSINESS_DATA.phone}
+                 </a>
+               </li>
+@@ -106,21 +107,20 @@ export default function Footer() {
+           <div
+           >
+             <h4 className="font-subtitle font-bold text-accent-500 uppercase text-sm mb-6">
+-              {isEs ? 'Abierto' : 'Hours'}
++              {isEs ? 'Horario presencial' : 'In-person hours'}
+             </h4>
+             <ul className="space-y-4 text-sm text-gray-300">
+               <li className="flex items-start gap-3">
+                 <Clock size={18} className="flex-shrink-0 text-primary-400 mt-0.5" />
+                 <div>
+-                  <p>{isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en}</p>
++                  {(isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en).map((hours) => (
++                    <p key={hours}>{hours}</p>
++                  ))}
+                 </div>
+               </li>
+               <li>
+-                <p className="text-primary-400 font-bold text-xs">
+-                  🚨 {isEs ? 'EMERGENCIAS 24/7/365' : 'EMERGENCIES 24/7/365'}
+-                </p>
+                 <p className="text-xs text-gray-300 mt-1">
+-                  {isEs ? BUSINESS_DATA.emergencies.es : BUSINESS_DATA.emergencies.en}
++                  {isEs ? BUSINESS_DATA.afterHoursEmergency.es : BUSINESS_DATA.afterHoursEmergency.en}
+                 </p>
+               </li>
+             </ul>
+@@ -131,15 +131,15 @@ export default function Footer() {
+         <div className="border-t border-gray-700 pt-8 pb-4">
+           <div className="text-center space-y-2">
+             <p className="text-lg font-display font-bold text-white tracking-tight">
+-              VETECHI — {isEs ? 'Hospital Veterinario 24/7 en Chiriquí' : 'Veterinary Hospital 24/7 in Chiriquí'}
++              {isEs ? 'Atención veterinaria extendida en David, Chiriquí.' : 'Extended veterinary care in David, Chiriquí.'}
+             </p>
+             <p className="text-sm text-accent-500 italic font-subtitle">
+-              {isEs ? 'Siempre listos para cuidar a tu mejor amigo' : 'Always ready to care for your best friend'}
++              {t('slogan')}
+             </p>
+             <p className="text-xs text-gray-400 max-w-2xl mx-auto leading-relaxed pt-2">
+-              {isEs 
+-                ? 'VETECHI es el único hospital veterinario 24 horas en Chiriquí. Ofrecemos atención continua, emergencias 24/7 y especialistas en todas las áreas de la salud animal.'
+-                : 'VETECHI is the only 24-hour veterinary hospital in Chiriquí. We offer continuous care, 24/7 emergencies, and specialists in all areas of animal health.'}
++              {isEs
++                ? 'Atención presencial de lunes a sábado de 8:00 a.m. a 10:00 p.m. y los domingos de 10:00 a.m. a 3:00 p.m. Fuera de horario, llama al +507 6330-3291 por una urgencia.'
++                : 'In-person care is available Monday to Saturday from 8:00 AM to 10:00 PM and Sunday from 10:00 AM to 3:00 PM. After in-person hours, call +507 6330-3291 for emergencies.'}
+             </p>
+           </div>
+         </div>
+diff --git a/components/Hero.tsx b/components/Hero.tsx
+index f5f217c1..a5c577eb 100644
+--- a/components/Hero.tsx
++++ b/components/Hero.tsx
+@@ -1,184 +1,166 @@
+-import { BUSINESS_DATA, STATS } from '@/utils/constants';
+-import { Clock, MapPin, PawPrint, Phone, Star, Stethoscope } from 'lucide-react';
+-import { getLocale, getTranslations } from 'next-intl/server';
+-import { preload } from 'react-dom';
+-
+-const IconMap = {
+-  Stethoscope,
+-  Star,
+-  Clock,
+-  PawPrint,
+-};
+-
+-export default async function Hero() {
+-  preload('/images/optimized/hero/hero-bg-mobile-lcp.avif', { as: 'image', fetchPriority: 'high', media: '(max-width: 768px)' });
+-  preload('/images/optimized/hero/hero-bg-lcp.avif', { as: 'image', fetchPriority: 'high', media: '(min-width: 769px)' });
+-
+-  const t = await getTranslations('hero');
+-  const locale = await getLocale();
+-  const isEs = locale === 'es';
+-  const stats = isEs ? STATS.es : STATS.en;
+-
+-  return (
+-    <section id="inicio" className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-dark-900">
+-      {/* Background with Horizontal Image and Overlay */}
+-      <div className="absolute inset-0 z-0">
+-        <picture>
+-          <source media="(max-width: 768px)" srcSet="/images/optimized/hero/hero-bg-mobile-lcp.avif" type="image/avif" />
+-          <source media="(min-width: 769px)" srcSet="/images/optimized/hero/hero-bg-lcp.avif" type="image/avif" />
+-          <img
+-              src="/images/optimized/hero/hero-bg.webp"
+-              alt="Hospital Veterinario VETECHI - Fachada exterior, instalaciones modernas"
+-              className="absolute inset-0 object-cover w-full h-full"
+-              fetchPriority="high"
+-              decoding="async"
+-              sizes="100vw"
+-            />
+-        </picture>
+-        <div className="absolute inset-0 bg-gradient-to-r from-dark-900/85 via-dark-900/50 to-dark-900/20" />
+-        <div 
+-          className="absolute inset-0 opacity-60 pointer-events-none" 
+-          style={{ background: `radial-gradient(circle at 30% 50%, rgba(27, 59, 47, 0.4) 0%, transparent 70%)` }}
+-        />
+-      </div>
+-
+-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+-        <div className="flex flex-col gap-16">
+-          {/* Main Content Area */}
+-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+-            {/* Content Side */}
+-            <div className="flex-1 space-y-8">
+-              {/* Top Badge — Latido Institucional */}
+-              <div 
+-                className="latido inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#C5A77A]/40 bg-[#C5A77A]/10 backdrop-blur-md shadow-[0_0_15px_rgba(197,167,122,0.15)]"
+-              >
+-                <MapPin size={14} className="text-[#C5A77A]" />
+-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white">
+-                  {isEs ? 'Único hospital veterinario 24h en Chiriquí' : 'Only 24h veterinary hospital in Chiriquí'}
+-                </span>
+-              </div>
+-
+-              {/* Social Proof */}
+-              <div
+-                className="flex items-center gap-3 pt-2"
+-              >
+-                <div className="flex gap-1">
+-                  {[1, 2, 3, 4, 5].map((i) => (
+-                    <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />
+-                  ))}
+-                </div>
+-                <span className="text-sm font-medium text-white/90">
+-                  <strong className="text-white font-bold text-base">4.8/5</strong> {isEs ? 'en Google (42 reseñas)' : 'on Google (42 reviews)'}
+-                </span>
+-              </div>
+-
+-              {/* Headline */}
+-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-sans font-extrabold leading-tight text-white tracking-tight">
+-                {isEs ? (
+-                  <>
+-                    Hospital Veterinario<br />
+-                    <span className="text-accent-500 italic font-serif">VETECHI</span><br />
+-                    <span className="text-3xl sm:text-5xl font-semibold">24 horas en Chiriquí</span>
+-                  </>
+-                ) : (
+-                  <>
+-                    Veterinary Hospital<br />
+-                    <span className="text-accent-500 italic font-serif">VETECHI</span><br />
+-                    <span className="text-3xl sm:text-5xl font-semibold">24 hours in Chiriquí</span>
+-                  </>
+-                )}
+-              </h1>
+-
+-              {/* Subheadline */}
+-              <p
+-                className="text-xl text-gray-100 max-w-xl leading-relaxed font-light"
+-              >
+-                {isEs 
+-                  ? 'Atención continua, tecnología moderna y un equipo apasionado por la vida animal.' 
+-                  : 'Continuous care, modern technology, and a team passionate about animal life.'}
+-              </p>
+-
+-              {/* CTAs */}
+-              <div
+-                className="flex flex-col sm:flex-row gap-4 pt-4"
+-              >
+-                <a
+-                  href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? 'Hola VETECHI, me gustaría agendar una cita para mi mascota.' : 'Hello VETECHI, I would like to book an appointment for my pet.')}`}
+-                  target="_blank"
+-                  rel="noopener noreferrer"
+-                  className="btn-shine px-10 py-4 text-lg font-bold rounded-xl shadow-[0_0_20px_rgba(34,197,94,0.3)] hover:shadow-primary-500/40 transition-all text-center flex items-center justify-center"
+-                >
+-                  {t('cta1')}
+-                </a>
+-                <a
+-                  href="tel:+50763303291"
+-                  aria-label={isEs ? 'Llamar a VETECHI - Emergencia 24/7' : 'Call VETECHI - Emergency 24/7'}
+-                  className="px-10 py-4 text-lg font-bold rounded-xl flex items-center justify-center gap-3 border border-white/20 bg-white/5 hover:bg-white/10 text-white transition-all backdrop-blur-sm"
+-                >
+-                  <Phone size={20} className="text-emergency animate-pulse" />
+-                  <span>{t('cta2')}</span>
+-                </a>
+-              </div>
+-            </div>
+-
+-            {/* Decorative spacer for desktop to balance with the wide stats below */}
+-            <div className="hidden lg:block lg:w-32" />
+-          </div>
+-
+-          {/* Stats Row - Wide Horizontal Block */}
+-          <div
+-            className="w-full"
+-          >
+-            <div className="glassmorphism p-4 sm:p-6 rounded-[2rem] w-full flex flex-col sm:flex-row items-center justify-around gap-6 shadow-2xl relative overflow-hidden group/stats">
+-              {/* Animated background glow */}
+-              <div className="absolute inset-0 bg-primary-500/5 opacity-0 group-hover/stats:opacity-100 transition-opacity duration-700 pointer-events-none" />
+-              
+-              {stats.map((stat) => {
+-                const Icon = IconMap[stat.icon as keyof typeof IconMap];
+-                return (
+-                  <div
+-                    key={stat.label}
+-                    className="flex flex-row sm:flex-col items-center gap-4 sm:gap-1 text-center group relative z-10"
+-                  >
+-                    <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-accent-500 group-hover:bg-primary-500 group-hover:text-white transition-all duration-500 shadow-inner">
+-                      {Icon && <Icon size={20} strokeWidth={2.5} />}
+-                    </div>
+-                    <div className="text-left sm:text-center">
+-                      <div className="text-xl font-display font-black text-white leading-tight group-hover:text-primary-400 transition-colors">
+-                        {stat.value}
+-                      </div>
+-                      <div className="text-[8px] uppercase tracking-[0.15em] text-gray-300 font-bold leading-tight">
+-                        {stat.label}
+-                      </div>
+-                    </div>
+-                  </div>
+-                );
+-              })}
+-            </div>
+-            
+-            {/* Status indicator floating below card */}
+-            <div 
+-              className="mt-6 flex items-center justify-center"
+-            >
+-              <div className="px-6 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl flex items-center gap-3 shadow-lg group hover:bg-white/20 transition-all duration-300">
+-                <div className="relative flex h-2.5 w-2.5">
+-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
+-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent-500"></span>
+-                </div>
+-                <p className="text-[11px] font-black text-white uppercase tracking-[0.25em] font-sans">
+-                  {isEs ? 'Personal médico activo 24/7' : 'Medical staff active 24/7'}
+-                </p>
+-              </div>
+-            </div>
+-
+-
+-          </div>
+-        </div>
+-      </div>
+-
+-
+-    </section>
+-  );
+-}
+-
+-
++import { BUSINESS_DATA, HOURS_ROWS, SHOW_GOOGLE_RATING, STATS } from '@/utils/constants';
++import { Clock, MapPin, PawPrint, Phone, Star, Stethoscope } from 'lucide-react';
++import { SiWhatsapp } from 'react-icons/si';
++import { getLocale, getTranslations } from 'next-intl/server';
++import { preload } from 'react-dom';
++
++const IconMap = {
++  Stethoscope,
++  Star,
++  Clock,
++  PawPrint,
++};
++
++export default async function Hero() {
++  preload('/images/optimized/hero/hero-bg-mobile-lcp.avif', { as: 'image', fetchPriority: 'high', media: '(max-width: 768px)' });
++  preload('/images/optimized/hero/hero-bg-lcp.avif', { as: 'image', fetchPriority: 'high', media: '(min-width: 769px)' });
++
++  const t = await getTranslations('hero');
++  const locale = await getLocale();
++  const isEs = locale === 'es';
++  const stats = (isEs ? STATS.es : STATS.en).filter(
++    (stat) => SHOW_GOOGLE_RATING || stat.icon !== 'Star',
++  );
++  const hoursRows = isEs ? HOURS_ROWS.es : HOURS_ROWS.en;
++
++  return (
++    <section id="inicio" className="relative flex min-h-screen items-center overflow-hidden bg-dark-900 pb-8 pt-24">
++      <div className="absolute inset-0 z-0" aria-hidden="true">
++        <picture>
++          <source media="(max-width: 768px)" srcSet="/images/optimized/hero/hero-bg-mobile-lcp.avif" type="image/avif" />
++          <source media="(min-width: 769px)" srcSet="/images/optimized/hero/hero-bg-lcp.avif" type="image/avif" />
++          <img
++            src="/images/optimized/hero/hero-bg.webp"
++            alt=""
++            className="absolute inset-0 h-full w-full object-cover"
++            fetchPriority="high"
++            decoding="async"
++            sizes="100vw"
++          />
++        </picture>
++        <div className="absolute inset-0 bg-gradient-to-r from-dark-900/95 via-dark-900/85 to-dark-900/75" />
++        <div
++          className="absolute inset-0 opacity-60"
++          style={{ background: 'radial-gradient(circle at 30% 50%, rgba(27, 59, 47, 0.4) 0%, transparent 70%)' }}
++        />
++      </div>
++
++      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
++        <div className="flex flex-col gap-8 lg:gap-7">
++          <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-center lg:gap-10">
++            <div className="min-w-0 space-y-5">
++              <div className="inline-flex items-center gap-3 rounded-full border border-[#C5A77A]/40 bg-[#C5A77A]/10 px-5 py-2 shadow-[0_0_15px_rgba(197,167,122,0.15)] backdrop-blur-md">
++                <MapPin size={14} className="text-accent-500" aria-hidden="true" />
++                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-white">
++                  {isEs ? 'David, Chiriquí · Panamá' : 'David, Chiriquí · Panama'}
++                </span>
++              </div>
++
++              <h1 className="font-display font-extrabold tracking-tight">
++                <span className="block text-5xl leading-[0.98] text-white sm:text-6xl md:text-7xl lg:text-8xl">
++                  {t('title')}
++                </span>
++                <span className="block text-5xl font-serif italic leading-[0.98] text-accent-500 sm:text-6xl md:text-7xl lg:text-8xl">
++                  {t('brand')}
++                </span>
++                <span className="mt-3 block text-2xl font-semibold leading-snug text-white sm:text-3xl lg:text-4xl">
++                  {t('headline')}
++                </span>
++              </h1>
++
++              <p className="max-w-xl text-lg leading-relaxed text-gray-100 sm:text-xl">
++                {t('subheadline')}
++              </p>
++
++              {SHOW_GOOGLE_RATING && (
++                <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-white/95">
++                  <div className="flex gap-1" aria-hidden="true">
++                    {[1, 2, 3, 4, 5].map((star) => (
++                      <Star key={star} size={16} className="fill-yellow-400 text-yellow-400" />
++                    ))}
++                  </div>
++                  <span>
++                    <strong className="font-bold text-white">4.8/5</strong>{' '}
++                    {isEs ? 'en Google (42 reseñas)' : 'on Google (42 reviews)'}
++                  </span>
++                </div>
++              )}
++
++              <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap">
++                <a
++                  href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.info.es : BUSINESS_DATA.whatsappMessages.info.en)}`}
++                  target="_blank"
++                  rel="noopener noreferrer"
++                  className="flex min-h-[52px] items-center justify-center gap-3 rounded-xl bg-primary-700 px-6 py-3 text-center text-base font-bold text-white shadow-[0_0_20px_rgba(34,197,94,0.24)] transition-colors hover:bg-primary-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-lg"
++                >
++                  <SiWhatsapp size={20} aria-hidden="true" />
++                  <span>{t('cta1')}</span>
++                </a>
++                <a
++                  href={BUSINESS_DATA.phoneHref}
++                  aria-label={isEs ? 'Llamar por urgencia fuera del horario presencial' : 'Call for an emergency outside in-person hours'}
++                  className="flex min-h-[52px] items-center justify-center gap-3 rounded-xl border border-white/50 bg-white/5 px-6 py-3 text-center text-base font-bold text-white backdrop-blur-sm transition-colors hover:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:text-lg"
++                >
++                  <Phone size={20} className="text-emergency motion-safe:animate-pulse" aria-hidden="true" />
++                  <span>{t('cta2')}</span>
++                </a>
++              </div>
++            </div>
++
++            <aside
++              aria-label={t('hoursHeading')}
++              className="w-full rounded-3xl border border-white/20 bg-dark-900/70 p-6 text-white shadow-2xl backdrop-blur-xl sm:p-7 lg:w-[400px] lg:shrink-0"
++            >
++              <h2 className="mb-3 flex items-center gap-3 text-base font-bold text-accent-400 sm:text-lg">
++                <Clock size={21} aria-hidden="true" />
++                <span>{t('hoursHeading')}</span>
++              </h2>
++              <dl className="divide-y divide-white/15 text-sm sm:text-base">
++                {hoursRows.map((row) => (
++                  <div key={row.day} className="flex items-center justify-between gap-4 py-3">
++                    <dt className="text-gray-100">{row.day}</dt>
++                    <dd className="whitespace-nowrap text-right font-semibold tabular-nums text-white">{row.time}</dd>
++                  </div>
++                ))}
++              </dl>
++
++              <div className="mt-5 rounded-2xl border border-white/15 bg-dark-900/70 p-4 sm:p-5">
++                <h3 className="text-sm font-bold text-white sm:text-base">{t('afterHoursLabel')}</h3>
++                <p className="mt-2 text-sm leading-relaxed text-gray-100">
++                  {isEs
++                    ? 'Fuera del horario presencial, llama por una urgencia.'
++                    : 'After in-person hours, call for an emergency.'}
++                </p>
++                <a
++                  href={BUSINESS_DATA.phoneHref}
++                  className="mt-3 inline-flex min-h-[44px] items-center text-xl font-bold tabular-nums text-accent-400 underline-offset-4 hover:underline sm:text-2xl"
++                >
++                  {BUSINESS_DATA.phone}
++                </a>
++              </div>
++            </aside>
++          </div>
++
++          <div className="glassmorphism relative flex w-full flex-col items-center justify-around gap-5 overflow-hidden rounded-[2rem] p-4 shadow-2xl sm:flex-row sm:p-5">
++            {stats.map((stat) => {
++              const Icon = IconMap[stat.icon as keyof typeof IconMap];
++              return (
++                <div key={stat.label} className="relative z-10 flex items-center gap-3 text-center sm:flex-col sm:gap-1">
++                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/10 text-accent-500">
++                    {Icon && <Icon size={20} strokeWidth={2.5} aria-hidden="true" />}
++                  </div>
++                  <div className="sm:text-center">
++                    <div className="text-lg font-display font-black leading-tight text-white">{stat.value}</div>
++                    <div className="text-[10px] font-bold uppercase leading-tight tracking-[0.12em] text-gray-100 sm:text-[11px]">
++                      {stat.label}
++                    </div>
++                  </div>
++                </div>
++              );
++            })}
++          </div>
++        </div>
++      </div>
++    </section>
++  );
++}
+diff --git a/components/LanguageSwitcher.tsx b/components/LanguageSwitcher.tsx
+index b42c7aa5..b486db11 100644
+--- a/components/LanguageSwitcher.tsx
++++ b/components/LanguageSwitcher.tsx
+@@ -11,18 +11,9 @@ export default function LanguageSwitcher() {
+ 
+   const switchLanguage = (newLocale: string) => {
+     startTransition(() => {
+-      let newPathname = pathname;
+-      
+-      if (pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`) {
+-        newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
+-      } else {
+-        newPathname = `/${newLocale}${pathname === '/' ? '' : pathname}`;
+-      }
+-      
+-      if (newLocale === 'es') {
+-        newPathname = newPathname.replace(/^\/en/, '') || '/';
+-      }
+-      
++      const pathWithoutLocale = pathname.replace(/^\/(es|en)(?=\/|$)/, '') || '/';
++      const newPathname = `/${newLocale}${pathWithoutLocale === '/' ? '/' : pathWithoutLocale}`;
++
+       window.location.href = newPathname;
+     });
+   };
+@@ -55,4 +46,4 @@ export default function LanguageSwitcher() {
+       </button>
+     </div>
+   );
+-}
+\ No newline at end of file
++}
+diff --git a/components/Navbar.tsx b/components/Navbar.tsx
+index 14dc926e..f3147f26 100644
+--- a/components/Navbar.tsx
++++ b/components/Navbar.tsx
+@@ -6,7 +6,7 @@ import Link from 'next/link';
+ import { useEffect, useState } from 'react';
+ 
+ import { BUSINESS_DATA } from '@/utils/constants';
+-import { Menu, Phone, X } from 'lucide-react';
++import { Menu, MessageCircle, Phone, X } from 'lucide-react';
+ import LanguageSwitcher from './LanguageSwitcher';
+ 
+ export default function Navbar() {
+@@ -44,7 +44,7 @@ export default function Navbar() {
+       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="flex justify-between items-center h-20">
+           {/* Logo Section */}
+-          <Link href="/" className="flex items-center gap-3">
++          <Link href={`/${locale}/`} className="flex items-center gap-3">
+             <div
+               className="relative w-14 h-14"
+             >
+@@ -83,14 +83,14 @@ export default function Navbar() {
+           <div className="hidden md:flex items-center gap-4">
+             <LanguageSwitcher />
+             <a
+-              href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.appointment.es : BUSINESS_DATA.whatsappMessages.appointment.en)}`}
++              href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.info.es : BUSINESS_DATA.whatsappMessages.info.en)}`}
+               target="_blank"
+               rel="noopener noreferrer"
+               className="btn-primary flex items-center gap-2 text-sm"
+-              aria-label="WhatsApp"
++              aria-label={isEs ? 'WhatsApp para consultas e información general' : 'WhatsApp for general questions and information'}
+             >
+-              <Phone size={18} />
+-              {isEs ? 'Agendar Cita' : 'Book Appointment'}
++              <MessageCircle size={18} />
++              {isEs ? 'Contactar por WhatsApp' : 'Contact us on WhatsApp'}
+             </a>
+           </div>
+ 
+@@ -124,11 +124,12 @@ export default function Navbar() {
+             </div>
+             <div className="px-4 pt-2">
+               <a
+-                href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
+-                className="btn-primary w-full flex items-center justify-center gap-2 text-sm"
++                href={BUSINESS_DATA.phoneHref}
++                aria-label={isEs ? 'Llamar por urgencia fuera del horario presencial' : 'Call for an emergency outside in-person hours'}
++                className="btn-primary w-full flex flex-col items-center justify-center gap-1 text-sm"
+               >
+-                <Phone size={18} />
+-                {BUSINESS_DATA.phone}
++                <span className="flex items-center gap-2"><Phone size={18} />{BUSINESS_DATA.phone}</span>
++                <span className="text-xs">{isEs ? 'Urgencias fuera de horario' : 'After-hours emergencies'}</span>
+               </a>
+             </div>
+           </div>
+diff --git a/components/Services.tsx b/components/Services.tsx
+index c0011b13..19407cf6 100644
+--- a/components/Services.tsx
++++ b/components/Services.tsx
+@@ -83,26 +83,21 @@ export default function Services() {
+                     
+                     {/* Learn More link with Shine */}
+                     <a 
+-                      href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? `Hola Vetechi, me gustaría recibir más información sobre el servicio de ${t(`items.${service.id}`)}` : `Hello Vetechi, I'd like more information about the service: ${t(`items.${service.id}`)}`)}`}
+-                      target="_blank"
+-                      rel="noopener noreferrer"
++                      href={isEmergency
++                        ? BUSINESS_DATA.phoneHref
++                        : `${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? `Hola Vetechi, me gustaría recibir más información sobre el servicio de ${t(`items.${service.id}`)}` : `Hello Vetechi, I'd like more information about the service: ${t(`items.${service.id}`)}`)}`}
++                      target={isEmergency ? undefined : '_blank'}
++                      rel={isEmergency ? undefined : 'noopener noreferrer'}
+                       className={`btn-shine inline-flex items-center gap-2 mt-6 px-6 py-3 min-h-[48px] rounded-lg font-bold uppercase tracking-wider text-sm ${
+                         isEmergency ? 'text-accent-500 border border-accent-500' : 'text-white'
+                       }`}
+                     >
+-                      <span>{isEs ? 'Saber más' : 'Learn more'}</span>
++                      <span>{isEmergency ? (isEs ? 'Llamar por urgencia' : 'Call for an emergency') : (isEs ? 'Saber más' : 'Learn more')}</span>
+                       <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform" />
+                     </a>
+ 
+                   </div>
+ 
+-                  {/* Emergency Tag */}
+-                  {isEmergency && (
+-                    <div className="absolute top-8 right-8 flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20">
+-                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+-                      <span className="text-[10px] font-bold text-red-200 uppercase tracking-widest">24/7</span>
+-                    </div>
+-                  )}
+                 </PremiumServiceContainer>
+               </div>
+             );
+diff --git a/components/Testimonials.tsx b/components/Testimonials.tsx
+index 631f86ea..ffcbec1e 100644
+--- a/components/Testimonials.tsx
++++ b/components/Testimonials.tsx
+@@ -1,24 +1,28 @@
+ 'use client';
+ 
+-import { TESTIMONIALS } from '@/utils/constants';
++import { SHOW_GOOGLE_RATING, TESTIMONIALS } from '@/utils/constants';
+ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+-import { useLocale } from 'next-intl';
++import { useLocale, useTranslations } from 'next-intl';
+ import { useState } from 'react';
+ 
+ export default function Testimonials() {
+   const locale = useLocale();
++  const t = useTranslations('testimonials');
+   const isEs = locale === 'es';
+   const [current, setCurrent] = useState(0);
++  const visibleTestimonials = TESTIMONIALS.filter((item) => !item.temporarilyHidden);
+ 
+-  const testimonial = TESTIMONIALS[current];
++  if (visibleTestimonials.length === 0) return null;
++
++  const testimonial = visibleTestimonials[current];
+   const text = isEs ? testimonial.es : testimonial.en;
+ 
+   const nextTestimonial = () => {
+-    setCurrent((prev) => (prev + 1) % TESTIMONIALS.length);
++    setCurrent((prev) => (prev + 1) % visibleTestimonials.length);
+   };
+ 
+   const prevTestimonial = () => {
+-    setCurrent((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
++    setCurrent((prev) => (prev - 1 + visibleTestimonials.length) % visibleTestimonials.length);
+   };
+ 
+   return (
+@@ -35,7 +39,9 @@ export default function Testimonials() {
+             </p>
+           </div>
+           <h2 className="text-3xl sm:text-4xl font-display font-bold text-dark-900 mb-2">
+-            4.8 ⭐ en Google • 42 reseñas verificadas
++            {SHOW_GOOGLE_RATING
++              ? (isEs ? '4.8/5 ⭐ en Google • 42 reseñas' : '4.8/5 ⭐ on Google • 42 reviews')
++              : t('title')}
+           </h2>
+         </div>
+ 
+@@ -74,7 +80,7 @@ export default function Testimonials() {
+           </button>
+ 
+           <div className="flex gap-2">
+-            {TESTIMONIALS.map((_, i) => (
++            {visibleTestimonials.map((_, i) => (
+               <button
+                 key={i}
+                 onClick={() => setCurrent(i)}
+diff --git a/components/WhatsAppButton.tsx b/components/WhatsAppButton.tsx
+index e4f34e2f..fce730de 100644
+--- a/components/WhatsAppButton.tsx
++++ b/components/WhatsAppButton.tsx
+@@ -27,8 +27,8 @@ export default function WhatsAppButton() {
+       target="_blank"
+       rel="noopener noreferrer"
+       className="fixed bottom-8 right-8 z-[1000] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300"
+-      aria-label={isEs ? 'WhatsApp de Emergencia' : 'Emergency WhatsApp'}
+-      title={isEs ? 'Contactar por WhatsApp' : 'Contact via WhatsApp'}
++      aria-label={isEs ? 'WhatsApp para consultas e información general' : 'WhatsApp for general questions and information'}
++      title={isEs ? 'Consultas e información general por WhatsApp' : 'General questions and information via WhatsApp'}
+     >
+       <SiWhatsapp size={32} aria-hidden="true" />
+       {/* Pulse effect */}
+diff --git a/messages/en.json b/messages/en.json
+index 1579f858..cf399a15 100644
+--- a/messages/en.json
++++ b/messages/en.json
+@@ -7,15 +7,21 @@
+     "contacto": "Contact"
+   },
+   "hero": {
+-    "headline": "Veterinary Hospital VETECHI — 24 hours in Chiriquí",
+-    "subheadline": "The only 24-hour veterinary hospital in Chiriquí. Continuous care, modern technology, and a team passionate about animal life.",
+-    "cta1": "Book Appointment",
+-    "cta2": "Emergency 24/7"
++    "title": "Veterinary Hospital",
++    "brand": "VETECHI",
++    "headline": "Extended veterinary care in David, Chiriquí.",
++    "subheadline": "At VETECHI, we provide extended in-person veterinary care to support the health and well-being of your pets.",
++    "cta1": "Contact us on WhatsApp",
++    "cta2": "Call for an emergency",
++    "hoursHeading": "In-person hours",
++    "weekdayHours": "Monday to Saturday: 8:00 AM – 10:00 PM.",
++    "sundayHours": "Sunday: 10:00 AM – 3:00 PM.",
++    "afterHoursLabel": "Emergencies outside in-person hours"
+   },
+   "stats": {
+     "specialists": "4+ Specialists",
+     "rating": "Google Rating",
+-    "emergencies": "Emergencies 24/7",
++    "emergencies": "In-person hours",
+     "species": "All Species"
+   },
+   "about": {
+@@ -28,12 +34,12 @@
+     "subtitle": "Specialized medical care with international standards",
+     "items": {
+       "consulta": "Comprehensive evaluation by specialists for preventive and curative well-being.",
+-      "emergencia": "Immediate critical care available 24 hours a day, 365 days a year.",
++      "emergencia": "In-person emergency care during regular hours. After hours, call +507 6330-3291.",
+       "cirugia": "Advanced surgical procedures with constant digital monitoring.",
+       "laboratorio": "Accurate results in minutes with our in-house laboratory.",
+       "cardiologia": "Diagnosis and treatment of complex cardiac pathologies.",
+       "exoticos": "Specialists in birds, reptiles, and small mammals.",
+-      "hospitalizacion": "Intensive care in a safe environment 24/7.",
++      "hospitalizacion": "Intensive care in a safe environment during hospitalization.",
+       "vacunacion": "Complete protection with vaccination and deworming.",
+       "endoscopia": "Non-invasive diagnosis of digestive and respiratory tracts."
+     }
+@@ -59,10 +65,9 @@
+   "emergencies": {
+     "title": "Emergency?",
+     "subtitle": "Is your pet having an emergency?",
+-    "description": "Don't wait. Every second matters. We are the only veterinary hospital in Chiriquí with permanent care. Emergencies handled by specialists at all times.",
+-    "cta": "Call Now",
+-    "whatsapp": "Emergency WhatsApp",
+-    "online": "ONLINE NOW"
++    "description": "In-person veterinary care is available Monday to Saturday, 8:00 AM to 10:00 PM, and Sunday, 10:00 AM to 3:00 PM. After in-person hours, call +507 6330-3291 for emergencies.",
++    "cta": "Call for an emergency",
++    "afterHoursLabel": "Emergencies outside in-person hours"
+   },
+   "testimonials": {
+     "title": "What our clients say"
+@@ -78,7 +83,7 @@
+   "contact": {
+     "title": "Contact",
+     "subtitle": "Ready to take care of your pet?",
+-    "description": "Book an appointment or visit us in David, Chiriquí. Someone will always be here for you.",
++    "description": "Book an appointment or visit us in David, Chiriquí.",
+     "form": {
+       "name": "Name",
+       "phone": "Phone",
+@@ -90,7 +95,7 @@
+     }
+   },
+   "footer": {
+-    "slogan": "Always ready to care for your best friend",
++    "slogan": "Your best friend deserves the best!",
+     "rights": "All rights reserved"
+   }
+-}
+\ No newline at end of file
++}
+diff --git a/messages/es.json b/messages/es.json
+index 81409850..51371af3 100644
+--- a/messages/es.json
++++ b/messages/es.json
+@@ -3,19 +3,25 @@
+     "inicio": "Inicio",
+     "servicios": "Servicios",
+     "equipo": "Equipo",
+-    "emergencias": "Emergencias",
++    "emergencias": "Urgencias",
+     "contacto": "Contacto"
+   },
+   "hero": {
+-    "headline": "Hospital Veterinario VETECHI — 24 horas en Chiriquí",
+-    "subheadline": "Único hospital veterinario 24 horas en Chiriquí. Atención continua, tecnología moderna y un equipo apasionado por la vida animal.",
+-    "cta1": "Agendar Cita",
+-    "cta2": "Emergencia 24/7"
++    "title": "Hospital Veterinario",
++    "brand": "VETECHI",
++    "headline": "Atención veterinaria extendida en David, Chiriquí.",
++    "subheadline": "En VETECHI brindamos atención veterinaria presencial durante horarios extendidos para cuidar la salud y el bienestar de tus mascotas.",
++    "cta1": "Contactar por WhatsApp",
++    "cta2": "Llamar por urgencia",
++    "hoursHeading": "Horario de atención presencial",
++    "weekdayHours": "Lunes a sábado: 8:00 a.m. – 10:00 p.m.",
++    "sundayHours": "Domingos: 10:00 a.m. – 3:00 p.m.",
++    "afterHoursLabel": "Urgencias fuera del horario presencial"
+   },
+   "stats": {
+     "specialists": "4+ Especialistas",
+-    "rating": "Google Rating",
+-    "emergencies": "Emergencias 24/7",
++    "rating": "Valoración Google",
++    "emergencies": "Horario presencial",
+     "species": "Todas las Especies"
+   },
+   "about": {
+@@ -28,12 +34,12 @@
+     "subtitle": "Atención médica especializada con estándares internacionales",
+     "items": {
+       "consulta": "Evaluación integral por especialistas para el bienestar preventivo y curativo.",
+-      "emergencia": "Atención crítica inmediata las 24 horas, los 365 días del año.",
++      "emergencia": "Urgencias presenciales durante el horario de atención. Fuera de horario, llama al +507 6330-3291.",
+       "cirugia": "Procedimientos quirúrgicos avanzados con monitoreo digital constante.",
+       "laboratorio": "Resultados precisos en minutos con nuestro laboratorio in-house.",
+       "cardiologia": "Diagnóstico y tratamiento de patologías cardiacas complejas.",
+       "exoticos": "Especialistas en aves, reptiles y pequeños mamíferos.",
+-      "hospitalizacion": "Cuidados intensivos en ambiente seguro 24/7.",
++      "hospitalizacion": "Cuidados intensivos en un ambiente seguro durante la hospitalización.",
+       "vacunacion": "Protección completa con vacunas y desparasitación.",
+       "endoscopia": "Diagnóstico no invasivo de vías digestivas y respiratorias."
+     }
+@@ -59,10 +65,9 @@
+   "emergencies": {
+     "title": "¿Emergencia?",
+     "subtitle": "¿Tu mascota tiene una emergencia?",
+-    "description": "No esperes. Cada segundo importa. Somos el único hospital veterinario en Chiriquí con atención permanente. Emergencias atendidas por especialistas en todo momento.",
+-    "cta": "Llamar Ahora",
+-    "whatsapp": "WhatsApp Emergencias",
+-    "online": "EN LÍNEA AHORA"
++    "description": "La atención veterinaria presencial es de lunes a sábado, de 8:00 a.m. a 10:00 p.m., y los domingos, de 10:00 a.m. a 3:00 p.m. Fuera del horario presencial, llama al +507 6330-3291 por una urgencia.",
++    "cta": "Llamar por urgencia",
++    "afterHoursLabel": "Urgencias fuera del horario presencial"
+   },
+   "testimonials": {
+     "title": "Lo que dicen nuestros clientes"
+@@ -78,7 +83,7 @@
+   "contact": {
+     "title": "Contacto",
+     "subtitle": "¿Listo para cuidar a tu mascota?",
+-    "description": "Agenda tu cita o visítanos en David, Chiriquí. Siempre habrá alguien esperándote.",
++    "description": "Agenda tu cita o visítanos en David, Chiriquí.",
+     "form": {
+       "name": "Nombre",
+       "phone": "Teléfono",
+@@ -90,7 +95,7 @@
+     }
+   },
+   "footer": {
+-    "slogan": "Siempre listos para cuidar a tu mejor amigo",
++    "slogan": "¡Tu mejor amigo merece lo mejor!",
+     "rights": "Todos los derechos reservados"
+   }
+-}
+\ No newline at end of file
++}
+diff --git a/public/_headers b/public/_headers
+index 6aa17237..b9db15fa 100644
+--- a/public/_headers
++++ b/public/_headers
+@@ -5,4 +5,4 @@
+   Content-Security-Policy: default-src 'self'; img-src 'self' data: https: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://fonts.googleapis.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';
+   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+   Permissions-Policy: camera=(), microphone=(), geolocation=()
+-  Access-Control-Allow-Origin: https://vetechi.pa
++  Access-Control-Allow-Origin: https://vetechi-landing.pages.dev
+diff --git a/public/manifest.json b/public/manifest.json
+index 28a8ad67..301adc37 100644
+--- a/public/manifest.json
++++ b/public/manifest.json
+@@ -1,7 +1,7 @@
+ {
+   "name": "VETECHI Hospital Veterinario",
+   "short_name": "VETECHI",
+-  "description": "Hospital Veterinario 24/7 en David, Chiriquí. Emergencias 24/7, tecnología moderna y equipo apasionado.",
++  "description": "Hospital Veterinario en David, Chiriquí. Atención presencial de lunes a sábado de 8:00 a.m. a 10:00 p.m. y domingos de 10:00 a.m. a 3:00 p.m.",
+   "start_url": "/es",
+   "display": "standalone",
+   "background_color": "#1B3B2F",
+diff --git a/public/robots.txt b/public/robots.txt
+deleted file mode 100644
+index a0ab1a8b..00000000
+--- a/public/robots.txt
++++ /dev/null
+@@ -1,5 +0,0 @@
+-# https://www.robotstxt.org/robotstxt.html
+-User-agent: *
+-Allow: /
+-
+-Sitemap: https://vetechi.pa/sitemap.xml
+diff --git a/public/sitemap.xml b/public/sitemap.xml
+deleted file mode 100644
+index dc1be895..00000000
+--- a/public/sitemap.xml
++++ /dev/null
+@@ -1,19 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+-  <url>
+-    <loc>https://vetechi.pa/es</loc>
+-    <priority>1.0</priority>
+-  </url>
+-  <url>
+-    <loc>https://vetechi.pa/en</loc>
+-    <priority>1.0</priority>
+-  </url>
+-  <url>
+-    <loc>https://vetechi.pa/es/privacy</loc>
+-    <priority>0.5</priority>
+-  </url>
+-  <url>
+-    <loc>https://vetechi.pa/en/privacy</loc>
+-    <priority>0.5</priority>
+-  </url>
+-</urlset>
+diff --git a/utils/constants.ts b/utils/constants.ts
+index 4d9e1c4c..6aa5b781 100644
+--- a/utils/constants.ts
++++ b/utils/constants.ts
+@@ -2,17 +2,13 @@ export const BUSINESS_DATA = {
+   name: 'VETECHI',
+   fullName: 'Hospital Veterinario Chiriquí',
+   phone: '+507 6330-3291',
+-  email: 'info@vetechi.pa',
++  phoneHref: 'tel:+50763303291',
+   whatsapp: 'https://wa.me/50763303291',
+   whatsappMessages: {
+     appointment: {
+       es: 'Hola VETECHI, me gustaría agendar una cita para mi mascota.',
+       en: 'Hello VETECHI, I would like to book an appointment for my pet.',
+     },
+-    emergency: {
+-      es: 'Emergencia veterinaria, necesito atención inmediata para mi mascota.',
+-      en: 'Veterinary emergency, I need immediate attention for my pet.',
+-    },
+     info: {
+       es: 'Hola VETECHI, necesito información sobre sus servicios.',
+       en: 'Hello VETECHI, I need information about your services.',
+@@ -29,12 +25,18 @@ export const BUSINESS_DATA = {
+     facebook: 'https://facebook.com/vetechipa',
+   },
+   hours: {
+-    es: 'Abierto — Cierra a las 10:00 PM',
+-    en: 'Open — Closes at 10:00 PM',
++    es: [
++      'Lunes a sábado: 8:00 a.m. – 10:00 p.m.',
++      'Domingos: 10:00 a.m. – 3:00 p.m.',
++    ],
++    en: [
++      'Monday to Saturday: 8:00 AM – 10:00 PM.',
++      'Sunday: 10:00 AM – 3:00 PM.',
++    ],
+   },
+-  emergencies: {
+-    es: '24 horas / 7 días / 365 días al año',
+-    en: '24 hours / 7 days / 365 days a year',
++  afterHoursEmergency: {
++    es: 'Fuera del horario presencial, llama al +507 6330-3291 por una urgencia.',
++    en: 'After in-person hours, call +507 6330-3291 for emergencies.',
+   },
+   googleRating: {
+     stars: 4.8,
+@@ -42,18 +44,33 @@ export const BUSINESS_DATA = {
+   },
+ };
+ 
++export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'https://vetechi-landing.pages.dev').replace(/\/+$/, '');
++
++export const SHOW_GOOGLE_RATING = true;
++
++export const HOURS_ROWS = {
++  es: [
++    { day: 'Lunes a sábado', time: '8:00 a.m. – 10:00 p.m.' },
++    { day: 'Domingos', time: '10:00 a.m. – 3:00 p.m.' },
++  ],
++  en: [
++    { day: 'Monday to Saturday', time: '8:00 AM – 10:00 PM' },
++    { day: 'Sunday', time: '10:00 AM – 3:00 PM' },
++  ],
++};
++
+ export const HERO_COPY = {
+   es: {
+-    headline: 'Hospital Veterinario VETECHI — 24 horas en Chiriquí',
+-    subheadline: 'Único hospital veterinario 24 horas en Chiriquí. Atención continua, tecnología moderna y un equipo apasionado por la vida animal.',
+-    cta1: 'Agendar Cita',
+-    cta2: 'Emergencia 24/7',
++    headline: 'Atención veterinaria extendida en David, Chiriquí.',
++    subheadline: 'En VETECHI brindamos atención veterinaria presencial durante horarios extendidos para cuidar la salud y el bienestar de tus mascotas.',
++    cta1: 'Contactar por WhatsApp',
++    cta2: 'Llamar por urgencia',
+   },
+   en: {
+-    headline: 'Veterinary Hospital VETECHI — 24 hours in Chiriquí',
+-    subheadline: 'The only 24-hour veterinary hospital in Chiriquí. Continuous care, modern technology, and a team passionate about animal life.',
+-    cta1: 'Book Appointment',
+-    cta2: 'Emergency 24/7',
++    headline: 'Extended veterinary care in David, Chiriquí.',
++    subheadline: 'At VETECHI, we provide extended in-person veterinary care to support the health and well-being of your pets.',
++    cta1: 'Contact us on WhatsApp',
++    cta2: 'Call for an emergency',
+   },
+ };
+ 
+@@ -61,13 +78,11 @@ export const STATS = {
+   es: [
+     { icon: 'Stethoscope', label: '4+ Especialistas', value: '4+' },
+     { icon: 'Star', label: 'Valoración Google', value: '4.8' },
+-    { icon: 'Clock', label: 'Emergencias 24/7', value: '24/7' },
+     { icon: 'PawPrint', label: 'Todas las Especies', value: 'Todas' },
+   ],
+   en: [
+     { icon: 'Stethoscope', label: '4+ Specialists', value: '4+' },
+     { icon: 'Star', label: 'Google Rating', value: '4.8' },
+-    { icon: 'Clock', label: 'Emergencies 24/7', value: '24/7' },
+     { icon: 'PawPrint', label: 'All Species', value: 'All' },
+   ],
+ };
+@@ -81,7 +96,7 @@ export const ABOUT_COPY = {
+     values: [
+       { icon: '❤️', title: 'Atención con Amor', subtitle: 'Care with Love' },
+       { icon: '🏆', title: 'Excelencia Técnica', subtitle: 'Technical Excellence' },
+-      { icon: '🕐', title: 'Disponibilidad 24/7', subtitle: '24/7 Availability' },
++      { icon: '🕐', title: 'Horario extendido', subtitle: 'Extended hours' },
+       { icon: '🔬', title: 'Tecnología Moderna', subtitle: 'Modern Technology' },
+       { icon: '🤝', title: 'Transparencia', subtitle: 'Transparency' },
+       { icon: '🌱', title: 'Compromiso', subtitle: 'Commitment' },
+@@ -94,7 +109,7 @@ export const ABOUT_COPY = {
+     values: [
+       { icon: '❤️', title: 'Care with Love', subtitle: 'Atención con Amor' },
+       { icon: '🏆', title: 'Technical Excellence', subtitle: 'Excelencia Técnica' },
+-      { icon: '🕐', title: '24/7 Availability', subtitle: 'Disponibilidad 24/7' },
++      { icon: '🕐', title: 'Extended hours', subtitle: 'Horario extendido' },
+       { icon: '🔬', title: 'Modern Technology', subtitle: 'Tecnología Moderna' },
+       { icon: '🤝', title: 'Transparency', subtitle: 'Transparencia' },
+       { icon: '🌱', title: 'Commitment', subtitle: 'Compromiso' },
+@@ -105,7 +120,7 @@ export const ABOUT_COPY = {
+ export const SERVICES = {
+   es: [
+     { icon: '🔍', title: 'Consulta General', description: 'Evaluación completa de tu mascota por nuestros especialistas' },
+-    { icon: '🚨', title: 'Emergencias 24/7', description: 'Atención inmediata para situaciones críticas' },
++    { icon: '🚨', title: 'Urgencias', description: 'Atención presencial durante el horario de atención; fuera de horario, llamar al +507 6330-3291' },
+     { icon: '🏥', title: 'Cirugía Especializada', description: 'Procedimientos quirúrgicos con tecnología avanzada' },
+     { icon: '💉', title: 'Vacunación y Desparasitación', description: 'Protección completa para tu mascota' },
+     { icon: '🧪', title: 'Laboratorio Clínico', description: 'Análisis rápidos y precisos in-house' },
+@@ -124,7 +139,7 @@ export const SERVICES = {
+   ],
+   en: [
+     { icon: '🔍', title: 'General Consultation', description: 'Complete evaluation by our specialists' },
+-    { icon: '🚨', title: 'Emergencies 24/7', description: 'Immediate care for critical situations' },
++    { icon: '🚨', title: 'Emergencies', description: 'In-person care during regular hours; after hours, call +507 6330-3291' },
+     { icon: '🏥', title: 'Specialized Surgery', description: 'Surgical procedures with advanced technology' },
+     { icon: '💉', title: 'Vaccination & Deworming', description: 'Complete protection for your pet' },
+     { icon: '🧪', title: 'Clinical Laboratory', description: 'Fast and accurate in-house analysis' },
+@@ -145,13 +160,6 @@ export const SERVICES = {
+ 
+ export const EMERGENCIES_COPY = {
+   es: {
+-    title: '¿Emergencia?',
+-    subtitle: '¿Tu mascota tiene una emergencia?',
+-    description:
+-      'No esperes. Cada segundo importa. Estamos disponibles las 24 horas, los 7 días de la semana, los 365 días del año para atender cualquier situación crítica que ponga en riesgo la vida de tu mascota.',
+-    cta: 'Llamar Ahora',
+-    whatsapp: 'WhatsApp de Emergencia',
+-    online: 'EN LÍNEA AHORA',
+     cases: [
+       'Accidentes y atropellamientos',
+       'Envenenamientos',
+@@ -163,13 +171,6 @@ export const EMERGENCIES_COPY = {
+     ],
+   },
+   en: {
+-    title: 'Emergency?',
+-    subtitle: 'Is your pet having an emergency?',
+-    description:
+-      'Don\'t wait. Every second matters. We are available 24 hours a day, 7 days a week, 365 days a year to handle any critical situation threatening your pet\'s life.',
+-    cta: 'Call Now',
+-    whatsapp: 'Emergency WhatsApp',
+-    online: 'ONLINE NOW',
+     cases: [
+       'Accidents & hit-by-car',
+       'Poisoning & toxic ingestion',
+@@ -184,6 +185,7 @@ export const EMERGENCIES_COPY = {
+ 
+ export const TESTIMONIALS = [
+   {
++    temporarilyHidden: true,
+     author: 'Quiel Barrios',
+     location: 'David, Chiriquí',
+     rating: 5,
+@@ -282,7 +284,7 @@ export const CONTACT_COPY = {
+   es: {
+     title: 'Contacto',
+     subtitle: '¿Listo para cuidar a tu mascota?',
+-    description: 'Agenda tu cita o visítanos en David, Chiriquí. Siempre habrá alguien esperándote.',
++    description: 'Agenda tu cita o visítanos en David, Chiriquí.',
+     form: {
+       name: 'Nombre',
+       phone: 'Teléfono',
+@@ -296,7 +298,7 @@ export const CONTACT_COPY = {
+   en: {
+     title: 'Contact',
+     subtitle: 'Ready to take care of your pet?',
+-    description: 'Book an appointment or visit us in David, Chiriquí. Someone will always be here for you.',
++    description: 'Book an appointment or visit us in David, Chiriquí.',
+     form: {
+       name: 'Name',
+       phone: 'Phone',
+diff --git a/app/robots.ts b/app/robots.ts
+new file mode 100644
+index 00000000..5ab02898
+--- /dev/null
++++ b/app/robots.ts
+@@ -0,0 +1,15 @@
++import type { MetadataRoute } from 'next';
++import { SITE_URL } from '@/utils/constants';
++
++export const dynamic = 'force-static';
++
++export default function robots(): MetadataRoute.Robots {
++  return {
++    rules: {
++      userAgent: '*',
++      allow: '/',
++    },
++    sitemap: `${SITE_URL}/sitemap.xml`,
++    host: SITE_URL,
++  };
++}
+diff --git a/app/sitemap.ts b/app/sitemap.ts
+new file mode 100644
+index 00000000..03017c1a
+--- /dev/null
++++ b/app/sitemap.ts
+@@ -0,0 +1,10 @@
++import type { MetadataRoute } from 'next';
++import { SITE_URL } from '@/utils/constants';
++
++export const dynamic = 'force-static';
++
++export default function sitemap(): MetadataRoute.Sitemap {
++  return ['/es/', '/en/', '/es/privacy/', '/en/privacy/'].map((path) => ({
++    url: `${SITE_URL}${path}`,
++  }));
++}

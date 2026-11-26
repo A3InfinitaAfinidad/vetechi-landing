@@ -1,7 +1,7 @@
 'use client';
 
 import { BUSINESS_DATA, CONTACT_COPY } from '@/utils/constants';
-import { Clock, Mail, MapPin, Phone } from 'lucide-react';
+import { Clock, MapPin, Phone } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import { useState } from 'react';
 import { validateContactForm, isValidWhatsAppUrl, sanitizeWhatsAppText } from '@/utils/validation';
@@ -123,15 +123,22 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-subtitle font-bold text-dark-900 mb-2">
-                  {isEs ? 'Teléfono' : 'Phone'}
+                  {isEs ? 'Teléfono y urgencias fuera de horario' : 'Phone and after-hours emergencies'}
                 </h3>
                 <a
-                  href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
+                  href={BUSINESS_DATA.phoneHref}
                   className="text-text hover:text-primary-800 transition-colors font-semibold"
                 >
                   {BUSINESS_DATA.phone}
                 </a>
-                <p className="text-xs text-gray-500 mt-1">WhatsApp</p>
+                <a
+                  href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.info.es : BUSINESS_DATA.whatsappMessages.info.en)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-block text-xs font-semibold text-primary-800 hover:underline"
+                >
+                  {isEs ? 'WhatsApp para consultas e información general' : 'WhatsApp for general questions and information'}
+                </a>
               </div>
             </div>
 
@@ -146,32 +153,17 @@ export default function Contact() {
                 <h3 className="font-subtitle font-bold text-dark-900 mb-2">
                   {isEs ? 'Horario' : 'Hours'}
                 </h3>
-                <p className="text-text">{isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en}</p>
-                <p className="text-xs text-primary-800 font-bold mt-1">
-                  {isEs ? BUSINESS_DATA.emergencies.es : BUSINESS_DATA.emergencies.en}
+                <div className="space-y-1 text-text">
+                  {(isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en).map((hours) => (
+                    <p key={hours}>{hours}</p>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs font-bold text-primary-800">
+                  {isEs ? BUSINESS_DATA.afterHoursEmergency.es : BUSINESS_DATA.afterHoursEmergency.en}
                 </p>
               </div>
             </div>
 
-            {/* Email */}
-            <div
-              className="flex gap-4"
-            >
-              <div className="text-primary-800 flex-shrink-0 mt-1">
-                <Mail size={24} />
-              </div>
-              <div>
-                <h3 className="font-subtitle font-bold text-dark-900 mb-2">
-                  {isEs ? 'Email' : 'Email'}
-                </h3>
-                <a
-                  href={`mailto:${BUSINESS_DATA.email}`}
-                  className="text-text hover:text-primary-800 transition-colors"
-                >
-                  {BUSINESS_DATA.email}
-                </a>
-              </div>
-            </div>
           </div>
 
           {/* Contact Form */}

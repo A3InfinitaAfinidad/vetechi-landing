@@ -1,7 +1,7 @@
 'use client';
 
 import { BUSINESS_DATA, EMERGENCIES_COPY } from '@/utils/constants';
-import { AlertCircle, CheckCircle2, MessageCircle, Phone } from 'lucide-react';
+import { AlertCircle, CheckCircle2, Phone } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 
 export default function Emergencies() {
@@ -30,12 +30,9 @@ export default function Emergencies() {
             <div
               className="inline-flex items-center gap-3 px-4 py-2 rounded-xl bg-red-500/10 border border-red-500/20"
             >
-              <div className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-              </div>
+              <AlertCircle size={16} className="text-red-300" aria-hidden="true" />
               <span className="text-xs font-bold text-red-200 uppercase tracking-widest">
-                {t('online')}
+                {t('afterHoursLabel')}
               </span>
             </div>
 
@@ -65,20 +62,12 @@ export default function Emergencies() {
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
               <a
-                href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
+                href={BUSINESS_DATA.phoneHref}
+                aria-label={`${t('cta')}: ${BUSINESS_DATA.phone}`}
                 className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-red-600 text-white font-bold text-lg hover:bg-red-700 transition-all hover:shadow-[0_15px_30px_rgba(220,38,38,0.3)] hover:-translate-y-1"
               >
                 <Phone size={22} className="group-hover:rotate-12 transition-transform" />
-                <span>{isEs ? 'Llamar Urgente' : 'Emergency Call'}</span>
-              </a>
-              <a
-                href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.emergency.es : BUSINESS_DATA.whatsappMessages.emergency.en)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-3 px-10 py-5 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-lg hover:bg-white/10 transition-all hover:-translate-y-1"
-              >
-                <MessageCircle size={22} className="text-green-500" />
-                <span>WhatsApp</span>
+                <span>{t('cta')} · {BUSINESS_DATA.phone}</span>
               </a>
             </div>
           </div>
@@ -111,12 +100,15 @@ export default function Emergencies() {
                 <AlertCircle size={24} />
               </div>
               <div>
-                <p className="text-white font-bold uppercase tracking-widest text-[10px] mb-1">{isEs ? 'Prioridad Absoluta' : 'Absolute Priority'}</p>
-                <p className="text-white font-medium text-sm leading-snug">
-                  {isEs 
-                    ? 'Atención inmediata garantizada. Contamos con quirófano y laboratorio 24/7.' 
-                    : 'Immediate care guaranteed. We have operating rooms and labs available 24/7.'}
-                </p>
+                <p className="text-white font-bold uppercase tracking-widest text-[10px] mb-2">{isEs ? 'Horario presencial' : 'In-person hours'}</p>
+                <div className="space-y-1 text-white font-medium text-sm leading-snug">
+                  {(isEs ? BUSINESS_DATA.hours.es : BUSINESS_DATA.hours.en).map((hours) => (
+                    <p key={hours}>{hours}</p>
+                  ))}
+                  <p className="pt-2 text-gray-100">
+                    {isEs ? BUSINESS_DATA.afterHoursEmergency.es : BUSINESS_DATA.afterHoursEmergency.en}
+                  </p>
+                </div>
               </div>
             </div>
           </div>

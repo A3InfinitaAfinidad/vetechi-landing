@@ -1,6 +1,6 @@
-# VETECHI - Hospital Veterinario 24/7
+# VETECHI - Hospital Veterinario
 
-Hospital Veterinario premium en David, Chiriquí — únicos con atención 24/7 los 365 días del año.
+Atención veterinaria extendida en David, Chiriquí. La atención presencial es de lunes a sábado, de 8:00 a.m. a 10:00 p.m., y los domingos, de 10:00 a.m. a 3:00 p.m. Después del cierre, las urgencias se atienden únicamente mediante llamada al +507 6330-3291.
 
 ## Installation
 

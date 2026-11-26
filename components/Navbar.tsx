@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { BUSINESS_DATA } from '@/utils/constants';
-import { Menu, Phone, X } from 'lucide-react';
+import { Menu, MessageCircle, Phone, X } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar() {
@@ -44,7 +44,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link href={`/${locale}/`} className="flex items-center gap-3">
             <div
               className="relative w-14 h-14"
             >
@@ -83,14 +83,14 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <LanguageSwitcher />
             <a
-              href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.appointment.es : BUSINESS_DATA.whatsappMessages.appointment.en)}`}
+              href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.info.es : BUSINESS_DATA.whatsappMessages.info.en)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary flex items-center gap-2 text-sm"
-              aria-label="WhatsApp"
+              aria-label={isEs ? 'WhatsApp para consultas e información general' : 'WhatsApp for general questions and information'}
             >
-              <Phone size={18} />
-              {isEs ? 'Agendar Cita' : 'Book Appointment'}
+              <MessageCircle size={18} />
+              {isEs ? 'Contactar por WhatsApp' : 'Contact us on WhatsApp'}
             </a>
           </div>
 
@@ -124,11 +124,12 @@ export default function Navbar() {
             </div>
             <div className="px-4 pt-2">
               <a
-                href={`tel:${BUSINESS_DATA.phone.replace(/\s+/g, '')}`}
-                className="btn-primary w-full flex items-center justify-center gap-2 text-sm"
+                href={BUSINESS_DATA.phoneHref}
+                aria-label={isEs ? 'Llamar por urgencia fuera del horario presencial' : 'Call for an emergency outside in-person hours'}
+                className="btn-primary w-full flex flex-col items-center justify-center gap-1 text-sm"
               >
-                <Phone size={18} />
-                {BUSINESS_DATA.phone}
+                <span className="flex items-center gap-2"><Phone size={18} />{BUSINESS_DATA.phone}</span>
+                <span className="text-xs">{isEs ? 'Urgencias fuera de horario' : 'After-hours emergencies'}</span>
               </a>
             </div>
           </div>

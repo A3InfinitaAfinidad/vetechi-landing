@@ -1,6 +1,7 @@
 
 import { setRequestLocale } from 'next-intl/server';
 import { locales } from '@/i18n.config';
+import { BUSINESS_DATA } from '@/utils/constants';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -48,7 +49,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             <h2 className="text-2xl font-bold mt-8 mb-4">4. Contacto</h2>
             <p>
-              Si tienes preguntas sobre esta política o deseas ejercer tus derechos sobre tus datos personales, por favor contáctanos en <strong>info@vetechi.pa</strong> o visítanos en nuestras instalaciones en David, Chiriquí.
+              Si tienes preguntas sobre esta política o deseas ejercer tus derechos sobre tus datos personales, llámanos al <a href={BUSINESS_DATA.phoneHref}>{BUSINESS_DATA.phone}</a> o visítanos en David, Chiriquí.
             </p>
           </>
         ) : (
@@ -81,7 +82,7 @@ export default async function PrivacyPolicyPage({ params }: { params: Promise<{ 
 
             <h2 className="text-2xl font-bold mt-8 mb-4">4. Contact Us</h2>
             <p>
-              If you have any questions about this policy or wish to exercise your rights regarding your personal data, please contact us at <strong>info@vetechi.pa</strong> or visit our facilities in David, Chiriquí.
+              If you have any questions about this policy or wish to exercise your rights regarding your personal data, call us at <a href={BUSINESS_DATA.phoneHref}>{BUSINESS_DATA.phone}</a> or visit us in David, Chiriquí.
             </p>
           </>
         )}

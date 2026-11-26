@@ -11,18 +11,9 @@ export default function LanguageSwitcher() {
 
   const switchLanguage = (newLocale: string) => {
     startTransition(() => {
-      let newPathname = pathname;
-      
-      if (pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`) {
-        newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
-      } else {
-        newPathname = `/${newLocale}${pathname === '/' ? '' : pathname}`;
-      }
-      
-      if (newLocale === 'es') {
-        newPathname = newPathname.replace(/^\/en/, '') || '/';
-      }
-      
+      const pathWithoutLocale = pathname.replace(/^\/(es|en)(?=\/|$)/, '') || '/';
+      const newPathname = `/${newLocale}${pathWithoutLocale === '/' ? '/' : pathWithoutLocale}`;
+
       window.location.href = newPathname;
     });
   };

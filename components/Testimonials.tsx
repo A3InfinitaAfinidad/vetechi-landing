@@ -1,24 +1,28 @@
 'use client';
 
-import { TESTIMONIALS } from '@/utils/constants';
+import { SHOW_GOOGLE_RATING, TESTIMONIALS } from '@/utils/constants';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 export default function Testimonials() {
   const locale = useLocale();
+  const t = useTranslations('testimonials');
   const isEs = locale === 'es';
   const [current, setCurrent] = useState(0);
+  const visibleTestimonials = TESTIMONIALS.filter((item) => !item.temporarilyHidden);
 
-  const testimonial = TESTIMONIALS[current];
+  if (visibleTestimonials.length === 0) return null;
+
+  const testimonial = visibleTestimonials[current];
   const text = isEs ? testimonial.es : testimonial.en;
 
   const nextTestimonial = () => {
-    setCurrent((prev) => (prev + 1) % TESTIMONIALS.length);
+    setCurrent((prev) => (prev + 1) % visibleTestimonials.length);
   };
 
   const prevTestimonial = () => {
-    setCurrent((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+    setCurrent((prev) => (prev - 1 + visibleTestimonials.length) % visibleTestimonials.length);
   };
 
   return (
@@ -35,7 +39,9 @@ export default function Testimonials() {
             </p>
           </div>
           <h2 className="text-3xl sm:text-4xl font-display font-bold text-dark-900 mb-2">
-            4.8 ⭐ en Google • 42 reseñas verificadas
+            {SHOW_GOOGLE_RATING
+              ? (isEs ? '4.8/5 ⭐ en Google • 42 reseñas' : '4.8/5 ⭐ on Google • 42 reviews')
+              : t('title')}
           </h2>
         </div>
 
@@ -74,7 +80,7 @@ export default function Testimonials() {
           </button>
 
           <div className="flex gap-2">
-            {TESTIMONIALS.map((_, i) => (
+            {visibleTestimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}

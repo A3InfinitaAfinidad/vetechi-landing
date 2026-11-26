@@ -3,19 +3,30 @@
     "inicio": "Inicio",
     "servicios": "Servicios",
     "equipo": "Equipo",
-    "emergencias": "Emergencias",
+    "emergencias": "Urgencias",
     "contacto": "Contacto"
   },
   "hero": {
-    "headline": "Hospital Veterinario VETECHI — 24 horas en Chiriquí",
-    "subheadline": "Único hospital veterinario 24 horas en Chiriquí. Atención continua, tecnología moderna y un equipo apasionado por la vida animal.",
-    "cta1": "Agendar Cita",
-    "cta2": "Emergencia 24/7"
+    "title": "Hospital Veterinario",
+    "brand": "VETECHI",
+    "subheadline": "Atención veterinaria presencial en horario extendido, con especialistas para pequeñas y grandes especies y animales exóticos. En David, Chiriquí, en español e inglés.",
+    "cta1": "Escribir por WhatsApp",
+    "cta2": "Llamar por urgencia fuera de horario",
+    "hoursHeading": "Horario de atención presencial",
+    "afterHoursLabel": "Orientación para urgencias fuera del horario presencial",
+    "afterHoursMessage": "Disponible únicamente por llamada telefónica.",
+    "phoneCtaAria": "Llamar para orientación sobre urgencias fuera del horario presencial",
+    "trustHeading": "Atención y especies",
+    "trustSpecialists": "Atención por especialistas",
+    "trustSmall": "Pequeñas especies",
+    "trustLarge": "Grandes especies",
+    "trustExotic": "Animales exóticos",
+    "trustBilingual": "Atención en español e inglés"
   },
   "stats": {
     "specialists": "4+ Especialistas",
-    "rating": "Google Rating",
-    "emergencies": "Emergencias 24/7",
+    "rating": "Valoración Google",
+    "emergencies": "Horario presencial",
     "species": "Todas las Especies"
   },
   "about": {
@@ -28,12 +39,12 @@
     "subtitle": "Atención médica especializada con estándares internacionales",
     "items": {
       "consulta": "Evaluación integral por especialistas para el bienestar preventivo y curativo.",
-      "emergencia": "Atención crítica inmediata las 24 horas, los 365 días del año.",
+      "emergencia": "Urgencias presenciales durante el horario de atención. Fuera de horario, llama al +507 6330-3291.",
       "cirugia": "Procedimientos quirúrgicos avanzados con monitoreo digital constante.",
       "laboratorio": "Resultados precisos en minutos con nuestro laboratorio in-house.",
       "cardiologia": "Diagnóstico y tratamiento de patologías cardiacas complejas.",
       "exoticos": "Especialistas en aves, reptiles y pequeños mamíferos.",
-      "hospitalizacion": "Cuidados intensivos en ambiente seguro 24/7.",
+      "hospitalizacion": "Cuidados intensivos en un ambiente seguro durante la hospitalización.",
       "vacunacion": "Protección completa con vacunas y desparasitación.",
       "endoscopia": "Diagnóstico no invasivo de vías digestivas y respiratorias."
     }
@@ -59,10 +70,9 @@
   "emergencies": {
     "title": "¿Emergencia?",
     "subtitle": "¿Tu mascota tiene una emergencia?",
-    "description": "No esperes. Cada segundo importa. Somos el único hospital veterinario en Chiriquí con atención permanente. Emergencias atendidas por especialistas en todo momento.",
-    "cta": "Llamar Ahora",
-    "whatsapp": "WhatsApp Emergencias",
-    "online": "EN LÍNEA AHORA"
+    "description": "La atención veterinaria presencial es de lunes a sábado, de 8:00 a.m. a 10:00 p.m., y los domingos, de 10:00 a.m. a 3:00 p.m. Fuera del horario presencial, llama al +507 6330-3291 por una urgencia.",
+    "cta": "Llamar por urgencia",
+    "afterHoursLabel": "Urgencias fuera del horario presencial"
   },
   "testimonials": {
     "title": "Lo que dicen nuestros clientes"
@@ -78,7 +88,7 @@
   "contact": {
     "title": "Contacto",
     "subtitle": "¿Listo para cuidar a tu mascota?",
-    "description": "Agenda tu cita o visítanos en David, Chiriquí. Siempre habrá alguien esperándote.",
+    "description": "Agenda tu cita o visítanos en David, Chiriquí.",
     "form": {
       "name": "Nombre",
       "phone": "Teléfono",
@@ -90,7 +100,7 @@
     }
   },
   "footer": {
-    "slogan": "Siempre listos para cuidar a tu mejor amigo",
+    "slogan": "¡Tu mejor amigo merece lo mejor!",
     "rights": "Todos los derechos reservados"
   }
 }

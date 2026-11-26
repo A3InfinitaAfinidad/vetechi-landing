@@ -7,46 +7,65 @@ import { locales } from '@/i18n.config';
 import '../globals.css';
 import Navbar from '@/components/Navbar';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { BUSINESS_DATA, TEAM } from '@/utils/constants';
+import { BUSINESS_DATA, SHOW_GOOGLE_RATING, SITE_URL, TEAM } from '@/utils/constants';
 
-export const metadata: Metadata = {
-  title: 'VETECHI | Hospital Veterinario 24/7 - Chiriquí',
-  description: 'Hospital Veterinario premium en David, Chiriquí. Emergencias 24/7, cirugía especializada y atención integral para todas las especies.',
-  icons: {
-    icon: '/images/logo/favicon.svg',
-  },
-  keywords: 'veterinaria, clínica veterinaria, David, Chiriquí, Panamá, emergencias 24/7, especialistas, cirugía veterinaria',
-  metadataBase: new URL('https://vetechi.pa'),
-  openGraph: {
-    type: 'website',
-    locale: 'es_PA',
-    url: 'https://vetechi.pa',
-    title: 'VETECHI | Hospital Veterinario Chiriquí',
-    description: 'La mejor clínica veterinaria premium en Chiriquí. Emergencias 24/7, especialistas apasionados.',
-    siteName: 'VETECHI',
-    images: [
-      {
-        url: '/images/optimized/hero/hero-bg.webp',
-        width: 1200,
-        height: 630,
-        alt: 'VETECHI Hospital Veterinario',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'VETECHI | Hospital Veterinario Chiriquí',
-    description: 'La mejor clínica veterinaria premium en Chiriquí. Emergencias 24/7, especialistas apasionados.',
-    images: ['/images/optimized/hero/hero-bg.webp'],
-  },
-  alternates: {
-    canonical: 'https://vetechi.pa',
-    languages: {
-      es: 'https://vetechi.pa/es',
-      en: 'https://vetechi.pa/en',
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isEs = locale === 'es';
+  const title = isEs
+    ? 'VETECHI | Atención veterinaria extendida en David, Chiriquí'
+    : 'VETECHI | Extended veterinary care in David, Chiriquí';
+  const description = isEs
+    ? 'Atención presencial: lunes a sábado, 8:00 a.m.–10:00 p.m.; domingos, 10:00 a.m.–3:00 p.m. Fuera del horario presencial, llama al +507 6330-3291 por una urgencia.'
+    : 'In-person hours: Monday to Saturday, 8:00 AM–10:00 PM; Sunday, 10:00 AM–3:00 PM. After in-person hours, call +507 6330-3291 for emergencies.';
+  const pageUrl = `${SITE_URL}/${locale}/`;
+
+  return {
+    title,
+    description,
+    icons: {
+      icon: '/images/logo/favicon.svg',
     },
-  },
-};
+    keywords: isEs
+      ? 'veterinaria, atención veterinaria, David, Chiriquí, Panamá, horario extendido, urgencias telefónicas'
+      : 'veterinary care, David, Chiriquí, Panama, extended hours, after-hours emergencies by phone',
+    metadataBase: new URL(SITE_URL),
+    openGraph: {
+      type: 'website',
+      locale: isEs ? 'es_PA' : 'en_PA',
+      url: pageUrl,
+      title,
+      description,
+      siteName: 'VETECHI',
+      images: [
+        {
+          url: '/images/optimized/hero/hero-bg.webp',
+          width: 1200,
+          height: 630,
+          alt: 'VETECHI Hospital Veterinario',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/images/optimized/hero/hero-bg.webp'],
+    },
+    alternates: {
+      canonical: pageUrl,
+      languages: {
+        es: `${SITE_URL}/es/`,
+        en: `${SITE_URL}/en/`,
+        'x-default': `${SITE_URL}/es/`,
+      },
+    },
+  };
+}
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -74,11 +93,10 @@ export default async function LocaleLayout({
     "@graph": [
       {
         "@type": ["VeterinaryCare", "LocalBusiness"],
-        "@id": "https://vetechi.pa",
+        "@id": SITE_URL,
         "name": BUSINESS_DATA.fullName,
-        "url": "https://vetechi.pa",
+        "url": SITE_URL,
         "telephone": BUSINESS_DATA.phone,
-        "email": BUSINESS_DATA.email,
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Antigua Vía a Boquete, diagonal a Farmacia Liz, antes de llegar a Game Park",
@@ -86,24 +104,34 @@ export default async function LocaleLayout({
           "addressRegion": "Chiriquí",
           "addressCountry": "PA"
         },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "00:00",
-          "closes": "23:59"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "reviewCount": "42"
-        }
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "08:00",
+            "closes": "22:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Sunday",
+            "opens": "10:00",
+            "closes": "15:00"
+          }
+        ],
+        ...(SHOW_GOOGLE_RATING ? {
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "42"
+          }
+        } : {})
       },
       ...TEAM.map(member => ({
         "@type": "Person",
         "name": member.name,
         "jobTitle": "Veterinarian",
         "worksFor": {
-          "@id": "https://vetechi.pa"
+          "@id": SITE_URL
         }
       }))
     ]

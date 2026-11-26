@@ -27,8 +27,8 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-8 right-8 z-[1000] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300"
-      aria-label={isEs ? 'WhatsApp de Emergencia' : 'Emergency WhatsApp'}
-      title={isEs ? 'Contactar por WhatsApp' : 'Contact via WhatsApp'}
+      aria-label={isEs ? 'WhatsApp para consultas e información general' : 'WhatsApp for general questions and information'}
+      title={isEs ? 'Consultas e información general por WhatsApp' : 'General questions and information via WhatsApp'}
     >
       <SiWhatsapp size={32} aria-hidden="true" />
       {/* Pulse effect */}
