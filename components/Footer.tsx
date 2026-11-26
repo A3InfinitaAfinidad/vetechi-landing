@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 
 import { BUSINESS_DATA } from '@/utils/constants';
-import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 import { SiWhatsapp } from 'react-icons/si';
 
 export default function Footer() {
@@ -58,15 +58,6 @@ export default function Footer() {
                 aria-label="Instagram"
               >
                 <FaInstagram size={20} className="text-white" aria-hidden="true" />
-              </a>
-              <a
-                href={BUSINESS_DATA.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-accent-800 hover:bg-accent-700 flex items-center justify-center transition-all"
-                aria-label="Facebook"
-              >
-                <FaFacebook size={20} className="text-white" aria-hidden="true" />
               </a>
               <a
                 href={`${BUSINESS_DATA.whatsapp}?text=${encodeURIComponent(isEs ? BUSINESS_DATA.whatsappMessages.info.es : BUSINESS_DATA.whatsappMessages.info.en)}`}
@@ -146,12 +137,11 @@ export default function Footer() {
 
         {/* Copyright */}
         <div
-          className="text-center text-xs text-gray-400 pt-6 border-t border-gray-800"
+          className="text-center text-xs text-gray-400 pt-6 border-t border-gray-800 space-y-1"
         >
-          <p>
-            © {year} VETECHI {isEs ? 'Hospital Veterinario Chiriquí' : 'Veterinary Hospital Chiriquí'}
-            . {isEs ? 'Todos los derechos reservados.' : 'All rights reserved.'}
-          </p>
+          <p>© {year} VETECHI {isEs ? 'Hospital Veterinario Chiriquí.' : 'Veterinary Hospital Chiriquí.'}</p>
+          <p>{t('rights')}.</p>
+          <p>{t('developedBy')}</p>
         </div>
       </div>
     </footer>
